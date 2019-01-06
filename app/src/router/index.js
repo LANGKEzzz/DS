@@ -6,6 +6,10 @@ import Release from '../components/release'
 import Message from '../components/message'
 import My from '../components/my'
 import Err from '../components/error/error.vue'
+import Concern from '../components/dynamic/content/concern.vue'
+import Recommend from '../components/dynamic/content/recommend.vue'
+import Nearby from '../components/dynamic/content/nearby.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -17,32 +21,77 @@ export default new Router({
     {
       path: '/home',
       name: 'home',
-      component: Home
+      component: Home,
+      meta:{
+        flag:true
+      }
     },
     {
       path: '/dynamic',
       name: 'dynamic',
-      component: Dynamic
+      component: Dynamic,
+      redirect:'/dynamic/concern',
+      children:[
+        {
+          path: '/dynamic/concern',
+          name: 'concern',
+          component: Concern,
+          meta:{
+            flag:true
+          }
+        },
+        {
+          path: '/dynamic/recommend',
+          name: 'recommend',
+          component: Recommend,
+          meta:{
+            flag:true
+          }
+        },
+        {
+          path: '/dynamic/nearby',
+          name: 'nearby',
+          component: Nearby,
+          meta:{
+            flag:true
+          }
+        }
+      ],
+      meta:{
+        flag:true
+      }
     },
     {
       path: '/release',
       name: 'release',
-      component: Release
+      component: Release,
+      meta:{
+        flag:false
+      }
     },
     {
       path: '/message',
       name: 'message',
-      component: Message
+      component: Message,
+      meta:{
+        flag:true
+      }
     },
     {
       path: '/my',
       name: 'my',
-      component: My
+      component: My,
+      meta:{
+        flag:true
+      }
     },
     {
       path: '/**',
       name: 'error',
-      component: Err
+      component: Err,
+      meta:{
+        flag:true
+      }
     }
   ]
 })
