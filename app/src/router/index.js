@@ -40,7 +40,7 @@ export default new Router({
       component: My
     },
     {
-      path: '/error',
+      path: '/**',
       name: 'error',
       component: Err
     }
