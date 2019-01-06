@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-<<<<<<< HEAD
 import store from "./store";
 import "./common/css/reset.css";
 import "../node_modules/swiper/dist/css/swiper.min.css";
