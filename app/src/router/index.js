@@ -7,6 +7,7 @@ import Message from '../components/message'
 import My from '../components/my'
 import Err from '../components/error/error.vue'
 import Attention from '../components/my/components/attention'
+import Fans from '../components/my/components/fans'
 Vue.use(Router)
 
 export default new Router({
@@ -49,6 +50,11 @@ export default new Router({
     	path: '/attention',
       name: 'attention',
       component: Attention
+    },
+    {
+    	path: '/fans',
+      name: 'fans',
+      component: Fans
     }
   ]
 })

@@ -25,7 +25,9 @@
 	   	    
 	   	    <dl>
 	   	    	<dt>550</dt>
-	   	    	<dd>粉丝</dd>
+	   	    	<router-link :to="{name:'fans'}">
+	   	    	     <dd>粉丝</dd>
+	   	    	</router-link>
 	   	    </dl>
 	   	    <dl>
 	   	    	<dt>1154</dt>
