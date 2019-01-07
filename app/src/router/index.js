@@ -6,6 +6,12 @@ import Release from '../components/release'
 import Message from '../components/message'
 import My from '../components/my'
 import Err from '../components/error/error.vue'
+<<<<<<< HEAD
+=======
+import Concern from '../components/dynamic/content/concern.vue'
+import Recommend from '../components/dynamic/content/recommend.vue'
+import Nearby from '../components/dynamic/content/nearby.vue'
+>>>>>>> zjq
 import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
@@ -37,9 +43,41 @@ export default new Router({
       path: '/dynamic',
       name: 'dynamic',
       component: Dynamic,
+<<<<<<< HEAD
       meta:{
         flag:true,
         requireAuth:true
+=======
+      redirect:'/dynamic/concern',
+      children:[
+        {
+          path: '/dynamic/concern',
+          name: 'concern',
+          component: Concern,
+          meta:{
+            flag:true
+          }
+        },
+        {
+          path: '/dynamic/recommend',
+          name: 'recommend',
+          component: Recommend,
+          meta:{
+            flag:true
+          }
+        },
+        {
+          path: '/dynamic/nearby',
+          name: 'nearby',
+          component: Nearby,
+          meta:{
+            flag:true
+          }
+        }
+      ],
+      meta:{
+        flag:true
+>>>>>>> zjq
       }
     },
     {
@@ -84,6 +122,18 @@ export default new Router({
         flag:true,
         requireAuth:true
       }
+<<<<<<< HEAD
+=======
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: Settings,
+      meta:{
+        flag:true,
+        requireAuth:true
+      }
+>>>>>>> zjq
     },
     {
       path: '/settings',
