@@ -2,7 +2,9 @@
     <div>
         <Header/>
         <Nav/>
-        <router-view class="content"></router-view>
+        <keep-alive>
+            <router-view class="content"></router-view>
+        </keep-alive>
     </div>
 </template>
 <script>
@@ -28,5 +30,6 @@ export default {
         top:2.19rem;
         bottom: .98rem;
         background: #f4f4f4;
+        overflow: scroll;
     }
 </style>
