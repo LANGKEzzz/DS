@@ -9,7 +9,7 @@ import Err from '../components/error/error.vue'
 import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
-
+import Attention from '../components/my/components/attention'
 Vue.use(Router)
 
 export default new Router({
@@ -100,6 +100,11 @@ export default new Router({
       meta:{
         flag:false
       }
+    },
+    {
+    	path: '/attention',
+      name: 'attention',
+      component: Attention
     }
   ]
 })
