@@ -9,6 +9,9 @@ import Err from '../components/error/error.vue'
 import Concern from '../components/dynamic/content/concern.vue'
 import Recommend from '../components/dynamic/content/recommend.vue'
 import Nearby from '../components/dynamic/content/nearby.vue'
+import Login from '../components/login'
+import Settings from '../components/settings'
+import Register from '../components/register'
 
 Vue.use(Router)
 
@@ -16,14 +19,19 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect:'/home'
+      redirect:'/home',
+      meta:{
+        flag:true,
+        requireAuth:true
+      }
     },
     {
       path: '/home',
       name: 'home',
       component: Home,
       meta:{
-        flag:true
+        flag:true,
+        requireAuth:true
       }
     },
     {
@@ -66,7 +74,8 @@ export default new Router({
       name: 'release',
       component: Release,
       meta:{
-        flag:false
+        flag:true,
+        requireAuth:true
       }
     },
     {
@@ -74,7 +83,8 @@ export default new Router({
       name: 'message',
       component: Message,
       meta:{
-        flag:true
+        flag:true,
+        requireAuth:true
       }
     },
     {
@@ -82,7 +92,17 @@ export default new Router({
       name: 'my',
       component: My,
       meta:{
-        flag:true
+        flag:true,
+        requireAuth:true
+      }
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: Settings,
+      meta:{
+        flag:true,
+        requireAuth:true
       }
     },
     {
@@ -90,8 +110,34 @@ export default new Router({
       name: 'error',
       component: Err,
       meta:{
-        flag:true
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register,
+      meta:{
+        flag:false
       }
     }
   ]
 })
+
+
+// router.beforeEach((to,from,next)=>{
+//   if(to.meta.requireAuth){
+
+//   }
+// })
+
+
