@@ -25,35 +25,94 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect:'/home'
+      redirect:'/home',
+      meta:{
+        flag:true,
+        requireAuth:true
+      }
     },
     {
       path: '/home',
       name: 'home',
-      component: Home
+      component: Home,
+      meta:{
+        flag:true,
+        requireAuth:true
+      }
     },
     {
       path: '/dynamic',
       name: 'dynamic',
-      component: Dynamic
+      component: Dynamic,
+      redirect:'/dynamic/concern',
+      children:[
+        {
+          path: '/dynamic/concern',
+          name: 'concern',
+          component: Concern,
+          meta:{
+            flag:true
+          }
+        },
+        {
+          path: '/dynamic/recommend',
+          name: 'recommend',
+          component: Recommend,
+          meta:{
+            flag:true
+          }
+        },
+        {
+          path: '/dynamic/nearby',
+          name: 'nearby',
+          component: Nearby,
+          meta:{
+            flag:true
+          }
+        }
+      ],
+      meta:{
+        flag:true
+      }
     },
     {
       path: '/release',
       name: 'release',
-      component: Release
+      component: Release,
+      meta:{
+        flag:true,
+        requireAuth:true
+      }
     },
     {
       path: '/message',
       name: 'message',
-      component: Message
+      component: Message,
+      meta:{
+        flag:true,
+        requireAuth:true
+      }
     },
     {
       path: '/my',
       name: 'my',
-      component: My
+      component: My,
+      meta:{
+        flag:true,
+        requireAuth:true
+      }
     },
     {
-      path: '/error',
+      path: '/settings',
+      name: 'settings',
+      component: Settings,
+      meta:{
+        flag:true,
+        requireAuth:true
+      }
+    },
+    {
+      path: '/**',
       name: 'error',
       component: Err
     },
@@ -164,3 +223,12 @@ export default new Router({
 
   ]
 })
+
+
+// router.beforeEach((to,from,next)=>{
+//   if(to.meta.requireAuth){
+
+//   }
+// })
+
+
