@@ -6,6 +6,15 @@ import Release from '../components/release'
 import Message from '../components/message'
 import My from '../components/my'
 import Err from '../components/error/error.vue'
+import Settings from "../components/settings"
+import Fatheras from "../components/settings/father-as.vue"
+import AS from "../components/settings/page/AS.vue"
+import messageS from "../components/settings/page/messageS.vue"
+import generalS from "../components/settings/page/generalS.vue"
+import shieldS from "../components/settings/page/shieldS.vue"
+import pictureS from "../components/settings/page/pictureS.vue"
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -43,6 +52,69 @@ export default new Router({
       path: '/error',
       name: 'error',
       component: Err
+    },
+    //设置
+    {
+      path:"/settings",
+      name:"settings",
+      component:Settings,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path:"/fatheras",
+      name:"fatheras",
+      component:Fatheras,
+      meta:{
+        flag:false
+      },
+      children:[
+        {
+          path:"/aS",
+          name:"aS",
+          component:AS,
+          meta:{
+            flag:false
+          }
+        }
+      ]
+    },
+    {
+      path:"/messageS",
+      name:"messageS",
+      component:messageS,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path:"/generalS",
+      name:"generalS",
+      component:generalS,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path:"/shieldS",
+      name:"shieldS",
+      component:shieldS,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path:"/pictureS",
+      name:"pictureS",
+      component:pictureS,
+      meta:{
+        flag:false
+      }
     }
+
+
+
+
   ]
 })
