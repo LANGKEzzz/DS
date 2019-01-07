@@ -1,9 +1,11 @@
 <template>
 	<div id="header">
+	   <div id="header">
 		<router-link :to="{name:'my'}">
 			<img src="../../../../../../static/icon/icon_jiantou1@2x.png">
 		</router-link>
-		<h2>关注的人</h2>
+		<h2>好友</h2>
+	</div>
 	</div>
 </template>
 
@@ -28,5 +30,6 @@
 			margin-left:3.08rem;
 			margin-top:0.68rem;
 		}
+		
 	}
 </style>

@@ -13,8 +13,12 @@ import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
 import Attention from '../components/my/components/attention'
+
 import Comm from '../components/dynamic/content/comment.vue'
 import Transpond from '../components/dynamic/content/transpond.vue'
+
+import Fans from '../components/my/components/fans'
+
 Vue.use(Router)
 
 export default new Router({
@@ -154,6 +158,12 @@ export default new Router({
       component: Attention
     },
     {
+
+    	path: '/fans',
+      name: 'fans',
+      component: Fans
+    },
+    {
       path: '/**',
       name: 'error',
       component: Err,
@@ -161,7 +171,8 @@ export default new Router({
         flag:false,
         requireAuth:true
       }
-    },
+    }
+
   ]
 })
 
