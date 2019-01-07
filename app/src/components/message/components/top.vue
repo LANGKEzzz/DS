@@ -5,11 +5,14 @@
         </div>
         <ul>
             <li v-for="(item,index) in ulList">
-                <div>
-                    <img :src="item.src">
-                </div>
-                <b>{{item.title}}</b>
-                <span>></span>
+                <router-link :to="item.path">
+                    <div>
+                        <img :src="item.src">
+                    </div>
+                    <b>{{item.title}}</b>
+                    <span>></span>
+                </router-link>
+                
             </li>
         </ul>
     </div>
@@ -21,15 +24,18 @@
                 ulList:[
                     {
                         "src":"../../../static/icon/xx_icon_dz@2x.png",
-                        "title":"赞"
+                        "title":"赞"  ,
+                        "path" : "/message/focus"                                          
                     },
                     {
                         "src":"../../../static/icon/xx_icon_pl@2x.png",
-                        "title":"评论"
+                        "title":"评论",
+                        "path" : "/message/messremind"                    
                     },
                     {
                         "src":"../../../static/icon/xx_@_fh@2x.png",
-                        "title":"@我的"
+                        "title":"@我的",
+                        "path" : "/message/remind" 
                     }
                 ]
             }
@@ -73,31 +79,38 @@
             color:#313131;
             line-height:.90rem;
             position:relative;
-            div{
-                background:#63d7d4;
-                width:.88rem;
-                height:.88rem;
-                border-radius:50%;
+            a{
+                display:block;
+                width: 100%;
+                height:100%;
                 display: flex;
-                justify-content: center;
-                align-items: center;
-               
-                img{
-                    width:.42rem;
-                    height:.42rem;
+                div{
+                    background:#63d7d4;
+                    width:.88rem;
+                    height:.88rem;
+                    border-radius:50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                
+                    img{
+                        width:.42rem;
+                        height:.42rem;
+                    }
+                }
+                b{
+                    font-weight: normal;
+                    margin-left:.35rem;
+                }
+                span{
+                    position: absolute;
+                    right:.18rem;
+                    font-size:.32rem;
+                    font-weight: bold;
+                    color:#000;
                 }
             }
-            b{
-                font-weight: normal;
-                margin-left:.35rem;
-            }
-            span{
-                position: absolute;
-                right:.18rem;
-                font-size:.32rem;
-                font-weight: bold;
-                color:#000;
-            }
+            
         }
     }
     

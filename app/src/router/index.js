@@ -4,6 +4,10 @@ import Home from '../components/home'
 import Dynamic from '../components/dynamic'
 import Release from '../components/release'
 import Message from '../components/message'
+import MessageFocus from '../components/message/focus/focus.vue'
+import MessageMessremind from '../components/message/messremind/messremind.vue'
+import MessageRemind from '../components/message/remind/remind.vue'
+
 import My from '../components/my'
 import Err from '../components/error/error.vue'
 import Concern from '../components/dynamic/content/concern.vue'
@@ -85,6 +89,30 @@ export default new Router({
       meta:{
         flag:true,
         requireAuth:true
+      }
+    },
+    {
+      path:"/message/messremind",
+      name:'messagemessremind',
+      component:MessageMessremind,
+      meta:{
+        flag:true
+      }
+    },
+    {
+      path:"/message/focus",
+      name:'messagefocus',
+      component:MessageFocus,
+      meta:{
+        flag:true
+      }
+    },
+    {
+      path:"/message/remind",
+      name:'Messageremind',
+      component:MessageRemind,
+      meta:{
+        flag:true
       }
     },
     {
