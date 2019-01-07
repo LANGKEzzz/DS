@@ -6,6 +6,7 @@ import Release from '../components/release'
 import Message from '../components/message'
 import My from '../components/my'
 import Err from '../components/error/error.vue'
+<<<<<<< HEAD
 import Concern from '../components/dynamic/content/concern.vue'
 import Recommend from '../components/dynamic/content/recommend.vue'
 import Nearby from '../components/dynamic/content/nearby.vue'
@@ -13,6 +14,9 @@ import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
 
+=======
+import Attention from '../components/my/components/attention'
+>>>>>>> zhang
 Vue.use(Router)
 
 export default new Router({
@@ -91,6 +95,7 @@ export default new Router({
       path: '/my',
       name: 'my',
       component: My,
+<<<<<<< HEAD
       meta:{
         flag:true,
         requireAuth:true
@@ -104,10 +109,13 @@ export default new Router({
         flag:true,
         requireAuth:true
       }
+=======
+>>>>>>> zhang
     },
     {
       path: '/**',
       name: 'error',
+<<<<<<< HEAD
       component: Err,
       meta:{
         flag:false,
@@ -129,6 +137,14 @@ export default new Router({
       meta:{
         flag:false
       }
+=======
+      component: Err
+    },
+    {
+    	path: '/attention',
+      name: 'attention',
+      component: Attention
+>>>>>>> zhang
     }
   ]
 })
