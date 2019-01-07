@@ -12,6 +12,8 @@ import Nearby from '../components/dynamic/content/nearby.vue'
 import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
+import Comm from '../components/dynamic/content/comment.vue'
+import Transpond from '../components/dynamic/content/transpond.vue'
 
 Vue.use(Router)
 
@@ -67,6 +69,22 @@ export default new Router({
       ],
       meta:{
         flag:true
+      }
+    },
+    {
+      path: '/comment',
+      name: 'comment',
+      component: Comm,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path: '/transpond/:itm',
+      name: 'transpond',
+      component: Transpond,
+      meta:{
+        flag:false
       }
     },
     {

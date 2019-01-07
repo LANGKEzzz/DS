@@ -1,12 +1,6 @@
 <template>
     <div id="concern">
-        <Main>
-            <div v-for="(item,index) in concern" v-bind:key="index">
-                <div>
-                    <img src="item" alt="">
-                </div>
-            </div>
-        </Main>
+        <Main :data='concern'></Main>
     </div>
 </template>
 <script>

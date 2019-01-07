@@ -77,7 +77,7 @@ export default {
 </script>
 <style lang="scss" scoped>
     #footer{
-        width:7.50rem;
+        width:100%;
         height:.98rem;
         background:rgba(250,250,250,1);
         position: fixed;
