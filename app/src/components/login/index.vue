@@ -1,32 +1,15 @@
 <template>
-  <div class="app">
-    <div class="logo">
-      <img :src="logourl">
-    </div>
-    <div class="dl_zh">
-      <input type="text" placeholder="账号/手机号" class="num">
-    </div>
-    <div class="dlpwd">
-      <input type="text" class="pwd" placeholder="密码">
-    </div>
-    <div class="dl">
-        <button class="dlbtn">登录</button>
-    </div>
-    <p class="forget">忘记密码</p>
-    <router-link :to="{name:'register'}">
-        <p class="go_reg">没有账号？去注册></p>
-    </router-link>
-  </div>
+    
+    <!-- <Register></Register> -->
 </template>
 
 <script>
+// import Register from "./components/reg.vue";
 export default {
-  data() {
-    return {
-      logourl: "../../../static/logo/logo@2x.png"
-    };
-  }
-};
+    components:{
+        // "Register":Register
+    }
+}
 </script>
 
 
