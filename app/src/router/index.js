@@ -6,12 +6,9 @@ import Release from '../components/release'
 import Message from '../components/message'
 import My from '../components/my'
 import Err from '../components/error/error.vue'
-<<<<<<< HEAD
-=======
 import Concern from '../components/dynamic/content/concern.vue'
 import Recommend from '../components/dynamic/content/recommend.vue'
 import Nearby from '../components/dynamic/content/nearby.vue'
->>>>>>> zjq
 import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
@@ -43,11 +40,6 @@ export default new Router({
       path: '/dynamic',
       name: 'dynamic',
       component: Dynamic,
-<<<<<<< HEAD
-      meta:{
-        flag:true,
-        requireAuth:true
-=======
       redirect:'/dynamic/concern',
       children:[
         {
@@ -77,7 +69,6 @@ export default new Router({
       ],
       meta:{
         flag:true
->>>>>>> zjq
       }
     },
     {
@@ -122,8 +113,6 @@ export default new Router({
         flag:true,
         requireAuth:true
       }
-<<<<<<< HEAD
-=======
     },
     {
       path: '/settings',
@@ -133,7 +122,6 @@ export default new Router({
         flag:true,
         requireAuth:true
       }
->>>>>>> zjq
     },
     {
       path: '/settings',
@@ -143,6 +131,27 @@ export default new Router({
         flag:true,
         requireAuth:true
       }
+    },  
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta:{
+        flag:true
+      }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register,
+      meta:{
+        flag:true
+      }
+    },
+    {
+    	path: '/attention',
+      name: 'attention',
+      component: Attention
     },
     {
       path: '/**',
@@ -153,27 +162,6 @@ export default new Router({
         requireAuth:true
       }
     },
-    {
-      path: '/login',
-      name: 'login',
-      component: Login,
-      meta:{
-        flag:false
-      }
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: Register,
-      meta:{
-        flag:false
-      }
-    },
-    {
-    	path: '/attention',
-      name: 'attention',
-      component: Attention
-    }
   ]
 })
 
