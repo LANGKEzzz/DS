@@ -49,6 +49,7 @@ export default {
                 a{
                     color: #333;
                     font-weight: bold;
+                    font-size: .24rem;
                 }
                 .router-link-active{
                     color: #63D7D4;

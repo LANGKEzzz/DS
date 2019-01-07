@@ -10,6 +10,8 @@ import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
 import Attention from '../components/my/components/attention'
+import Comm from '../components/dynamic/content/comment.vue'
+import Transpond from '../components/dynamic/content/transpond.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -38,6 +40,22 @@ export default new Router({
       meta:{
         flag:true,
         requireAuth:true
+      }
+    },
+    {
+      path: '/comment',
+      name: 'comment',
+      component: Comm,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path: '/transpond/:itm',
+      name: 'transpond',
+      component: Transpond,
+      meta:{
+        flag:false
       }
     },
     {
