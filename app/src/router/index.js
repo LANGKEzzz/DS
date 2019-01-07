@@ -6,9 +6,6 @@ import Release from '../components/release'
 import Message from '../components/message'
 import My from '../components/my'
 import Err from '../components/error/error.vue'
-import Concern from '../components/dynamic/content/concern.vue'
-import Recommend from '../components/dynamic/content/recommend.vue'
-import Nearby from '../components/dynamic/content/nearby.vue'
 import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
@@ -38,6 +35,7 @@ export default new Router({
       path: '/dynamic',
       name: 'dynamic',
       component: Dynamic,
+<<<<<<< HEAD
       redirect:'/dynamic/concern',
       children:[
         {
@@ -67,6 +65,11 @@ export default new Router({
       ],
       meta:{
         flag:true
+=======
+      meta:{
+        flag:true,
+        requireAuth:true
+>>>>>>> zjq
       }
     },
     {
