@@ -155,13 +155,19 @@ export default new Router({
     {
     	path: '/attention',
       name: 'attention',
-      component: Attention
+      component: Attention,
+      meta:{
+        flag:true
+      }
     },
     {
 
     	path: '/fans',
       name: 'fans',
-      component: Fans
+      component: Fans,
+      meta:{
+        flag:true
+      }
     },
     {
       path: '/**',
