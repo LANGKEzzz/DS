@@ -35,41 +35,9 @@ export default new Router({
       path: '/dynamic',
       name: 'dynamic',
       component: Dynamic,
-<<<<<<< HEAD
-      redirect:'/dynamic/concern',
-      children:[
-        {
-          path: '/dynamic/concern',
-          name: 'concern',
-          component: Concern,
-          meta:{
-            flag:true
-          }
-        },
-        {
-          path: '/dynamic/recommend',
-          name: 'recommend',
-          component: Recommend,
-          meta:{
-            flag:true
-          }
-        },
-        {
-          path: '/dynamic/nearby',
-          name: 'nearby',
-          component: Nearby,
-          meta:{
-            flag:true
-          }
-        }
-      ],
-      meta:{
-        flag:true
-=======
       meta:{
         flag:true,
         requireAuth:true
->>>>>>> zjq
       }
     },
     {
