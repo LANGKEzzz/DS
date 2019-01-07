@@ -6,7 +6,6 @@ import Release from '../components/release'
 import Message from '../components/message'
 import My from '../components/my'
 import Err from '../components/error/error.vue'
-import Settings from "../components/settings"
 import Fatheras from "../components/settings/father-as.vue"
 import Fathermessage from "../components/settings/father-message.vue"
 import Fathergeneral from "../components/settings/father-general.vue"
@@ -17,6 +16,12 @@ import messageS from "../components/settings/page/messageS.vue"
 import generalS from "../components/settings/page/generalS.vue"
 import shieldS from "../components/settings/page/shieldS.vue"
 import pictureS from "../components/settings/page/pictureS.vue"
+import Concern from '../components/dynamic/content/concern.vue'
+import Recommend from '../components/dynamic/content/recommend.vue'
+import Nearby from '../components/dynamic/content/nearby.vue'
+import Login from '../components/login'
+import Settings from '../components/settings'
+import Register from '../components/register'
 
 
 Vue.use(Router)
@@ -214,6 +219,22 @@ export default new Router({
           }
         }
       ]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register,
+      meta:{
+        flag:false
+      }
     }
  
 
