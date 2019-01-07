@@ -369,7 +369,7 @@ export default {
             width: 1.4rem;
             height: .8rem;
             overflow: hidden;
-            .photo{                      
+            .photo{
                 width: .5rem;
                 height: .5rem;
                 margin: 0 auto;
