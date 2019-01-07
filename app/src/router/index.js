@@ -6,6 +6,7 @@ import Release from '../components/release'
 import Message from '../components/message'
 import My from '../components/my'
 import Err from '../components/error/error.vue'
+import Attention from '../components/my/components/attention'
 Vue.use(Router)
 
 export default new Router({
@@ -37,12 +38,17 @@ export default new Router({
     {
       path: '/my',
       name: 'my',
-      component: My
+      component: My,
     },
     {
       path: '/error',
       name: 'error',
       component: Err
+    },
+    {
+    	path: '/attention',
+      name: 'attention',
+      component: Attention
     }
   ]
 })

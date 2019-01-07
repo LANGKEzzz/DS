@@ -14,10 +14,15 @@
 	   	  </div>
 	   </div>
 	   <div class="header_bottom">
+	   	   <!-- <router-link :to="{name:'attention'}">-->
 	   	    <dl>
 	   	    	<dt>297</dt>
-	   	    	<dd>关注</dd>
+	   	    	<router-link :to="{name:'attention'}">
+	   	    	    <dd>关注</dd>
+	   	    	</router-link>
 	   	    </dl>
+	   	    <!--</router-link>-->
+	   	    
 	   	    <dl>
 	   	    	<dt>550</dt>
 	   	    	<dd>粉丝</dd>
@@ -104,7 +109,7 @@
 	}
 	#header .header_bottom dl{
 		float:left;
-		/*width:0.47rem;*/
+		width:0.9rem;
 		height:0.57rem;
 		margin-top:0.3rem;
 		font-size:0.24rem;
