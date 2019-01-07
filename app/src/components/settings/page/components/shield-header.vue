@@ -6,7 +6,7 @@
                 <img src="../../../../../static/icon/icon_jiantou1@2x.png"/>
             </div>
         </router-link>
-      <p>消息设置</p>
+      <p>屏蔽设置</p>
     </div>
   
 </template>

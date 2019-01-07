@@ -1,11 +1,11 @@
 <template>
     <div class="main">
-        <p>互动提醒</p>
+        
         <ul>
             <li v-for="(item,index) in list">
                 <router-link :to="{name:item.name}">
                     {{item.title}}
-                    <img :src="item.url">
+                    <!-- <img :src="item.url"> -->
                 </router-link>
             </li>
         </ul>
@@ -18,15 +18,22 @@ export default {
             list:[
                 {
                     
-                    title:"@我的",
+                    title:"自适应",
                     // messsage:"我关注的人",
-                    url:"../../../../../static/icon/icon_jiantou1_reserver.png"
+                    // url:"../../../../../static/icon/icon_jiantou1_reserver.png"
                 },
                 {
                     // name:"phomeAS",
-                    title:"评论",
+                    title:"高清",
                     // messsage:"所有人",
-                    url:"../../../../../static/icon/icon_jiantou1_reserver.png"
+                    // url:"../../../../../static/icon/icon_jiantou1_reserver.png"
+
+                },
+                                {
+                    // name:"phomeAS",
+                    title:"普通",
+                    // messsage:"所有人",
+                    // url:"../../../../../static/icon/icon_jiantou1_reserver.png"
 
                 }
    
@@ -41,7 +48,7 @@ export default {
     .main{
         width:7.5rem;
         height:4.9rem;
-        margin-top:.51rem;
+        margin-top:.24rem;
         p{
             padding-left:.24rem;
             padding-bottom: .17rem;

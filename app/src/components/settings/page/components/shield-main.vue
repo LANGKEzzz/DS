@@ -1,6 +1,11 @@
 <template>
     <div class="main">
-        <p>互动提醒</p>
+        <div>
+            <img src="../../../../../static/icon/icon_tianjia@2x.png"/>
+            <b>添加屏蔽用户</b>
+
+        </div>
+        <p>已屏蔽用户</p>
         <ul>
             <li v-for="(item,index) in list">
                 <router-link :to="{name:item.name}">
@@ -41,7 +46,24 @@ export default {
     .main{
         width:7.5rem;
         height:4.9rem;
-        margin-top:.51rem;
+        margin-top:.53rem;
+        div{
+            padding-left:.24rem;
+            margin-bottom:.42rem;
+            position:relative;
+            img{
+                display:inline-block;   
+            }
+            b{
+                font-size:.24rem;
+                font-family:PingFang-SC-Medium;
+                font-weight:500;
+                color:rgba(49,49,49,1);
+                position:absolute;
+                left:.76rem;
+                bottom:0.08rem;
+            }
+        }
         p{
             padding-left:.24rem;
             padding-bottom: .17rem;
@@ -78,4 +100,4 @@ export default {
     .main>ul>li>a{
         color:#313131;
     }
-</style>
+</style>v
