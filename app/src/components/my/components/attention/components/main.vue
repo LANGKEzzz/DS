@@ -2,37 +2,49 @@
 	<div id="main">
 		<ul>
 			<li>
-				<img src="../../../../../../static/gzdr_tx_01@2x.png">
+				<router-link :to="{name:'chat'}">
+					<img src="../../../../../../static/gzdr_tx_01@2x.png">
+				</router-link>
 				<p>新鲜事</p>
 				<p>新鲜事金牌作者&nbsp一起回顾</p>
 				<span>互相关注</span>
 			</li>
 		    <li>
-		    	<img src="../../../../../../static/gzdr_tx_02@2x.png">
+		    	<router-link :to="{name:'chat'}">
+		    	    <img src="../../../../../../static/gzdr_tx_02@2x.png">
+		    	</router-link>
 		    	<p>新鲜事</p>
 				<p>新鲜事金牌作者&nbsp;一起回顾</p>
 				<span>互相关注</span>
 		    </li>
 		    <li>
-		    	<img src="../../../../../../static/gzdr_tx_03@2x.png">
+		    	<router-link :to="{name:'chat'}">
+		    	    <img src="../../../../../../static/gzdr_tx_03@2x.png">
+		    	</router-link>
 		    	<p>新鲜事</p>
 				<p>新鲜事金牌作者&nbsp;一起回顾</p>
 				<span>互相关注</span>
 		    </li>
 		    <li>
-		    	<img src="../../../../../../static/gzdr_tx_01@2x.png">
+		    	<router-link :to="{name:'chat'}">
+		    	   <img src="../../../../../../static/gzdr_tx_01@2x.png">
+		    	</router-link>
 		    	<p>新鲜事</p>
 				<p>新鲜事金牌作者&nbsp;一起回顾</p>
 				<span>互相关注</span>
 		    </li>
 		    <li>
-		    	<img src="../../../../../../static/gzdr_tx_02@2x.png">
+		    	<router-link :to="{name:'chat'}">
+		    	   <img src="../../../../../../static/gzdr_tx_02@2x.png">
+		    	</router-link>
 		    	<p>新鲜事</p>
 				<p>新鲜事金牌作者&nbsp;一起回顾</p>
 				<span>互相关注</span>
 		    </li>
 		    <li>
-		    	<img src="../../../../../../static/gzdr_tx_03@2x.png">
+		    	<router-link :to="{name:'chat'}">
+		    	   <img src="../../../../../../static/gzdr_tx_03@2x.png">
+		    	</router-link>
 		    	<p>新鲜事</p>
 				<p>新鲜事金牌作者&nbsp;一起回顾</p>
 				<span>互相关注</span>

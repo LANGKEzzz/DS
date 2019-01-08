@@ -1,9 +1,9 @@
 <template>
-	<div id="header">
+  <div id="header">
 		<router-link :to="{name:'my'}">
 			<img src="../../../../../../static/icon/icon_jiantou1@2x.png">
 		</router-link>
-		<h2><b>关注的人</b></h2>
+		<h2><b>我的收藏</b></h2>
 	</div>
 </template>
 
@@ -11,7 +11,7 @@
 </script>
 
 <style lang="scss" scoped>
-	#header{
+     #header{
 		width:7.5rem;
 		height:1.28rem;
 		

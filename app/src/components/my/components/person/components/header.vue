@@ -1,9 +1,11 @@
 <template>
 	<div id="header">
-		<router-link :to="{name:'my'}">
-			<img src="../../../../../../static/icon/icon_jiantou1@2x.png">
-		</router-link>
-		<h2><b>关注的人</b></h2>
+	   <div id="header">
+			<router-link :to="{name:'my'}">
+				<img src="../../../../../../static/icon/icon_jiantou1@2x.png">
+			</router-link>
+			<h2><b>编辑资料</b></h2>
+	    </div>
 	</div>
 </template>
 
@@ -28,5 +30,6 @@
 			margin-left:3.08rem;
 			margin-top:0.68rem;
 		}
+		
 	}
 </style>
