@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import store from "./store";
 import "./common/css/reset.css";
+import "./common/css/iconfont/iconfont.css";
 import "../node_modules/swiper/dist/css/swiper.min.css";
 import "./common/js/flexble";
 

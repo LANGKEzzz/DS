@@ -22,8 +22,12 @@ import Nearby from '../components/dynamic/content/nearby.vue'
 import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
-import Aiteset from "../components/settings/page/components/aiteset"
-import Phonenum from "../components/settings/page/components/phonenum"
+import Attention from '../components/my/components/attention'
+
+import Comm from '../components/dynamic/content/comment.vue'
+import Transpond from '../components/dynamic/content/transpond.vue'
+
+import Fans from '../components/my/components/fans'
 
 Vue.use(Router)
 
@@ -82,6 +86,22 @@ export default new Router({
       }
     },
     {
+      path: '/comment',
+      name: 'comment',
+      component: Comm,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path: '/transpond/:itm',
+      name: 'transpond',
+      component: Transpond,
+      meta:{
+        flag:false
+      }
+    },
+    {
       path: '/release',
       name: 'release',
       component: Release,
@@ -130,103 +150,20 @@ export default new Router({
     // },
     //设置
     {
-      path:"/fatheras",
-      name:"fatheras",
-      component:Fatheras,
+      path: '/settings',
+      name: 'settings',
+      component: Settings,
       meta:{
-        flag:false
-      },
-      children:[
-        {
-          path:"/aS",
-          name:"aS",
-          component:AS,
-          meta:{
-            flag:false
-          }
-        }
-      ]
-    },
-    {
-      path:"/fathermessage",
-      name:"fathermessage",
-      component:Fathermessage,
-      meta:{
-        flag:false
-      },
-      children:[
-        {
-          path:"/messageS",
-          name:"messageS",
-          component:messageS,
-          meta:{
-            flag:false
-          }
-        }
-      ]
-
-    },
-    {
-      path:"/fathergeneral",
-      name:"fathergeneral",
-      component:Fathergeneral,
-      meta:{
-        flag:false
-      },
-      children:[
-        {
-          path:"/generalS",
-          name:"generalS",
-          component:generalS,
-          meta:{
-            flag:false
-          }
-        }
-      ]
+        flag:true,
+        requireAuth:true
+      }
     },  
-   
-    {
-      path:"/fatherpicture",
-      name:"fatherpicture",
-      component:Fatherpicture,
-      meta:{
-        flag:false
-      },
-      children:[
-        {
-          path:"/pictureS",
-          name:"pictureS",
-          component:pictureS,
-          meta:{
-            flag:false
-          }
-        }
-      ]
-    },
-    {
-      path:"/fathershield",
-      name:"fathershield",
-      component:Fathershield,
-      meta:{
-        flag:false
-      },
-      children:[
-        {
-          path:"/shieldS",
-          name:"shieldS",
-          component:shieldS,
-          meta:{
-            flag:false
-          }
-        }
-      ]
-    },
     {
       path: '/login',
       name: 'login',
       component: Login,
       meta:{
-        flag:false
+        flag:true
       }
     },
     {
@@ -234,35 +171,35 @@ export default new Router({
       name: 'register',
       component: Register,
       meta:{
-        flag:false
+        flag:true
       }
     },
     {
-      path:"/aiteset",
-      name:"aiteset",
-      component:Aiteset,
+    	path: '/attention',
+      name: 'attention',
+      component: Attention,
       meta:{
-        flag:false
+        flag:true
       }
     },
     {
-    	path:"/phonenum",
-      name:"phonenum",
-      component:Phonenum,
+
+    	path: '/fans',
+      name: 'fans',
+      component: Fans,
       meta:{
-        flag:false
+        flag:true
       }
     },
     {
       path: '/**',
       name: 'error',
-      component: Err
-    },
- 
-
-
-
-
+      component: Err,
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    }
 
   ]
 })

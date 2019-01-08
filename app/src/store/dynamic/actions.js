@@ -8,5 +8,23 @@ export default{
             console.log(data)
             commit("conGetData",data)
         })
+    },
+    recGetData({commit}){
+        axios({
+            method:"get",
+            url:"http://localhost:3000/recommend"
+        }).then((data)=>{
+            console.log(data)
+            commit("recGetData",data)
+        })
+    },
+    neaGetData({commit}){
+        axios({
+            method:"get",
+            url:"http://localhost:3000/recommend"
+        }).then((data)=>{
+            console.log(data)
+            commit("neaGetData",data)
+        })
     }
 }

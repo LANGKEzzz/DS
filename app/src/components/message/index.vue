@@ -1,13 +1,24 @@
 <template>
-    <div>
-        <h2>消息列表</h2>
+    <div class="message">
+        <Top-com></Top-com>
+        <List-com></List-com>
     </div>
 </template>
 <script>
+import Top from "./components/top"
+import List from "./components/list"
+
 export default {
-    
+    components:{
+        "Top-com" : Top,
+        "List-com" : List
+    }
 }
 </script>
-<style lang="">
-    
+<style>
+    .message{
+        width:100%;
+        height:100%;
+       
+    }
 </style>
