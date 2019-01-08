@@ -3,28 +3,28 @@ export default{
     conGetData({commit}){
         axios({
             method:"get",
-            url:"http://localhost:3000/concern"
+            url:"/api/mock/5c346519fad511025643ee90/example/dynamic"
         }).then((data)=>{
-            console.log(data)
-            commit("conGetData",data)
+            console.log(data.data.concern)
+            commit("conGetData",data.data.concern)
         })
     },
     recGetData({commit}){
         axios({
             method:"get",
-            url:"http://localhost:3000/recommend"
+            url:"/api/mock/5c346519fad511025643ee90/example/dynamic"
         }).then((data)=>{
-            console.log(data)
-            commit("recGetData",data)
+            console.log(data.data.concern)
+            commit("recGetData",data.data.concern)
         })
     },
     neaGetData({commit}){
         axios({
             method:"get",
-            url:"http://localhost:3000/recommend"
+            url:"/api/mock/5c346519fad511025643ee90/example/dynamic"
         }).then((data)=>{
-            console.log(data)
-            commit("neaGetData",data)
+            console.log(data.data.concern)
+            commit("neaGetData",data.data.concern)
         })
     }
 }

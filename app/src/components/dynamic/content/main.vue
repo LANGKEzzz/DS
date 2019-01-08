@@ -22,7 +22,7 @@
             </ul>
             <ul class="mainB">
                 <li v-for="(itm,index) in item.handle" v-bind:key="index">
-                    <router-link :to="{name:itm.name,query:{itm:item}}">
+                    <router-link :to="{name:itm.name,params:{itm:item}}">
                         <img :src="itm.url" alt="">
                         <span>{{itm.count}}</span>
                     </router-link>
@@ -78,13 +78,11 @@ export default {
     #main{
         .main{
             width:100%;
-            height:7.44rem;
             background:rgba(255,255,255,1);
             box-shadow:0px 1px 3px 0px rgba(0, 0, 0, 0.15);
             padding: .24rem .24rem 0 .24rem;
             margin-top: .2rem;
             .mainT{
-                height: .9rem;
                 width: 100%;
                 display: flex;
                 img{
@@ -121,12 +119,13 @@ export default {
         }
         .mainM{
             width: 100%;
-            height: 4.66rem;
             display: flex;
-            justify-content: space-between;
+            // justify-content: space-between;
             flex-wrap: wrap;
             li{
+                padding: .02rem;
                 img{
+                    
                     width: 2.3rem;
                     height: 2.3rem;
                 }

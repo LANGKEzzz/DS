@@ -8,9 +8,18 @@ module.exports = {
   dev: {
 
     // Paths
+    //https://www.easy-mock.com/mock/5c346519fad511025643ee90/example/dynamic
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      "/api":{
+        target:"https://www.easy-mock.com",
+        changeOrigin:true,
+        pathRewrite:{
+          "^/api":""
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
