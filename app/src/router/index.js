@@ -8,6 +8,10 @@ import Release from '../components/release'
 //message 下的路由
 import Message from '../components/message'
 //my 下的路由
+import MessageFocus from '../components/message/focus/focus.vue'
+import MessageMessremind from '../components/message/messremind/messremind.vue'
+import MessageRemind from '../components/message/remind/remind.vue'
+import Dialogbox from "../components/message/dialogbox/dialogbox.vue"
 import My from '../components/my'
 import Attention from '../components/my/components/attention'
 import Fans from '../components/my/components/fans'
@@ -158,6 +162,42 @@ export default new Router({
       component: Message,
       meta:{
         flag:true,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/message/dialogbox",
+      name:"dialogbox",
+      component:Dialogbox,
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/message/messremind",
+      name:'messagemessremind',
+      component:MessageMessremind,
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/message/focus",
+      name:'messagefocus',
+      component:MessageFocus,
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/message/remind",
+      name:'Messageremind',
+      component:MessageRemind,
+      meta:{
+        flag:false,
         requireAuth:true
       }
     },
