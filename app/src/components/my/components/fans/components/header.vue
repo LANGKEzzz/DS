@@ -1,11 +1,11 @@
 <template>
 	<div id="header">
 	   <div id="header">
-		<router-link :to="{name:'my'}">
-			<img src="../../../../../../static/icon/icon_jiantou1@2x.png">
-		</router-link>
-		<h2>好友</h2>
-	</div>
+			<router-link :to="{name:'my'}">
+				<img src="../../../../../../static/icon/icon_jiantou1@2x.png">
+			</router-link>
+			<h2><b>好友</b></h2>
+	    </div>
 	</div>
 </template>
 
