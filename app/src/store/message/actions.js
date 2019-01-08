@@ -9,5 +9,15 @@ export default{
             console.log(data)
             commit( "handleMessage",deta )
         } )
+    },
+    handleFocus({commit}){
+        axios({
+            methods:"post",
+            url:""
+        })
+        .then( (data)=>{
+            console.log(data)
+            commit("handleFocus",data)
+        } )
     }
 }

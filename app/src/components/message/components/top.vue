@@ -57,6 +57,7 @@
             height:100%;
             position:relative;
             line-height:.88rem;
+            font-weight: 900;
             span{
                 color:#101010;
                 font-size:.42rem;

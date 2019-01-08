@@ -1,16 +1,18 @@
 <template>
     <div class="message_list">
         <ul>
-            <li v-for="(item,index) in message_list">
-                <div class="message_img">
-                    <img :src="item.src"/>
-                </div>
-                <div class="message_c">
-                    <p>{{item.nickname}}</p>
-                    <p>{{item.message}}</p>
-                </div>
-                <span>{{item.time}}</span>
-            </li>
+            <router-link to="/message/dialogbox">
+                <li v-for="(item,index) in message_list">
+                    <div class="message_img">
+                        <img :src="item.src"/>
+                    </div>
+                    <div class="message_c">
+                        <p>{{item.nickname}}</p>
+                        <p>{{item.message}}</p>
+                    </div>
+                    <span>{{item.time}}</span>
+                </li>
+            </router-link>
         </ul>
     </div>
 </template>

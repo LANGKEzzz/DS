@@ -7,7 +7,7 @@ import Message from '../components/message'
 import MessageFocus from '../components/message/focus/focus.vue'
 import MessageMessremind from '../components/message/messremind/messremind.vue'
 import MessageRemind from '../components/message/remind/remind.vue'
-
+import Dialogbox from "../components/message/dialogbox/dialogbox.vue"
 import My from '../components/my'
 import Err from '../components/error/error.vue'
 import Fatheras from "../components/settings/father-as.vue"
@@ -124,11 +124,21 @@ export default new Router({
       }
     },
     {
+      path:"/message/dialogbox",
+      name:"dialogbox",
+      component:Dialogbox,
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
       path:"/message/messremind",
       name:'messagemessremind',
       component:MessageMessremind,
       meta:{
-        flag:true
+        flag:false,
+        requireAuth:true
       }
     },
     {
@@ -136,7 +146,8 @@ export default new Router({
       name:'messagefocus',
       component:MessageFocus,
       meta:{
-        flag:true
+        flag:false,
+        requireAuth:true
       }
     },
     {
@@ -144,7 +155,8 @@ export default new Router({
       name:'Messageremind',
       component:MessageRemind,
       meta:{
-        flag:true
+        flag:false,
+        requireAuth:true
       }
     },
     {
