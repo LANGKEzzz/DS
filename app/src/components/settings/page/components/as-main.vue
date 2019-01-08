@@ -1,16 +1,29 @@
 <template>
     <div class="main">
         <ul>
-            <li v-for="(item,index) in list">
+            <!-- <li v-for="(item,index) in list" @click='handleMark($event)'>
                 <router-link :to="{name:item.name}">
                     {{item.title}}
                 </router-link>
-            </li>
+            </li> -->
+              <router-link to="/phonenum">
+                <li>手机号码</li>
+            </router-link >
+              <!-- <router-link to=""> -->
+                <li  @click="showModal">修改密码</li>
+            <!-- </router-link> -->
+            <Modal v-show="isModalVisible" @close="closeModal">确认</Modal>
         </ul>
+      
+        
     </div>
 </template>
 <script>
+import Modal from "./modal.vue"
 export default {
+    components:{
+        Modal
+    },
     data(){
         return{
             list:[
@@ -28,8 +41,18 @@ export default {
                 }
   
 
-            ]
+            ],
+            isModalVisible: false
+             
         }
+    },
+    methods:{
+         showModal: function () {
+            this.isModalVisible = true
+            },
+        closeModal: function () {
+            this.isModalVisible = false
+            }
     }
 }
 </script>

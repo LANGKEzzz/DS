@@ -22,7 +22,8 @@ import Nearby from '../components/dynamic/content/nearby.vue'
 import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
-
+import Aiteset from "../components/settings/page/components/aiteset"
+import Phonenum from "../components/settings/page/components/phonenum"
 
 Vue.use(Router)
 
@@ -112,24 +113,22 @@ export default new Router({
       name: 'settings',
       component: Settings,
       meta:{
-        flag:true,
+        flag:false,
         requireAuth:true
       }
     },
-    {
-      path: '/**',
-      name: 'error',
-      component: Err
-    },
+
+    
+    // {
+    //   path:"/settings",
+    //   name:"settings",
+    //   component:Settings,
+    //   meta:{
+    //     flag:false,
+    //     requireAuth:true
+    //   }
+    // },
     //设置
-    {
-      path:"/settings",
-      name:"settings",
-      component:Settings,
-      meta:{
-        flag:false
-      }
-    },
     {
       path:"/fatheras",
       name:"fatheras",
@@ -165,6 +164,7 @@ export default new Router({
           }
         }
       ]
+
     },
     {
       path:"/fathergeneral",
@@ -181,9 +181,10 @@ export default new Router({
           meta:{
             flag:false
           }
-        },
+        }
       ]
-    },
+    },  
+   
     {
       path:"/fatherpicture",
       name:"fatherpicture",
@@ -235,7 +236,28 @@ export default new Router({
       meta:{
         flag:false
       }
-    }
+    },
+    {
+      path:"/aiteset",
+      name:"aiteset",
+      component:Aiteset,
+      meta:{
+        flag:false
+      }
+    },
+    {
+    	path:"/phonenum",
+      name:"phonenum",
+      component:Phonenum,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path: '/**',
+      name: 'error',
+      component: Err
+    },
  
 
 

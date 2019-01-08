@@ -17,13 +17,13 @@ export default {
         return{
             list:[
                 {
-                    
+                    name:"aiteset",
                     title:"@我的",
                     // messsage:"我关注的人",
                     url:"../../../../../static/icon/icon_jiantou1_reserver.png"
                 },
                 {
-                    // name:"phomeAS",
+                    name:"aiteset",
                     title:"评论",
                     // messsage:"所有人",
                     url:"../../../../../static/icon/icon_jiantou1_reserver.png"
@@ -77,5 +77,8 @@ export default {
     }
     .main>ul>li>a{
         color:#313131;
+        width:100%;
+        height:100%;
+        display:inline-block;
     }
 </style>
