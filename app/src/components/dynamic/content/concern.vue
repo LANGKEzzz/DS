@@ -1,10 +1,6 @@
 <template>
     <div id="concern">
-        <Main>
-            <div v-for="(item,index) in concern" v-bind:key="index">
-                123
-            </div>
-        </Main>
+        <Main :data='concern'></Main>
     </div>
 </template>
 <script>
