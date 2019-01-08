@@ -8,48 +8,130 @@
         </router-link>
       <p>屏蔽设置</p>
     </div>
-    <div class="main">
-        <div>
+     <div class="main_t">
             <img src="../../../../static/icon/icon_tianjia@2x.png"/>
             <b>添加屏蔽用户</b>
-
-        </div>
-        <p>已屏蔽用户</p>
-        <ul>
-            <li v-for="(item,index) in list">
-                <router-link :to="{name:item.name}">
-                    {{item.title}}
-                    <img :src="item.url">
-                </router-link>
+			<p class="shieldP">已屏蔽用户</p>
+    </div>
+        
+    <div class="main"> 
+        <div class="wrapper" ref="wrapper">
+        <ul class="content">
+            <li>
+               <div class="left">
+               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
+               </div>
+               <div class="center">
+               	<p>昵称</p>
+               	<span>佛系更新作者</span>
+               </div>
+               <div class="right">已屏蔽</div>
+               
             </li>
-        </ul>
+            <li>
+               <div class="left">
+               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
+               </div>
+               <div class="center">
+               	<p>昵称</p>
+               	<span>佛系更新作者</span>
+               </div>
+               <div class="right">已屏蔽</div>
+               
+            </li>
+            <li>
+               <div class="left">
+               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
+               </div>
+               <div class="center">
+               	<p>昵称</p>
+               	<span>佛系更新作者</span>
+               </div>
+               <div class="right">已屏蔽</div>
+               
+            </li>
+            <li>
+               <div class="left">
+               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
+               </div>
+               <div class="center">
+               	<p>昵称</p>
+               	<span>佛系更新作者</span>
+               </div>
+               <div class="right">已屏蔽</div>
+               
+            </li>
+                        <li>
+               <div class="left">
+               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
+               </div>
+               <div class="center">
+               	<p>昵称</p>
+               	<span>佛系更新作者</span>
+               </div>
+               <div class="right">已屏蔽</div>
+               
+            </li>
+            <li>
+               <div class="left">
+               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
+               </div>
+               <div class="center">
+               	<p>昵称</p>
+               	<span>佛系更新作者</span>
+               </div>
+               <div class="right">已屏蔽</div>
+               
+            </li>
+            <li>
+               <div class="left">
+               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
+               </div>
+               <div class="center">
+               	<p>昵称</p>
+               	<span>佛系更新作者</span>
+               </div>
+               <div class="right">已屏蔽</div>
+               
+            </li>
+            
+         </ul>
+        </div>
     </div>
   </div>
 </template>
 <script>
+import BScroll from 'better-scroll'
 export default {
     data(){
         return{
-            list:[
-                {
-                    
-                    title:"@我的",
-                    // messsage:"我关注的人",
-                    url:"../../../../static/icon/icon_jiantou1_reserver.png"
-                },
-                {
-                    // name:"phomeAS",
-                    title:"评论",
-                    // messsage:"所有人",
-                    url:"../../../../static/icon/icon_jiantou1_reserver.png"
-
-                }
-   
-  
-
-            ]
+//          list:[
+//              {
+//                  
+//                  title:"@我的",
+//                  // messsage:"我关注的人",
+//                  url:"../../../../static/icon/icon_jiantou1_reserver.png"
+//              },
+//              {
+//                  // name:"phomeAS",
+//                  title:"评论",
+//                  // messsage:"所有人",
+//                  url:"../../../../static/icon/icon_jiantou1_reserver.png"
+//
+//              }
+// 
+//
+//
+//          ]
         }
-    }
+   },
+   mounted(){
+   	this.scroll = new BScroll(this.$refs.wrapper,{
+   		pullUpLoad:true,
+   	})
+   	console.log(scroll);
+   	
+   }
 }
 </script>
 </script>
@@ -65,6 +147,7 @@ export default {
             background:rgba(255,255,255,1);
             box-shadow:0 0.01rem 0.03rem 0 rgba(0, 0, 0, 0.15);
             position:relative;
+            z-index:10;
                 p {
                     font-size: 0.34rem;
                     color:rgba(30,30,30,1);
@@ -88,14 +171,92 @@ export default {
             }
             .main{
                 width:7.5rem;
-                height:4.9rem;
-                margin-top:.53rem;
-                div{
+                height:10.14rem;
+                /*margin-top:.53rem;*/
+                /*overflow:auto;*/
+                .wrapper{
+                	width:100%;
+                	height:100%;
+                	
+                	ul{
+	                	width:100%;
+	                	/*background:#FFFFFF;*/
+	                	position:absolute;
+	                	left:0;
+	                	bottom:0;
+	                	right:0;
+	                	top:2.94rem;
+	                	li{
+	                		width:7.49rem;
+							height:1.68rem;
+							background:rgba(255,255,255,1);
+							margin-bottom:0.01rem;
+							
+							.left{
+								display:inline-block;
+								float:left;
+								line-height:1.68rem;
+								padding-left:.24rem;
+								margin-top:.24rem;
+								
+							}
+							.center{
+								display:inline-block;
+								float:left;
+								margin-top:.55rem;
+								padding-left:.24rem;
+								p{
+									font-size:.24rem;
+									font-family:PingFang-SC-Medium;
+									font-weight:500;
+									color:rgba(49,49,49,1);
+									padding-bottom: .1rem;
+									
+								}
+								span{
+									font-size:.2rem;
+									font-family:PingFang-SC-Medium;
+									font-weight:500;
+									color:rgba(113,113,113,1);
+									
+								}
+								
+							}
+							.right{
+								display:inline-block;
+								float:right;
+								/*text-align:center;*/
+								line-height:0.48rem;
+								width:1.16rem;
+								height:0.48rem;
+								border:0.01rem solid rgba(113,113,113,1);
+								border-radius:0.05rem;
+								margin-top:.60rem;
+								margin-right:.23rem;
+								padding-left:.22rem;
+							}
+							
+	                	}
+	                }
+                }
+
+            }
+            .main>ul>li>a{
+                color:#313131;
+            }
+            .main_t{
+            		width:100%;
+            		height:1.66rem;
+            		background:#eee;
                     padding-left:.24rem;
-                    margin-bottom:.42rem;
+                    /*margin-bottom:.42rem;*/
                     position:relative;
+                    z-index:10;
                     img{
-                        display:inline-block;   
+                        display:inline-block; 
+                        position:absolute;
+                        left:.24rem;
+                        top:.53rem;  
                     }
                     b{
                         font-size:.24rem;
@@ -103,46 +264,25 @@ export default {
                         font-weight:500;
                         color:rgba(49,49,49,1);
                         position:absolute;
-                        left:.76rem;
-                        bottom:0.08rem;
+                        left:.78rem;
+                        top:.55rem;
                     }
-                }
-                p{
+                    .shieldP {
                     padding-left:.24rem;
-                    padding-bottom: .17rem;
+                    /*padding-bottom: .17rem;*/
                     font-size:.2rem;
                     font-family:PingFangSC-Regular;
                     font-weight:400;
                     color:rgba(113,113,113,1);
+                    position:absolute;
+                    left:.06rem;
+                    bottom:.19rem;
+                    /*z-index:10;*/
+                    /*position:fixed;*/
                 }
-                ul{
-                    width:100%;
-                    height:100%;
-                    li{
-                        width:100%;
-                        height:.88rem;
-                        background:rgba(255,255,255,1);
-                        box-shadow:0 0.01rem 0.03rem 0 rgba(0, 0, 0, 0.15);
-                        border-bottom:1px solid #eee;
-                        line-height:.88rem;
-                        padding-left:.25rem;
-                        font-size:.24rem;
-                        font-family:PingFang-SC-Medium;
-                        font-weight:500;
-                        position: relative;
-                        img{
-                            display:inline-block;
-                            position:absolute;
-                            right:.24rem;
-                            bottom:.33rem;
-                        }
-                        
-                    }
                 }
-            }
-            .main>ul>li>a{
-                color:#313131;
-            }
+
+    
     }
    
 </style>

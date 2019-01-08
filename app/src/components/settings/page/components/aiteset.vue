@@ -20,16 +20,16 @@
         <p>所有人评论我时，都将在信息列表首页进行数字提醒，并将在应用外传送通知</p>
         <div>
             <img src="../../../../../static/icon/sz_fh@2x.png"/>
-            <p>我的</p>
-            <span></span>
+            <p class="my1">我的</p>
+            <!--<span></span>-->
         </div>
     </div>
     <div class="footer footer1">
         <p>未关注的人@我时，将仅进行红点标记</p>
         <div>
             <img src="../../../../../static/icon/sz_fh@2x.png"/>
-            <p>我的</p>
-            <span></span>
+            <p class="my2">我的</p>
+            <!--<span></span>-->
         </div>
     </div>
   </div>
@@ -116,8 +116,7 @@ export default {};
 	        	padding-left:.24rem;
 	        	padding-right:.24rem;
 	        	margin-bottom: .5rem;
-        	
-             p{
+            p{
                 font-size:.2rem;
                 font-family:PingFang-SC-Medium;
                 font-weight:500;
@@ -129,23 +128,31 @@ export default {};
             	 width:7.02rem;
             	 height:.88rem;
             	 background:#FFFFFF;
-            	 margin-top:.45rem;
+            	 padding-top:0.1rem;
             	 line-height:.88rem;
-            	  img{
+            	 margin-top:0.2rem;
+            	 position:relative;
+            	   img{
             	 		display:inline-block;
-            	 }
-            	  p{
+            	 	}
+            	   .my1,.my2{
             	 	 display:inline-block;
             	 	 font-size:.24rem;
 								 font-family:PingFang-SC-Medium;
 								 font-weight:500;
 								 color:rgba(49,49,49,1);
 								 margin-left:.08rem;
+								 /*line-height:.88rem;*/
+								 /*margin-bottom:0.01rem;*/
+								 /*margin-top:-0.02rem;*/
+								position:absolute;
+								top:.01rem;
+								left:.8rem;
             	 }
             }
         }
-          .footer1{
-          	 div{
+        .footer1{
+          	  div{
           	 		margin-top:0.2rem;
           	 		line-height:.88rem;
           	 }
