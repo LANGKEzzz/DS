@@ -7,6 +7,18 @@ import Release from '../components/release'
 import Message from '../components/message'
 import My from '../components/my'
 import Err from '../components/error/error.vue'
+import Fatheras from "../components/settings/father-as.vue"
+import Fathermessage from "../components/settings/father-message.vue"
+import Fathergeneral from "../components/settings/father-general.vue"
+import Fatherpicture from "../components/settings/father-picture.vue"
+import Fathershield from "../components/settings/father-shield.vue"
+import AS from "../components/settings/page/AS.vue"
+import messageS from "../components/settings/page/messageS.vue"
+import generalS from "../components/settings/page/generalS.vue"
+import shieldS from "../components/settings/page/shieldS.vue"
+import pictureS from "../components/settings/page/pictureS.vue"
+import Aiteset from "../components/settings/page/components/aiteset"
+import Phonenum from "../components/settings/page/components/phonenum"
 import Concern from '../components/dynamic/content/concern.vue'
 import Recommend from '../components/dynamic/content/recommend.vue'
 import Nearby from '../components/dynamic/content/nearby.vue'
@@ -17,7 +29,6 @@ import Attention from '../components/my/components/attention'
 import FindPwd from '../components/findpwd'
 import Comm from '../components/dynamic/content/comment.vue'
 import Transpond from '../components/dynamic/content/transpond.vue'
-
 import Fans from '../components/my/components/fans'
 
 Vue.use(Router)
@@ -144,6 +155,126 @@ export default new Router({
       meta:{
         flag:false,
         requireAuth:true
+      }
+    },
+
+    
+    // {
+    //   path:"/settings",
+    //   name:"settings",
+    //   component:Settings,
+    //   meta:{
+    //     flag:false,
+    //     requireAuth:true
+    //   }
+    // },
+    //设置
+    {
+      path:"/fatheras",
+      name:"fatheras",
+      component:Fatheras,
+      meta:{
+        flag:false
+      },
+      children:[
+        {
+          path:"/aS",
+          name:"aS",
+          component:AS,
+          meta:{
+            flag:false
+          }
+        }
+      ]
+    },
+    {
+      path:"/fathermessage",
+      name:"fathermessage",
+      component:Fathermessage,
+      meta:{
+        flag:false
+      },
+      children:[
+        {
+          path:"/messageS",
+          name:"messageS",
+          component:messageS,
+          meta:{
+            flag:false
+          }
+        }
+      ]
+
+    },
+    {
+      path:"/fathergeneral",
+      name:"fathergeneral",
+      component:Fathergeneral,
+      meta:{
+        flag:false
+      },
+      children:[
+        {
+          path:"/generalS",
+          name:"generalS",
+          component:generalS,
+          meta:{
+            flag:false
+          }
+        }
+      ]
+    },  
+   
+    {
+      path:"/fatherpicture",
+      name:"fatherpicture",
+      component:Fatherpicture,
+      meta:{
+        flag:false
+      },
+      children:[
+        {
+          path:"/pictureS",
+          name:"pictureS",
+          component:pictureS,
+          meta:{
+            flag:false
+          }
+        }
+      ]
+    },
+    {
+      path:"/fathershield",
+      name:"fathershield",
+      component:Fathershield,
+      meta:{
+        flag:false
+      },
+      children:[
+        {
+          path:"/shieldS",
+          name:"shieldS",
+          component:shieldS,
+          meta:{
+            flag:false
+          }
+        }
+      ]
+    }, 
+    {
+      path:"/aiteset",
+      name:"aiteset",
+      component:Aiteset,
+      meta:{
+        flag:false
+      }
+    },
+    {
+    	path:"/phonenum",
+      name:"phonenum",
+      component:Phonenum,
+      meta:{
+        flag:false
       }
     },
     {
