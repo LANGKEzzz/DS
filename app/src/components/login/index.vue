@@ -12,7 +12,9 @@
     <div class="dl">
         <button class="dlbtn">登录</button>
     </div>
-    <p class="forget">忘记密码</p>
+    <router-link :to="{name:'findpwd'}">
+      <p class="forget">忘记密码</p>
+    </router-link>
     <router-link :to="{name:'register'}">
         <p class="go_reg">没有账号？去注册></p>
     </router-link>
@@ -68,6 +70,7 @@ export default {
             border: none;
             outline: none;
              box-shadow: 3px 8px 25px 0px rgba(44, 96, 95, 0.25);
+             font-size: 0.26rem;
              
       }
   }
@@ -82,8 +85,15 @@ export default {
     display: block;
     margin: 0 auto;
     box-shadow: 3px 8px 25px 0px rgba(44, 96, 95, 0.25);
-    font-size: 0.26rem;
+    font-size: 0.26rem;   
   }
+  .num{
+    background: url("../../../static/logo/icon_xiaoxi@2x.png") no-repeat 0.4rem center;
+     background-size: .33rem;
+   } 
+    .pwd{
+      background: url("../../../static/logo/pwd.png") no-repeat 0.4rem center;
+    }
   .forget{
       width: 1rem;
       font-size: 0.22rem;

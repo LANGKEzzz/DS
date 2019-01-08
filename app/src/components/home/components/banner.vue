@@ -367,7 +367,7 @@ export default {
         position: relative;
         .user{
             width: 1.4rem;
-            height: .8rem;
+            height: .86rem;
             overflow: hidden;
             .photo{
                 width: .5rem;
@@ -380,11 +380,11 @@ export default {
             }
             p{
                 width:1.4rem;
-                font-size:10px;
-                line-height: 12px;
+                font-size:0.2rem;
+                line-height: 0.24rem;
                 color: white;
                 text-align: center;
-                margin-top: 6px;
+                margin-top: 0.12rem;
             }
         }
     }

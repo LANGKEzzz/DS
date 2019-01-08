@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/home'
+import Main from "../components/main"
 import Dynamic from '../components/dynamic'
 import Release from '../components/release'
 import Message from '../components/message'
@@ -13,7 +14,7 @@ import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
 import Attention from '../components/my/components/attention'
-
+import FindPwd from '../components/findpwd'
 import Comm from '../components/dynamic/content/comment.vue'
 import Transpond from '../components/dynamic/content/transpond.vue'
 
@@ -28,6 +29,24 @@ export default new Router({
       redirect:'/home',
       meta:{
         flag:true,
+        requireAuth:true
+      }
+    },
+    {
+      path: '/main',
+      name:'main',
+      component:Main,
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path: '/findpwd',
+      component:FindPwd,
+      name:"findpwd",
+      meta:{
+        flag:false,
         requireAuth:true
       }
     },
@@ -123,25 +142,16 @@ export default new Router({
       name: 'settings',
       component: Settings,
       meta:{
-        flag:true,
+        flag:false,
         requireAuth:true
       }
     },
-    {
-      path: '/settings',
-      name: 'settings',
-      component: Settings,
-      meta:{
-        flag:true,
-        requireAuth:true
-      }
-    },  
     {
       path: '/login',
       name: 'login',
       component: Login,
       meta:{
-        flag:true
+        flag:false
       }
     },
     {
@@ -149,7 +159,7 @@ export default new Router({
       name: 'register',
       component: Register,
       meta:{
-        flag:true
+        flag:false
       }
     },
     {
