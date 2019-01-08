@@ -29,6 +29,14 @@ import Transpond from '../components/dynamic/content/transpond.vue'
 
 import Fans from '../components/my/components/fans'
 
+import Praise from '../components/my/components/praise'
+
+import Person from '../components/my/components/person'
+
+import Collect from '../components/my/components/collect'
+
+import Chat from '../components/my/components/chat'
+
 Vue.use(Router)
 
 export default new Router({
@@ -191,6 +199,43 @@ export default new Router({
         flag:true
       }
     },
+    {
+
+    	path: '/praise',
+      name: 'praise',
+      component: Praise,
+      meta:{
+        flag:true
+      }
+    },
+    {
+
+    	path: '/person',
+      name: 'person',
+      component: Person,
+      meta:{
+        flag:true
+      }
+    },
+    {
+
+    	path: '/collect',
+      name: 'collect',
+      component: Collect,
+      meta:{
+        flag:true
+      }
+    },
+    {
+
+    	path: '/chat',
+      name: 'chat',
+      component: Chat,
+      meta:{
+        flag:false
+      }
+    },
+    
     {
       path: '/**',
       name: 'error',
