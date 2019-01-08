@@ -1,11 +1,31 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+//home 下的路由
 import Home from '../components/home'
-import Dynamic from '../components/dynamic'
+//release 下的路由
 import Release from '../components/release'
+//message 下的路由
 import Message from '../components/message'
+//my 下的路由
 import My from '../components/my'
+import Attention from '../components/my/components/attention'
+import Fans from '../components/my/components/fans'
+//err 下的路由
 import Err from '../components/error/error.vue'
+//login 下的路由
+import Login from '../components/login'
+//register 下的路由
+import Register from '../components/register'
+//dynamic下的路由
+import Comm from '../components/dynamic/content/comment.vue'
+import Concern from '../components/dynamic/content/concern.vue'
+import Recommend from '../components/dynamic/content/recommend.vue'
+import Nearby from '../components/dynamic/content/nearby.vue'
+import Dynamic from '../components/dynamic'
+import Transpond from '../components/dynamic/content/transpond.vue'
+
+//settings 下的路由
+import Settings from '../components/settings'
 import Fatheras from "../components/settings/father-as.vue"
 import Fathermessage from "../components/settings/father-message.vue"
 import Fathergeneral from "../components/settings/father-general.vue"
@@ -18,17 +38,6 @@ import shieldS from "../components/settings/page/shieldS.vue"
 import pictureS from "../components/settings/page/pictureS.vue"
 import Aiteset from "../components/settings/page/components/aiteset"
 import Phonenum from "../components/settings/page/components/phonenum"
-import Concern from '../components/dynamic/content/concern.vue'
-import Recommend from '../components/dynamic/content/recommend.vue'
-import Nearby from '../components/dynamic/content/nearby.vue'
-import Login from '../components/login'
-import Settings from '../components/settings'
-import Register from '../components/register'
-import Attention from '../components/my/components/attention'
-import Comm from '../components/dynamic/content/comment.vue'
-import Transpond from '../components/dynamic/content/transpond.vue'
-import Fans from '../components/my/components/fans'
-
 Vue.use(Router)
 
 export default new Router({
@@ -50,6 +59,7 @@ export default new Router({
         requireAuth:true
       }
     },
+    //dynamic
     {
       path: '/dynamic',
       name: 'dynamic',
@@ -94,13 +104,15 @@ export default new Router({
       }
     },
     {
-      path: '/transpond/:itm',
+      path: '/transpond',
       name: 'transpond',
       component: Transpond,
+      props:true,
       meta:{
         flag:false
       }
     },
+    //release
     {
       path: '/release',
       name: 'release',
