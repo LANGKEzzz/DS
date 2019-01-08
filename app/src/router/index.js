@@ -16,14 +16,18 @@ import messageS from "../components/settings/page/messageS.vue"
 import generalS from "../components/settings/page/generalS.vue"
 import shieldS from "../components/settings/page/shieldS.vue"
 import pictureS from "../components/settings/page/pictureS.vue"
+import Aiteset from "../components/settings/page/components/aiteset"
+import Phonenum from "../components/settings/page/components/phonenum"
 import Concern from '../components/dynamic/content/concern.vue'
 import Recommend from '../components/dynamic/content/recommend.vue'
 import Nearby from '../components/dynamic/content/nearby.vue'
 import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
-import Aiteset from "../components/settings/page/components/aiteset"
-import Phonenum from "../components/settings/page/components/phonenum"
+import Attention from '../components/my/components/attention'
+import Comm from '../components/dynamic/content/comment.vue'
+import Transpond from '../components/dynamic/content/transpond.vue'
+import Fans from '../components/my/components/fans'
 
 Vue.use(Router)
 
@@ -79,6 +83,22 @@ export default new Router({
       ],
       meta:{
         flag:true
+      }
+    },
+    {
+      path: '/comment',
+      name: 'comment',
+      component: Comm,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path: '/transpond/:itm',
+      name: 'transpond',
+      component: Transpond,
+      meta:{
+        flag:false
       }
     },
     {
@@ -171,23 +191,6 @@ export default new Router({
             flag:false
           }
     },
-
-    {
-      path: '/login',
-      name: 'login',
-      component: Login,
-      meta:{
-        flag:false
-      }
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: Register,
-      meta:{
-        flag:false
-      }
-    },
     {
       path:"/aiteset",
       name:"aiteset",
@@ -204,16 +207,49 @@ export default new Router({
         flag:false
       }
     },
+
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta:{
+        flag:true
+      }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register,
+      meta:{
+        flag:true
+      }
+    },
+    {
+    	path: '/attention',
+      name: 'attention',
+      component: Attention,
+      meta:{
+        flag:true
+      }
+    },
+    {
+
+    	path: '/fans',
+      name: 'fans',
+      component: Fans,
+      meta:{
+        flag:true
+      }
+    },
     {
       path: '/**',
       name: 'error',
-      component: Err
-    },
- 
-
-
-
-
+      component: Err,
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    }
 
   ]
 })
