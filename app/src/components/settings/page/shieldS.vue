@@ -149,7 +149,7 @@ export default {
             position:relative;
             z-index:10;
                 p {
-                    font-size: 0.34rem;
+                    font-size: .34rem;
                     color:rgba(30,30,30,1);
                     display:inline-block;
                     font-family:PingFang-SC-Medium;

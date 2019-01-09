@@ -46,7 +46,7 @@ export default {
             box-shadow:0 0.01rem 0.03rem 0 rgba(0, 0, 0, 0.15);
             position:relative;
                 p {
-                    font-size: 0.34rem;
+                    font-size: .34rem;
                     color:rgba(30,30,30,1);
                     display:inline-block;
                     font-family:PingFang-SC-Medium;
@@ -125,7 +125,7 @@ export default {
 					border-radius:0.04rem;
 					text-align:center;
 					line-height:.72rem;
-					font-size:.24rem;
+					font-size:.34rem;
 					font-family:PingFang-SC-Medium;
 					font-weight:500;
 					color:rgba(255,255,255,1);
