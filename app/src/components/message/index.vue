@@ -1,5 +1,6 @@
 <template>
     <div class="message">
+        
         <Top-com></Top-com>
         <List-com></List-com>
     </div>
@@ -15,10 +16,13 @@ export default {
     }
 }
 </script>
-<style>
+<style lang="scss" scoped>
     .message{
         width:100%;
         height:100%;
-       
+       display:flex;
+       flex-direction: column;
+       justify-content: space-between;
     }
+    
 </style>

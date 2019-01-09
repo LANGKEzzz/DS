@@ -1,6 +1,6 @@
 <template>
     <div class="message_list">
-        <ul>
+        <ul ref="messageList">
             <router-link to="/message/dialogbox">
                 <li v-for="(item,index) in message_list">
                     <div class="message_img">
@@ -17,6 +17,8 @@
     </div>
 </template>
 <script>
+
+
 export default{
     data(){
         return{
@@ -56,6 +58,42 @@ export default{
                     "nickname" : "昵称",
                     "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
                     "time" : "16:00"
+                },
+                {
+                     "src" : "../../../static/message/dh_tx_02@2x.png",
+                    "nickname" : "昵称",
+                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
+                    "time" : "16:00"
+                },
+                {
+                     "src" : "../../../static/message/dh_tx_02@2x.png",
+                    "nickname" : "昵称",
+                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
+                    "time" : "16:00"
+                },
+                {
+                     "src" : "../../../static/message/dh_tx_02@2x.png",
+                    "nickname" : "昵称",
+                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
+                    "time" : "16:00"
+                },
+                {
+                     "src" : "../../../static/message/dh_tx_02@2x.png",
+                    "nickname" : "昵称",
+                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
+                    "time" : "16:00"
+                },
+                {
+                     "src" : "../../../static/message/dh_tx_02@2x.png",
+                    "nickname" : "昵称",
+                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
+                    "time" : "16:00"
+                },
+                {
+                     "src" : "../../../static/message/dh_tx_02@2x.png",
+                    "nickname" : "昵称",
+                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
+                    "time" : "16:00"
                 }
             ]
         }
@@ -65,11 +103,15 @@ export default{
 <style lang="scss" scoped>
 .message_list{
     width:100%;
-    ul{
+    flex:1;
+    overflow: scroll;
+    padding-bottom:.98rem;
+    ul{       
         li{
+            position:relative;
             height:1.22rem;
-            display:flex;
-            border-bottom: 1px solid #f4f4f4;
+            display:flex;          
+            border-bottom:1px solid #f4f4f4;
             .message_img{
                 width:.88rem;
                 height:.88rem;
@@ -103,8 +145,9 @@ export default{
                 }
             }
             span{
-                margin-top:.31rem;
-                margin-left:1.71rem;
+                top:.31rem;
+                position:absolute;
+                right:.24rem;
             }
         }
     }
