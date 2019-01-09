@@ -53,6 +53,8 @@ import Collect from '../components/my/components/collect'
 
 import Chat from '../components/my/components/chat'
 
+import NewList from '../components/my/components/newList'
+
 
 
 
@@ -381,6 +383,15 @@ export default new Router({
       component: Chat,
       meta:{
         flag:false
+      }
+    },
+    {
+
+    	path: '/newList',
+      name: 'newList',
+      component: NewList,
+      meta:{
+        flag:true
       }
     },
     

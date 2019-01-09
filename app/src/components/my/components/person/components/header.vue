@@ -14,7 +14,7 @@
 
 <style lang="scss" scoped>
 	#header{
-		width:7.5rem;
+		width:100%;
 		height:1.28rem;
 		
 		overflow:hidden;

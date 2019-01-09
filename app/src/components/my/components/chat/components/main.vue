@@ -18,7 +18,7 @@
 
 <style lang="scss" scoped>
 	#main{
-		width:7.5rem;
+		width:100%;
 		height:11.09rem;
 		background:#f4f4f4;
 		li{
