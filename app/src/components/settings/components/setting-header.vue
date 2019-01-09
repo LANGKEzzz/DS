@@ -14,6 +14,7 @@
 export default {};
 </script>
 <style lang="scss" scoped>
+@import "../../../common/css/fontSize";
     .header {
     width: 7.5rem;
     height: 1.28rem;
@@ -22,7 +23,7 @@ export default {};
     box-shadow:0 0.01rem 0.03rem 0 rgba(0, 0, 0, 0.15);
     position:relative;
         p {
-            font-size: 0.34rem;
+            font-size: $font_size_34;
             color:rgba(30,30,30,1);
             display:inline-block;
             font-family:PingFang-SC-Medium;
@@ -39,7 +40,11 @@ export default {};
             display:inline-block;
             position:absolute;
             left: 0.24rem;
-            bottom:.23rem;
+            bottom:.31rem;
+            img{
+               width:.24rem;
+               height:.42rem;
+            }
         }
     }
 </style>

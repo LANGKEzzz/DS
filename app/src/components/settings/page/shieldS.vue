@@ -136,9 +136,10 @@ export default {
 </script>
 </script>
 <style lang="scss" scoped>
+@import "../../../common/css/fontSize.scss";
     .shield{
         width:7.5rem;
-        height:13.34rem;;
+        height:13.34rem;
         background: #eee;
          .header {
             width: 7.5rem;
@@ -149,7 +150,7 @@ export default {
             position:relative;
             z-index:10;
                 p {
-                    font-size: 0.34rem;
+                    font-size: $font_size_34;
                     color:rgba(30,30,30,1);
                     display:inline-block;
                     font-family:PingFang-SC-Medium;
@@ -166,7 +167,11 @@ export default {
                     display:inline-block;
                     position:absolute;
                     left: 0.24rem;
-                    bottom:.23rem;
+                    bottom:.31rem;
+                     img{
+                    width:.24rem;
+                    height:.42rem; 
+                    }
                 }
             }
             .main{
@@ -196,8 +201,15 @@ export default {
 								display:inline-block;
 								float:left;
 								line-height:1.68rem;
-								padding-left:.24rem;
-								margin-top:.24rem;
+								margin-left:.24rem;
+                                margin-top:.24rem;
+                                width:1.2rem;
+                                height:1.2rem;
+                                border-radius:50%;
+                                img{
+                                    width:100%;
+                                    height:100%;
+                                }
 								
 							}
 							.center{
@@ -206,7 +218,7 @@ export default {
 								margin-top:.55rem;
 								padding-left:.24rem;
 								p{
-									font-size:.24rem;
+									font-size:$font_size_24;
 									font-family:PingFang-SC-Medium;
 									font-weight:500;
 									color:rgba(49,49,49,1);
@@ -214,7 +226,7 @@ export default {
 									
 								}
 								span{
-									font-size:.2rem;
+									font-size:$font_size_20;
 									font-family:PingFang-SC-Medium;
 									font-weight:500;
 									color:rgba(113,113,113,1);
@@ -259,7 +271,7 @@ export default {
                         top:.53rem;  
                     }
                     b{
-                        font-size:.24rem;
+                        font-size:$font_size_24;
                         font-family:PingFang-SC-Medium;
                         font-weight:500;
                         color:rgba(49,49,49,1);
@@ -270,7 +282,7 @@ export default {
                     .shieldP {
                     padding-left:.24rem;
                     /*padding-bottom: .17rem;*/
-                    font-size:.2rem;
+                    font-size:$font_size_20;
                     font-family:PingFangSC-Regular;
                     font-weight:400;
                     color:rgba(113,113,113,1);
