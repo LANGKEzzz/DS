@@ -6,48 +6,48 @@
 					<img src="../../../../../../static/gzdr_tx_01@2x.png">
 				</router-link>
 				<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp一起回顾</p>
-				<span>互相关注</span>
+				<p>在吗</p>
+				<span>已读</span>
 			</li>
 		    <li>
 		    	<router-link :to="{name:'chat'}">
 		    	    <img src="../../../../../../static/gzdr_tx_02@2x.png">
 		    	</router-link>
 		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
+				<p>出来玩啊</p>
+				<span style="border:1px solid #FD3535;color:#FD3535">未读</span>
 		    </li>
 		    <li>
 		    	<router-link :to="{name:'chat'}">
 		    	    <img src="../../../../../../static/gzdr_tx_03@2x.png">
 		    	</router-link>
 		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
+				<p>很高心认识你</p>
+				<span>已读</span>
 		    </li>
 		    <li>
 		    	<router-link :to="{name:'chat'}">
 		    	   <img src="../../../../../../static/gzdr_tx_01@2x.png">
 		    	</router-link>
 		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
+				<p>在干嘛</p>
+				<span>已读</span>
 		    </li>
 		    <li>
 		    	<router-link :to="{name:'chat'}">
 		    	   <img src="../../../../../../static/gzdr_tx_02@2x.png">
 		    	</router-link>
 		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
+				<p>哈哈哈哈哈</p>
+				<span>已读</span>
 		    </li>
 		    <li>
 		    	<router-link :to="{name:'chat'}">
 		    	   <img src="../../../../../../static/gzdr_tx_03@2x.png">
 		    	</router-link>
 		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
+				<p>天啊</p>
+				<span>已读</span>
 		    </li>
 		</ul>
 	</div>
