@@ -2,9 +2,15 @@
 	<div id="header">
 	   <div class="header_top">
 	   	 <h2>我</h2>
+<<<<<<< HEAD
 	   	
 	   	    <img src="../../../../static/23@2x.png">
 	   	
+=======
+		<router-link to="/settings">
+	   	 <img src="../../../../static/23@2x.png" >
+		</router-link>
+>>>>>>> cong
 	   </div>
 	   <div class="header_middle">
 	   	  <div>
