@@ -28,6 +28,7 @@ import Recommend from '../components/dynamic/content/recommend.vue'
 import Nearby from '../components/dynamic/content/nearby.vue'
 import Dynamic from '../components/dynamic'
 import Transpond from '../components/dynamic/content/transpond.vue'
+import Complaint from '../components/dynamic/content/complaint.vue'
 
 //settings 下的路由
 import Settings from '../components/settings'
@@ -145,6 +146,15 @@ export default new Router({
       path: '/transpond',
       name: 'transpond',
       component: Transpond,
+      props:true,
+      meta:{
+        flag:false
+      }
+    },
+    {
+      path: '/complaint',
+      name: 'complaint',
+      component: Complaint,
       props:true,
       meta:{
         flag:false
