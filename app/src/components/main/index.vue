@@ -1,37 +1,63 @@
 <template>
   <div class="app">
-    <div class="main">
-      <div class="nav">
-        <router-link :to="{name:'home'}">
-          <div class="return">
-            <img src="../../../static/icon/icon_jiantou1@2x.png">
-          </div>
-        </router-link>
-        <div class="photo">
-          <img src="../../../static/gzdr_tx_02@2x.png">
+    <div class="nav" :style="{opacity:transparent}">
+      <router-link :to="{name:'home'}">
+        <div class="return">
+          <img src="../../../static/icon/icon_jiantou1@2x.png">
         </div>
-        <p>为吃疯狂</p>
-      </div>
+      </router-link>
     </div>
-    <div class="dynamic">
-      <div class="user_tx">
-        <img src="../../../static/tx_02@2x.png">
-        <h2>偶像观察员</h2>
-        <p>12-25&nbsp;&nbsp;18:20&nbsp;&nbsp;&nbsp;来自iphone客户端</p>
-      </div>
-      <div class="user_con">
-        <p>"以前我以为</p>
-        <p>钱可以买到一切</p>
-        <p>现在我觉得真的不行</p>
-        <p>因为钱不够"</p>
-      </div>
-      <div class="user_show">
-        <img src="../../../static/tu_01@2x.png">
-        <img src="../../../static/tu_02@2x.png">
-        <img src="../../../static/tu_03@2x.png">
-        <img src="../../../static/tu_04@2x.png">
-        <img src="../../../static/tu_05@2x.png">
-        <img src="../../../static/tu_06@2x.png">
+    <div class="wrapper conout" ref="box">
+      <div class="content conin">
+        <div class="main">
+          <div class="photo">
+            <img src="../../../static/gzdr_tx_02@2x.png">
+          </div>
+          <p>为吃疯狂</p>
+        </div>
+
+        <div class="dynamic">
+          <div class="user_tx">
+            <img src="../../../static/tx_02@2x.png">
+            <h2>偶像观察员</h2>
+            <p>12-25&nbsp;&nbsp;18:20&nbsp;&nbsp;&nbsp;来自iphone客户端</p>
+          </div>
+          <div class="user_con">
+            <p>"以前我以为</p>
+            <p>钱可以买到一切</p>
+            <p>现在我觉得真的不行</p>
+            <p>因为钱不够"</p>
+          </div>
+          <div class="user_show">
+            <img src="../../../static/tu_01@2x.png">
+            <img src="../../../static/tu_02@2x.png">
+            <img src="../../../static/tu_03@2x.png">
+            <img src="../../../static/tu_04@2x.png">
+            <img src="../../../static/tu_05@2x.png">
+            <img src="../../../static/tu_06@2x.png">
+          </div>
+        </div>
+        <div class="dynamic">
+          <div class="user_tx">
+            <img src="../../../static/tx_02@2x.png">
+            <h2>偶像观察员</h2>
+            <p>12-25&nbsp;&nbsp;18:20&nbsp;&nbsp;&nbsp;来自iphone客户端</p>
+          </div>
+          <div class="user_con">
+            <p>"以前我以为</p>
+            <p>钱可以买到一切</p>
+            <p>现在我觉得真的不行</p>
+            <p>因为钱不够"</p>
+          </div>
+          <div class="user_show">
+            <img src="../../../static/tu_01@2x.png">
+            <img src="../../../static/tu_02@2x.png">
+            <img src="../../../static/tu_03@2x.png">
+            <img src="../../../static/tu_04@2x.png">
+            <img src="../../../static/tu_05@2x.png">
+            <img src="../../../static/tu_06@2x.png">
+          </div>
+        </div>
       </div>
     </div>
     <div class="attention">
@@ -44,33 +70,45 @@
 
 
 <script>
+import Bscroll from "better-scroll";
 export default {
-    data(){
-        return{
-            message:"已关注",
-            flag:false,
-            addFlag:false,
-            messageAdd:"关注"
-        }
-    },
-    methods:{
-        handleAdd(){
-            if(this.addFlag){
-                this.message = "已取消";
-                this.messageAdd = "关注"               
-            }else{
-                this.message = "已关注";
-                this.messageAdd = "取消关注" 
-            }
-            this.addFlag = !this.addFlag;
-            this.flag = true;
-            setTimeout(()=>{
-                this.flag = false;
-            },800)
-        }
+  data() {
+    return {
+      message: "已关注",
+      flag: false,
+      addFlag: false,
+      messageAdd: "关注",
+      transparent:0.3
+    };
+  },
+  methods: {
+    handleAdd() {
+      if (this.addFlag) {
+        this.message = "已取消";
+        this.messageAdd = "关注";
+      } else {
+        this.message = "已关注";
+        this.messageAdd = "取消关注";
+      }
+      this.addFlag = !this.addFlag;
+      this.flag = true;
+      setTimeout(() => {
+        this.flag = false;
+      }, 800);
     }
+  },
+  mounted() {
+    this.scroll = new Bscroll(this.$refs.box,{
+      pullUpLoad:true,
+      click:true
+    });
 
-
+    this.scroll.on("scroll",({x,y})=>{
+      if(y > -300 && y < -90){ 
+           this.transparent = -y/300;
+      }
+    })
+  }
 };
 </script>
 
@@ -78,87 +116,105 @@ export default {
 .app {
   width: 100%;
   height: 100%;
-  .main {
+  .nav {
+    height: 0.8rem;
     width: 100%;
-    height: 3.75rem;
-    background: #133981;
-    opacity: 0.85;
-    .nav {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    background: white;
+    border-bottom: 1px solid #f4f4f4;
+    .return {
+      opacity: 1;
+      width: 0.65rem;
       height: 0.8rem;
-      width: 100%;
-      .return {
-        width: 0.65rem;
-        height: 0.8rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+        width: 0.2rem;
+        height:0.35rem;
       }
-    }
-    .photo {
-      width: 1.8rem;
-      height: 1.8rem;
-      margin: 0 auto;
-      margin-top: 0.3rem;
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-    p {
-      color: white;
-      font-size: 0.24rem;
-      text-align: center;
-      margin-top: 0.3rem;
     }
   }
-  .dynamic {
-    height: 7.2rem;
+  .conout {
+    height: 100%;
     width: 100%;
-    .user_tx {
-      width: 7.5rem;
-      height: 0.8rem;
-      /*background:blue;*/
-      margin-top: 0.24rem;
-      overflow: hidden;
-      img {
-        width: 0.8rem;
-        height: 0.8rem;
-        margin-left: 0.24rem;
-        float: left;
+    .conin {
+      padding-bottom: 1.8rem;
+      .main {
+        width: 100%;
+        height: 3.75rem;
+        background: #133981;
+        opacity: 0.85;
+        overflow: hidden;
+        .photo {
+          width: 1.8rem;
+          height: 1.8rem;
+          margin: 0 auto;
+          margin-top: 1.1rem;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        p {
+          color: white;
+          font-size: 0.24rem;
+          text-align: center;
+          margin-top: 0.3rem;
+        }
       }
-      h2 {
-        font-size: 0.24rem;
-        margin-left: 1.38rem;
-        margin-top: 0.16rem;
-      }
-      p {
-        font-size: 0.2rem;
-        margin-left: 1.38rem;
-        margin-top: 0.16rem;
-      }
-    }
-    .user_con {
-      width: 7.5rem;
-      height: 1.1rem;
-      /*background:green;*/
-      margin-top: 0.18rem;
-      p {
-        margin-left: 0.24rem;
-        margin-bottom: 0.01rem;
-      }
-    }
-    .user_show {
-      width: 7.5rem;
-      height: 4.6rem;
-      /*background:skyblue;*/
-      margin-top: 0.18rem;
-      img {
-        width: 2.3rem;
-        height: 2.3rem;
-        float: left;
-        margin-right: 0.06rem;
-        margin-bottom: 0.1rem;
-        margin-left: 0.14rem;
+      .dynamic {
+        height: 7.2rem;
+        width: 100%;
+        .user_tx {
+          width: 7.5rem;
+          height: 0.8rem;
+          /*background:blue;*/
+          margin-top: 0.24rem;
+          overflow: hidden;
+          img {
+            width: 0.8rem;
+            height: 0.8rem;
+            margin-left: 0.24rem;
+            float: left;
+          }
+          h2 {
+            font-size: 0.24rem;
+            margin-left: 1.38rem;
+            margin-top: 0.16rem;
+          }
+          p {
+            font-size: 0.2rem;
+            margin-left: 1.38rem;
+            margin-top: 0.16rem;
+          }
+        }
+        .user_con {
+          width: 7.5rem;
+          height: 1.1rem;
+          /*background:green;*/
+          margin-top: 0.18rem;
+          p {
+            margin-left: 0.24rem;
+            margin-bottom: 0.01rem;
+          }
+        }
+        .user_show {
+          width: 7.5rem;
+          height: 4.6rem;
+          /*background:skyblue;*/
+          margin-top: 0.18rem;
+          img {
+            width: 2.3rem;
+            height: 2.3rem;
+            float: left;
+            margin-right: 0.06rem;
+            margin-bottom: 0.1rem;
+            margin-left: 0.14rem;
+          }
+        }
       }
     }
   }
@@ -168,6 +224,7 @@ export default {
     position: fixed;
     bottom: 0;
     div {
+      background: white;
       text-align: center;
       line-height: 0.9rem;
       font-size: 0.32rem;
@@ -179,17 +236,17 @@ export default {
     .sayhello {
       border-top: 0;
     }
-    .add{
-        width: 1.23rem;
-        height: 0.56rem;
-        position: absolute;
-        top: -3.15rem;
-        font-size: 0.24rem;
-        line-height: 0.56rem;
-        left: 3.17rem;
-        background:white;
-        border-radius: 4px;
-        border:0;
+    .add {
+      width: 1.23rem;
+      height: 0.56rem;
+      position: absolute;
+      top: -3.15rem;
+      font-size: 0.24rem;
+      line-height: 0.56rem;
+      left: 3.17rem;
+      background: white;
+      border-radius: 4px;
+      border: 0;
     }
   }
 }
