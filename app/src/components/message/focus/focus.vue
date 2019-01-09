@@ -6,9 +6,11 @@
                 <div class="focus_back">
                     <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
                 </div>
-            </router-link>
-           
+            </router-link>           
         </h2>
+        <div class="loading" v-show="flag">
+            <i class="fa fa-spinner fa-pulse"></i>
+        </div>
         <ul class="focus_ ">
             <li v-for="(item,index) in focus_list">
                 <div class="focus_img">
@@ -32,6 +34,7 @@ import BScroll from 'better-scroll';
 export default{
     data(){
         return{
+            flag : false,
             focus_list:[
                 {
                     "url":"../../../../static/message/xx_tx_01@2x.png",
@@ -106,7 +109,16 @@ export default{
             position:absolute;
             left:.24rem;
             bottom:.23rem;
+            img{
+                width:.24rem;
+                height:.42rem;
+            }
         }
+    }
+    .loading{
+        width:.3rem;
+        height:.3rem;
+        margin:.1rem auto 0;
     }
     .focus_{
         margin-top:.2rem;
@@ -122,6 +134,10 @@ export default{
                 height:1.2rem;
                 border-radius: 50%;
                 margin:.24rem;
+                img{
+                    width:100%;
+                    height:100%;
+                }
             }
             .focus_focus{
                 p:nth-child(1){

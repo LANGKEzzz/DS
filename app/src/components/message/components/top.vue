@@ -3,14 +3,19 @@
         <div class="top_top">            
             <h2>消息</h2>
         </div>
+        <div class="loading" v-show="flag">
+            <i class="fa fa-spinner fa-pulse"></i>
+        </div>
         <ul>
             <li v-for="(item,index) in ulList">
                 <router-link :to="item.path">
-                    <div>
+                    <div class="top_icon">
                         <img :src="item.src">
                     </div>
                     <b>{{item.title}}</b>
-                    <span>></span>
+                    <div class="top_img">
+                        <img src="../../../../static/icon/icon_jiantou1_reserver.png" alt="">
+                    </div>
                 </router-link>
                 
             </li>
@@ -21,6 +26,7 @@
     export default{
         data(){
             return{
+               flag : false,
                 ulList:[
                     {
                         "src":"../../../static/icon/xx_icon_dz@2x.png",
@@ -67,6 +73,11 @@
             }
         }
     }
+    .loading{
+        width:.3rem;
+        height:.3rem;
+        margin:.1rem auto 0;
+    }
     ul{
         margin-top:.20rem;
         background:#fff;
@@ -85,7 +96,7 @@
                 width: 100%;
                 height:100%;
                 display: flex;
-                div{
+                .top_icon{
                     background:#63d7d4;
                     width:.88rem;
                     height:.88rem;
@@ -103,12 +114,19 @@
                     font-weight: normal;
                     margin-left:.35rem;
                 }
-                span{
+                .top_img{
+                    width:.18rem;
+                    height:.32rem;
                     position: absolute;
-                    right:.18rem;
+                    bottom:.40rem;
+                    right:.24rem;
                     font-size:.32rem;
                     font-weight: bold;
                     color:#000;
+                    img{
+                        width:100%;
+                        height:100%;
+                    }
                 }
             }
             

@@ -8,6 +8,9 @@
                 </div>
             </router-link>           
         </h2>
+        <div class="loading" v-show="flag">
+            <i class="fa fa-spinner fa-pulse"></i>
+        </div>
         <ul class="comment_">
             <li v-for="(item,index) in comment">
                 <div class="comment_p">
@@ -38,6 +41,7 @@
 export default{
     data(){
         return{
+            flag : false,
             comment:[
                 {
                     "url" : "../../../../static/message/xx_tx_06@2x.png",
@@ -98,7 +102,16 @@ export default{
             position:absolute;
             left:.24rem;
             bottom:.23rem;
+            img{
+                width:.24rem;
+                height:.42rem;
+            }
         }
+    }
+    .loading{
+        width:.3rem;
+        height:.3rem;
+        margin:.1rem auto 0;
     }
     .comment_{
         width:100%;
