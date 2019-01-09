@@ -1,8 +1,8 @@
 <template>
 	<div id="inp">
-		<p>语音</p>
+		<button>语音</button>
 		<input type="text" id="send">
-		<p>发送</p>
+		<button>发送</button>
 	</div>
 </template>
 
@@ -11,22 +11,23 @@
 
 <style lang="scss" scoped>
 	#inp{
-		width:7.5rem;
+		width:100%;
 		height:1rem;
 		background:#fff;
 		display:flex;
 		justify-content: space-around;
 		overflow:hidden;
 		
-		p{
+		button{
 			width:0.6rem;
-			height:0.23rem;
+			height:0.4rem;
 			margin-top:0.38rem;
 		}
 		#send{
 			width:5rem;
 			height:0.58rem;
 			border-radius:0.2rem;
+			box-shadow:0px 1px 3px 0px rgba(0, 0, 0, 0.15);
 			margin-top:0.2rem;
 			background:#f4f4f4;
 		

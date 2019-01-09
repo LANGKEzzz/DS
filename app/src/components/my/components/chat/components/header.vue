@@ -2,6 +2,7 @@
 	    <div id="header">
 			<router-link :to="{name:'my'}">
 				<img src="../../../../../../static/icon/icon_jiantou1@2x.png">
+				
 			</router-link>
 			<h2><b>好友</b></h2>
 	    </div>
@@ -12,7 +13,7 @@
 
 <style lang="scss" scoped>
 	#header{
-		width:7.5rem;
+		width:100%;
 		height:1.28rem;
 		border-bottom:1px solid grey;
 		overflow:hidden;

@@ -90,7 +90,7 @@
 	    			display:flex;
 	    			justify-content:space-around;
 	    			div{
-	    				margin-top:0.4rem;
+	    				margin-top:0.2rem;
 	    			}
 	    		}
 	    		

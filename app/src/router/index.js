@@ -43,6 +43,19 @@ import Praise from '../components/my/components/praise'
 import Person from '../components/my/components/person'
 import Collect from '../components/my/components/collect'
 import Chat from '../components/my/components/chat'
+
+import NewList from '../components/my/components/newList'
+
+
+
+
+
+
+
+
+
+
+
 import Loginphone from "../components/settings/page/components/loginPhone"
 import Changenum from "../components/settings/page/components/changenum"
 Vue.use(Router)
@@ -361,6 +374,15 @@ export default new Router({
       component: Chat,
       meta:{
         flag:false
+      }
+    },
+    {
+
+    	path: '/newList',
+      name: 'newList',
+      component: NewList,
+      meta:{
+        flag:true
       }
     },
     

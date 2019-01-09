@@ -42,19 +42,19 @@
 	#main{
 		width:7.5rem;
 	    height:10.1rem;
-	    /*background:yellow;*/
+	    
 	    .ex{
-	    	width:7.5rem;
+	    	width:100%;
 	    	height:0.2rem;
 	    	background:#f4f4f4;
 	    }.main_bottom{
-	    	width:7.5rem;
+	    	width:100%;
 	    	height:9rem;
 	    	.main_bottom_one{
-	    		width:7.5rem;
+	    		width:100%;
 	    		height:0.8rem;
 	    		/*background:blue;*/
-	    		margin-top:0.24rem;
+	    		margin-top:0.1rem;
 	    		overflow:hidden;
 	    		img{
 	    			width:0.8rem;
@@ -64,29 +64,30 @@
 	    		}
 	    		h2{
 	    			font-size:0.24rem;
-	    			color:#fff;
+	    			color:#000;
 	    			margin-left:1.38rem;
-	    			margin-top:0.16rem;
+	    			margin-top:0.08rem;
 	    		}
 	    		p{
 	    			font-size:0.2rem;
-	    			color:#fff;
+	    			color:#717171;
 	    			margin-left:1.38rem;
-	    			margin-top:0.16rem;
+	    			margin-top:0.08rem;
 	    		}
 	    	}
 	    	.main_bottom_two{
-	    	    width:7.5rem;
-	    	    height:1.1rem;
+	    	    width:100%;
+	    	    height:1.2rem;
 	    	    /*background:green;*/
 	    	    margin-top:0.18rem;
 	    	    p{
 	    	    	margin-left:0.24rem;
-	    	    	margin-bottom:0.01rem;
+	    	    	margin-top:-0.06rem;
+					font-weight:bold;
 	    	    }
 	    	}
 	    	.main_bottom_thr{
-	    		width:7.5rem;
+	    		width:100%;
 	    		height:4.6rem;
 	    		/*background:skyblue;*/
 	    		margin-top:0.18rem;
@@ -101,8 +102,8 @@
 	    	}
 	    	.main_bottom_four{
 	    		.tx{
-	    			width:0.35rem;
-	    			height:0.27rem;
+	    			width:0.27rem;
+	    			height:0.35rem;
 	    			float:left;
 	    			margin-left:0.24rem;
 	    		}
@@ -110,7 +111,7 @@
 	    			margin-left:0.7rem;
 	    		}
 	    		.fx{
-	    			width:7.5rem;
+	    			width:100%;
 	    			height:0.51rem;
 	    			display:flex;
 	    			justify-content:space-around;
