@@ -3,7 +3,7 @@
 		<router-link :to="{name:'my'}">
 			<img src="../../../../../../static/icon/icon_jiantou1@2x.png">
 		</router-link>
-		<h2>关注的人</h2>
+		<h2><b>关注的人</b></h2>
 	</div>
 </template>
 

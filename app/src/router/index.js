@@ -1,17 +1,40 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+//home 下的路由
 import Home from '../components/home'
 import Main from "../components/main"
-import Dynamic from '../components/dynamic'
+//release 下的路由
 import Release from '../components/release'
+//message 下的路由
 import Message from '../components/message'
+//my 下的路由
+import MessageFocus from '../components/message/focus/focus.vue'
+import MessageMessremind from '../components/message/messremind/messremind.vue'
+import MessageRemind from '../components/message/remind/remind.vue'
+import Dialogbox from "../components/message/dialogbox/dialogbox.vue"
 import My from '../components/my'
+import Attention from '../components/my/components/attention'
+import Fans from '../components/my/components/fans'
+//err 下的路由
 import Err from '../components/error/error.vue'
-import Fatheras from "../components/settings/father-as.vue"
-import Fathermessage from "../components/settings/father-message.vue"
-import Fathergeneral from "../components/settings/father-general.vue"
-import Fatherpicture from "../components/settings/father-picture.vue"
-import Fathershield from "../components/settings/father-shield.vue"
+//login 下的路由
+import Login from '../components/login'
+//register 下的路由
+import Register from '../components/register'
+//dynamic下的路由
+import Comm from '../components/dynamic/content/comment.vue'
+import Concern from '../components/dynamic/content/concern.vue'
+import Recommend from '../components/dynamic/content/recommend.vue'
+import Nearby from '../components/dynamic/content/nearby.vue'
+import Dynamic from '../components/dynamic'
+import Transpond from '../components/dynamic/content/transpond.vue'
+
+//settings 下的路由
+import Settings from '../components/settings'
+
+
+
+
 import AS from "../components/settings/page/AS.vue"
 import messageS from "../components/settings/page/messageS.vue"
 import generalS from "../components/settings/page/generalS.vue"
@@ -19,18 +42,29 @@ import shieldS from "../components/settings/page/shieldS.vue"
 import pictureS from "../components/settings/page/pictureS.vue"
 import Aiteset from "../components/settings/page/components/aiteset"
 import Phonenum from "../components/settings/page/components/phonenum"
-import Concern from '../components/dynamic/content/concern.vue'
-import Recommend from '../components/dynamic/content/recommend.vue'
-import Nearby from '../components/dynamic/content/nearby.vue'
-import Login from '../components/login'
-import Settings from '../components/settings'
-import Register from '../components/register'
-import Attention from '../components/my/components/attention'
-import FindPwd from '../components/findpwd'
-import Comm from '../components/dynamic/content/comment.vue'
-import Transpond from '../components/dynamic/content/transpond.vue'
-import Fans from '../components/my/components/fans'
 
+import FindPwd from '../components/findpwd'
+
+import Praise from '../components/my/components/praise'
+
+import Person from '../components/my/components/person'
+
+import Collect from '../components/my/components/collect'
+
+import Chat from '../components/my/components/chat'
+
+
+
+
+
+
+
+
+
+
+
+import Loginphone from "../components/settings/page/components/loginPhone"
+import Changenum from "../components/settings/page/components/changenum"
 Vue.use(Router)
 
 export default new Router({
@@ -70,6 +104,7 @@ export default new Router({
         requireAuth:true
       }
     },
+    //dynamic
     {
       path: '/dynamic',
       name: 'dynamic',
@@ -114,13 +149,15 @@ export default new Router({
       }
     },
     {
-      path: '/transpond/:itm',
+      path: '/transpond',
       name: 'transpond',
       component: Transpond,
+      props:true,
       meta:{
         flag:false
       }
     },
+    //release
     {
       path: '/release',
       name: 'release',
@@ -140,6 +177,42 @@ export default new Router({
       }
     },
     {
+      path:"/message/dialogbox",
+      name:"dialogbox",
+      component:Dialogbox,
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/message/messremind",
+      name:'messagemessremind',
+      component:MessageMessremind,
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/message/focus",
+      name:'messagefocus',
+      component:MessageFocus,
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/message/remind",
+      name:'Messageremind',
+      component:MessageRemind,
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
       path: '/my',
       name: 'my',
       component: My,
@@ -148,6 +221,7 @@ export default new Router({
         requireAuth:true
       }
     },
+        //设置
     {
       path: '/settings',
       name: 'settings',
@@ -157,110 +231,52 @@ export default new Router({
         requireAuth:true
       }
     },
-
-    
-    // {
-    //   path:"/settings",
-    //   name:"settings",
-    //   component:Settings,
-    //   meta:{
-    //     flag:false,
-    //     requireAuth:true
-    //   }
-    // },
-    //设置
+			//账号与安全
     {
-      path:"/fatheras",
-      name:"fatheras",
-      component:Fatheras,
+      path:"/aS",
+      name:"aS",
+      component:AS,
       meta:{
         flag:false
-      },
-      children:[
-        {
-          path:"/aS",
-          name:"aS",
-          component:AS,
-          meta:{
-            flag:false
-          }
-        }
-      ]
+      }
     },
+			//消息设置
     {
-      path:"/fathermessage",
-      name:"fathermessage",
-      component:Fathermessage,
-      meta:{
-        flag:false
-      },
-      children:[
-        {
-          path:"/messageS",
-          name:"messageS",
-          component:messageS,
-          meta:{
-            flag:false
-          }
+      path:"/messageS",
+      name:"messageS",
+      component:messageS,
+        meta:{
+          flag:false
         }
-      ]
-
     },
+    //通用设置
     {
-      path:"/fathergeneral",
-      name:"fathergeneral",
-      component:Fathergeneral,
-      meta:{
-        flag:false
-      },
-      children:[
-        {
-          path:"/generalS",
-          name:"generalS",
-          component:generalS,
-          meta:{
-            flag:false
-          }
+      path:"/generalS",
+      name:"generalS",
+      component:generalS,
+        meta:{
+          flag:false
         }
-      ]
-    },  
-   
-    {
-      path:"/fatherpicture",
-      name:"fatherpicture",
-      component:Fatherpicture,
-      meta:{
-        flag:false
-      },
-      children:[
-        {
-          path:"/pictureS",
-          name:"pictureS",
-          component:pictureS,
-          meta:{
-            flag:false
-          }
-        }
-      ]
     },
+    //图片设置
     {
-      path:"/fathershield",
-      name:"fathershield",
-      component:Fathershield,
-      meta:{
-        flag:false
-      },
-      children:[
-        {
-          path:"/shieldS",
-          name:"shieldS",
-          component:shieldS,
-          meta:{
-            flag:false
-          }
-        }
-      ]
-    }, 
+      path:"/pictureS",
+      name:"pictureS",
+      component:pictureS,
+        meta:{
+          flag:false
+      }
+    },
+    //屏蔽设置
+    {
+      path:"/shieldS",
+      name:"shieldS",
+      component:shieldS,
+        meta:{
+          flag:false
+      }
+    },
+    //@设置
     {
       path:"/aiteset",
       name:"aiteset",
@@ -269,6 +285,7 @@ export default new Router({
         flag:false
       }
     },
+    //手机号码
     {
     	path:"/phonenum",
       name:"phonenum",
@@ -277,6 +294,26 @@ export default new Router({
         flag:false
       }
     },
+    //登录手机
+    {
+      path:"/loginphone",
+      name:"loginphone",
+      component:Loginphone,
+      meta:{
+        flag:false
+      }
+      
+    },
+    //更换号码
+    {
+    	path:"/changenum",
+      name:"changenum",
+      component:Changenum,
+      meta:{
+        flag:false
+      }
+    },
+
     {
       path: '/login',
       name: 'login',
@@ -310,6 +347,43 @@ export default new Router({
         flag:true
       }
     },
+    {
+
+    	path: '/praise',
+      name: 'praise',
+      component: Praise,
+      meta:{
+        flag:true
+      }
+    },
+    {
+
+    	path: '/person',
+      name: 'person',
+      component: Person,
+      meta:{
+        flag:true
+      }
+    },
+    {
+
+    	path: '/collect',
+      name: 'collect',
+      component: Collect,
+      meta:{
+        flag:true
+      }
+    },
+    {
+
+    	path: '/chat',
+      name: 'chat',
+      component: Chat,
+      meta:{
+        flag:false
+      }
+    },
+    
     {
       path: '/**',
       name: 'error',

@@ -2,13 +2,27 @@
 	<div id="header">
 	   <div class="header_top">
 	   	 <h2>我</h2>
-	   	 <img src="../../../../static/23@2x.png">
+<<<<<<< HEAD
+	   	
+	   	    <img src="../../../../static/23@2x.png">
+	   	
+=======
+		<router-link to="/settings">
+	   	 <img src="../../../../static/23@2x.png" >
+		</router-link>
+>>>>>>> cong
 	   </div>
 	   <div class="header_middle">
 	   	  <div>
-	   	  	<img src="../../../../static/icon-sc@2x.png">
+	   	  	<router-link :to="{name:'collect'}">
+	   	  	    <img src="../../../../static/icon-sc@2x.png">
+	   	  	</router-link>
 	   	  </div>
-	   	  <img src="../../../../static/tx_01@2x.png">
+	   	  
+	   	   <router-link :to="{name:'person'}">
+	   	      <img class="ig" src="../../../../static/tx_01@2x.png">
+	   	   </router-link>
+	   	   
 	   	  <div>
 	   	  	<img src="../../../../static/5@2x.png">
 	   	  </div>
@@ -31,7 +45,9 @@
 	   	    </dl>
 	   	    <dl>
 	   	    	<dt>1154</dt>
-	   	    	<dd>我的赞</dd>
+			    <router-link :to="{name:'praise'}"> 
+	   	    	    <dd>我的赞</dd>
+				</router-link>
 	   	    </dl>
 	   </div>
 	</div>
@@ -76,7 +92,7 @@
 		height:1.53rem;
 		/*background:red;*/
 	}
-	#header .header_middle>img{
+	#header .header_middle .ig{
 		width:1.53rem;
 		height:1.53rem;
 		float:left;

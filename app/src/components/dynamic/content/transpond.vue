@@ -33,10 +33,8 @@ export default {
         }
     },
     beforeMount() {
-        let item = this.$route.query.itm
-       
+        let item = this.$route.params.itm
         this.item = item
-         console.log(this.item)
     },
     methods: {
         cancel(){
