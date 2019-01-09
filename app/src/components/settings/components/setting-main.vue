@@ -45,6 +45,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@import "../../../common/css/fontSize";
     .main{
         width:7.5rem;
         height:4.9rem;
@@ -60,7 +61,7 @@ export default {
                 border-bottom:1px solid #eee;
                 line-height:.88rem;
                 padding-left:.25rem;
-                font-size:.24rem;
+                font-size:$font_size_24;
                 font-family:PingFang-SC-Medium;
                 font-weight:500;
                  a{

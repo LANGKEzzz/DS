@@ -12,10 +12,10 @@
      <div class="main">
         
         <ul>
-            <li v-for="(item,index) in list">
+            <li v-for="(item,index) in list" @click="changeFlag(index)" :key="index">
                 <router-link :to="{name:item.name}">
                     {{item.title}}
-                    <!-- <img :src="item.url"> -->
+                    <img :src="item.url" v-show="activeIndex==index"/>
                 </router-link>
             </li>
         </ul>
@@ -31,34 +31,61 @@ export default {
                     
                     title:"大",
                     // messsage:"我关注的人",
-                    // url:"../../../../../static/icon/icon_jiantou1_reserver.png"
+                    url:"../../../../static/icon/icon_dh@2x.png"
+                  
                 },
                 {
                     // name:"phomeAS",
                     title:"中",
                     // messsage:"所有人",
-                    // url:"../../../../../static/icon/icon_jiantou1_reserver.png"
+                    url:"../../../../static/icon/icon_dh@2x.png"
+                   
 
                 },
                                 {
                     // name:"phomeAS",
                     title:"小",
                     // messsage:"所有人",
-                    // url:"../../../../../static/icon/icon_jiantou1_reserver.png"
+                    url:"../../../../static/icon/icon_dh@2x.png"
+                    
 
                 }
-   
-  
+            ],
+            activeIndex:-1
+            
+            
 
-            ]
         }
+    },
+    methods:{
+        changeFlag(index){
+            this.activeIndex=index;
+            
+        }
+        // handleChange(index){
+        //     if(index==0){
+        //         window.document.childNodes[1].style.fontSize=102+"px";
+        //     }else if(index==1){
+        //        window.document.childNodes[1].style.fontSize=100+"px";
+        //     }else if(index==2){
+        //         window.document.childNodes[1].style.fontSize=98+"px";
+        //     }
+        // }
+
+ 
+    },
+    mounted(){
+        console.log(window.document.childNodes[1].style.fontSize)
+       
     }
 }
 </script>
+
 <style lang="scss" scoped>
+@import "../../../common/css/fontSize.scss";
     .generalS{
         width:7.5rem;
-        height:13.34rem;;
+        height:13.34rem;
         background: #eee;
               .header {
                 width: 7.5rem;
@@ -68,7 +95,7 @@ export default {
                 box-shadow:0 0.01rem 0.03rem 0 rgba(0, 0, 0, 0.15);
                 position:relative;
                     p {
-                        font-size:.34rem;
+                        font-size: $font_size_34;
                         color:rgba(30,30,30,1);
                         display:inline-block;
                         font-family:PingFang-SC-Medium;
@@ -85,7 +112,11 @@ export default {
                         display:inline-block;
                         position:absolute;
                         left: 0.24rem;
-                        bottom:.23rem;
+                        bottom:.31rem;
+                        img{
+                            width:.24rem;
+                            height:.42rem; 
+                            }
                     }
                 }
                 .main{
@@ -95,7 +126,7 @@ export default {
                     p{
                         padding-left:.24rem;
                         padding-bottom: .17rem;
-                        font-size:.2rem;
+                        font-size:$font_size_20;
                         font-family:PingFangSC-Regular;
                         font-weight:400;
                         color:rgba(113,113,113,1);
@@ -111,7 +142,7 @@ export default {
                             border-bottom:1px solid #eee;
                             line-height:.88rem;
                             padding-left:.25rem;
-                            font-size:.24rem;
+                            font-size:$font_size_24;
                             font-family:PingFang-SC-Medium;
                             font-weight:500;
                             position: relative;

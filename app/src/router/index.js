@@ -31,10 +31,6 @@ import Transpond from '../components/dynamic/content/transpond.vue'
 
 //settings 下的路由
 import Settings from '../components/settings'
-
-
-
-
 import AS from "../components/settings/page/AS.vue"
 import messageS from "../components/settings/page/messageS.vue"
 import generalS from "../components/settings/page/generalS.vue"
@@ -42,27 +38,11 @@ import shieldS from "../components/settings/page/shieldS.vue"
 import pictureS from "../components/settings/page/pictureS.vue"
 import Aiteset from "../components/settings/page/components/aiteset"
 import Phonenum from "../components/settings/page/components/phonenum"
-
 import FindPwd from '../components/findpwd'
-
 import Praise from '../components/my/components/praise'
-
 import Person from '../components/my/components/person'
-
 import Collect from '../components/my/components/collect'
-
 import Chat from '../components/my/components/chat'
-
-
-
-
-
-
-
-
-
-
-
 import Loginphone from "../components/settings/page/components/loginPhone"
 import Changenum from "../components/settings/page/components/changenum"
 Vue.use(Router)

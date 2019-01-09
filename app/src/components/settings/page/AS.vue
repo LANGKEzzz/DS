@@ -19,7 +19,7 @@
                 <li class="phonenum">手机号码</li>
             </router-link >
               <!-- <router-link to=""> -->
-                <li @click="modal1=true" >修改密码</li>
+                <li @click="modal1=true" class="phonenum" >修改密码</li>
   				
         </ul>
             <Modal
@@ -58,6 +58,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@import "../../../common/css/fontSize.scss";
     .as{
         width:7.5rem;
         height:13.34rem;;
@@ -70,7 +71,7 @@ export default {
             box-shadow:0 0.01rem 0.03rem 0 rgba(0, 0, 0, 0.15);
             position:relative;
             p {
-                font-size:.34rem;
+                font-size:$font_size_34;
                 color:rgba(30,30,30,1);
                 display:inline-block;
                 font-family:PingFang-SC-Medium;
@@ -87,7 +88,11 @@ export default {
                 display:inline-block;
                 position:absolute;
                 left: 0.24rem;
-                bottom:.23rem;
+                bottom:.31rem;
+                img{
+                   width:.24rem;
+                   height:.42rem; 
+                }
             }
         }
         .main{
@@ -105,7 +110,7 @@ export default {
                     border-bottom:1px solid #eee;
                     line-height:.88rem;
                     padding-left:.25rem;
-                    font-size:.24rem;
+                    font-size:$font_size_24;
                     font-family:PingFang-SC-Medium;
                     font-weight:500;
                     
