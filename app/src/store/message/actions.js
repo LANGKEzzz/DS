@@ -3,11 +3,12 @@ export default{
     handleMessage({commit}){
         axios({
             method:"post",
-            url:""
+            // https://www.easy-mock.com/mock/5c3460cefad511025643ee25/example/focus
+            url:"/api/mock/5c3460cefad511025643ee25/example/focus"
         })
         .then( (data)=>{
             console.log(data)
-            commit( "handleMessage",deta )
+            // commit( "handleMessage",data )
         } )
     },
     handleFocus({commit}){

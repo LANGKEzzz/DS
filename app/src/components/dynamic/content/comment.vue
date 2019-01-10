@@ -1,6 +1,6 @@
 <template>
     <div id="comment">
-        <div class="main">
+        <div class="main"  @click="handleInput()">
             <div class="header">
                 <img src="../../../../static/icon/icon_jiantou1@2x.png" alt="" @click="goback()">
                 <h2>{{item.nickname}}</h2>
@@ -26,29 +26,78 @@
             </ul>
 
         </div>
+        <div>
+            <ul class="mainB" v-show="flag">
+                <li @click.stop="jump(1)">
+                    <img src="@/assets/icon/icon_zf@2x.png" alt="">
+                    <span>转发</span>
+                </li>
+                <li @click.stop="jump(2)">
+                    <img src="@/assets/icon/icon_pl@2x.png" alt="">
+                    <span>评论</span>
+                </li>
+                <li @click.stop="jump(3)">
+                    <img src="@/assets/icon/icon_dz@2x.png" alt="">
+                    <span>点赞</span>
+                </li>
+            </ul>
+        </div>
+        <div class="input" v-if="!flag">
+            <i class="sound"></i>
+            <input type="text" v-focus>
+            <i class="face"></i>
+            <button class="btn">发送</button>
+        </div>
     </div>
 </template>
 <script>
 export default {
     data() {
         return {
-            item:''
+            item:'',
+            flag:true,
         }
     },
-    // filters:{
-    //     name:function(val){
-    //         return "@"+val
-    //     }
-    // },
-    beforeMount() {
+    directives: {
+        // 注册一个局部的自定义指令 v-focus
+        focus: {
+            // 指令的定义
+            inserted: function (el) {
+                console.log(el)
+            // 聚焦元素
+            el.focus()
+            }
+        }
+    },
+
+    created() {
         let item = this.$route.params.itm
         this.item = item
-        console.log(item)
     },
     methods: {
         goback(){
             this.$router.go(-1)
+        },
+        jump(val){
+            if(val==1){
+                this.$router.push({
+                    "name":"transpond",
+                    params:{
+                        itm:this.item
+                    }
+                })
+            }else if(val==2){
+                this.flag = false
+            }
+        },
+        handleInput(){
+            if(this.flag == false){
+                this.flag = true
+            }else{
+                return
+            }
         }
+
     },
 }
 </script>
@@ -56,9 +105,9 @@ export default {
     #comment{
         width: 100%;
         height: 100%;
-        background: #f4f4f4;
         overflow: auto;
         .main{
+            background: #f4f4f4;
             .header{
                 width: 100%;
                 height: .88rem;
@@ -123,10 +172,80 @@ export default {
                                 font-size: .24rem;
                                 font-weight: bold;
                             }
+                            p{
+                                font-size: .24rem;
+                                line-height: .25rem;
+                            }
                         }
                     }
                 }
                 
+            }
+        }
+        .mainB{
+            width: 100%;
+            height: .88rem;
+            display: flex;
+            justify-content: space-around;
+            margin-top: .24rem;
+            border-top: .01rem solid #ccc;
+            position: fixed;
+            bottom: 0;
+            background:rgba(255,255,255,1);
+            li{
+                line-height: .75rem;
+               img{
+                   display: inline-block;
+                   width: .33rem;
+                   height: .33rem;
+                   vertical-align: middle;
+               }
+               span{
+                   height: 100%;
+                   display: inline-block;
+                
+               }
+            }
+        }
+        .input{
+            position: fixed;
+            bottom: 0;
+            height: .88rem;
+            width: 100%;
+            background: #d1d6db;
+            input{
+                width: 4.64rem;
+                height: .53rem;
+                border: none;
+                margin-left: .2rem;
+                margin-top: .17rem;
+                outline: none;
+                font-size: .34rem;
+            }
+            .sound{
+                width: .59rem;
+                height: .59rem;
+                display: inline-block;
+                background: url("../../../../static/dynamicImg/sy.png") no-repeat center center;
+                vertical-align: middle;
+                margin-bottom: .08rem;
+                margin-left: .2rem;
+                background-size:cover;
+            }
+            .face{
+                width: .59rem;
+                height: .59rem;
+                display: inline-block;
+                background: url("../../../../static/dynamicImg/bq.png") no-repeat center center;
+                vertical-align: middle;
+                margin-bottom: .08rem;
+                background-size:cover;
+                margin-left: .1rem;
+            }
+            .btn{
+                width: .69rem;
+                height: .59rem;
+                margin-left: .15rem;
             }
         }
     }

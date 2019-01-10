@@ -1,20 +1,44 @@
 <template>
     <div id="my">
         <Header-com></Header-com>
-        <Main-com></Main-com>
+        <div class="wrapper" ref="box">  
+            <div class="content">
+                <Main-com></Main-com>
+                <Main-com></Main-com>
+            </div>
+        </div>
     </div>
 </template>
 <script>
+    //引入插件
+    import BScroll from "better-scroll";
 	import Header from "./components/header.vue";
-	import Main from "./components/main.vue";
-	
+    import Main from "./components/main.vue";
+    
 export default {
     components:{
     	"Header-com":Header,
     	"Main-com":Main
+    },
+    mounted(){
+        // let wrapper = document.querySelector('.wrapper')
+        // let scroll = new BScroll(wrapper)
+        this.scroll = new BScroll(this.$refs.box,{
+            scrollY:true,
+            click:true
+        })
+        console.log(this.scroll)
     }
 }
 </script>
-<style lang="">
+<style lang="scss" scoped>
+   #my{
+       width:100%;
+       height:100%;
+       font-family: PingFang-SC-Medium;
+       .wrapper{
+           height:12.26rem;
+       }
+   }
     
 </style>

@@ -10,7 +10,7 @@
                         <span>{{item.phone}}</span>
                    </p> 
                 </div>
-                <div class="operation" @click="handle()">
+                <div class="operation" @click="handle(item)">
                     <img src="../../../../static/icon/icon_xl@2x.png" alt="">
                 </div>
             </div>
@@ -31,7 +31,7 @@
         </div>
         <div class="mask" v-if="!flag" @click="handleConceal()">
             <ul class="inforList">
-                <li v-for="(item,index) in list" v-bind:key="index">
+                <li v-for="(item,index) in list" v-bind:key="index" @click="handleBtn(item.name)">
                     <router-link to="">
                         {{item.title}}
                     </router-link>
@@ -58,18 +58,30 @@ export default {
                     title:"屏蔽"
                 },
                 {
-                    name:"report",
-                    title:"举报"
+                    name:"complaint",
+                    title:"投诉"
                 }
-            ]
+            ],
+            item:{}
         }
     },
+    
     methods: {
-        handle(){
+        handle(obj){
             this.flag = !this.flag
+            this.item = obj
+            console.log(obj)
         },
         handleConceal(){
             this.flag = !this.flag
+        },
+        handleBtn(val){
+            this.$router.push({
+                "name":val,
+                params:{
+                    item:this.item
+                }
+            })
         }
     },
 }

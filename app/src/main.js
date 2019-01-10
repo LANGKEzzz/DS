@@ -10,6 +10,11 @@ import "../node_modules/swiper/dist/css/swiper.min.css";
 import "./common/js/flexble";
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
+//引入mint-ui 
+import MintUI from 'mint-ui';
+import 'mint-ui/lib/style.css';
+Vue.use(MintUI);
+
 
 Vue.config.productionTip = false
 Vue.use(iView);

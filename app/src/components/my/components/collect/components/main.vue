@@ -31,18 +31,18 @@
 
 <style lang="scss" scoped>
     #main{
-     	width:7.5rem;
+     	width:100%;
      	height:12.06rem;
      	
      	.ex{
-     		width:7.5rem;
+     		width:100%;
      		height:0.19rem;
      		background:#f4f4f4;
      	}.list{
-     		width:7.5rem;
+     		width:100%;
      		height:11.87rem;
      		.list_one{
-     			width:7.5rem;
+     			width:100%;
      			height:7.44rem;
      			
      			overflow:hidden;
@@ -84,13 +84,13 @@
 	    				margin-bottom:0.04rem;
 	    			}
 	    		}.fx{
-	    			width:7.5rem;
+	    			width:100%;
 	    			height:7.44rem;
 	    		
 	    			display:flex;
 	    			justify-content:space-around;
 	    			div{
-	    				margin-top:0.4rem;
+	    				margin-top:0.2rem;
 	    			}
 	    		}
 	    		

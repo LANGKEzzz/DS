@@ -5,32 +5,32 @@
 		</div>
 		<div class="friends">
 			<ul>
-				<li>
-					<img src="../../../../../../static/gzdr_tx_01@2x.png">
+				<li v-for="{item,index} in List_fans">
+					<img src="../../../../../../\static\my\hy_tx_01@2x.png">
 					<p>新鲜事</p>
 					<p>新鲜事金牌作者&nbsp一起回顾</p>
 					
 				</li>
-			    <li>
-			    	<img src="../../../../../../static/gzdr_tx_02@2x.png">
+			    <!-- <li>
+			    	<img src="../../../../../../\static\my\hy_tx_02@2x.png">
 			    	<p>新鲜事</p>
 					<p>新鲜事金牌作者&nbsp;一起回顾</p>
 				
 			    </li>
 			    <li>
-			    	<img src="../../../../../../static/gzdr_tx_03@2x.png">
+			    	<img src="../../../../../../\static\my\hy_tx_03@2x.png">
 			    	<p>新鲜事</p>
 					<p>新鲜事金牌作者&nbsp;一起回顾</p>
 					
 			    </li>
 			    <li>
-			    	<img src="../../../../../../static/gzdr_tx_01@2x.png">
+			    	<img src="../../../../../../\static\my\hy_tx_04@2x.png">
 			    	<p>新鲜事</p>
 					<p>新鲜事金牌作者&nbsp;一起回顾</p>
-					<span>互相关注</span>
+				
 			    </li>
 			    <li>
-			    	<img src="../../../../../../static/gzdr_tx_02@2x.png">
+			    	<img src="../../../../../../\static\my\hy_tx_07@2x.png">
 			    	<p>新鲜事</p>
 					<p>新鲜事金牌作者&nbsp;一起回顾</p>
 					
@@ -39,21 +39,99 @@
 			    	<img src="../../../../../../static/gzdr_tx_03@2x.png">
 			    	<p>新鲜事</p>
 					<p>新鲜事金牌作者&nbsp;一起回顾</p>
-			    </li>
+			    </li> -->
 		    </ul>
 		</div>
 	</div>
 </template>
 
 <script>
+    export default{
+		data(){
+			return{
+				List_fans:[
+					{
+                        "url":"../../../../../../static/gzdr_tx_02@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_03@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_04@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_05@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_07@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_07@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+				]
+			}
+		}
+	}
 </script>
 
 <style lang="scss" scoped>
 	#main{
-		width:7.5rem;
+		width:100%;
 		height:12.06rem;
 		.exa{
-			width:7.5rem;
+			width:100%;
 			height:0.5rem;
 			background:#f4f4f4;
 			h4{
@@ -62,11 +140,11 @@
 			}
 		}
 		.friends{
-			width:7.5rem;
+			width:100%;
 			height:11.71rem;
 			
 			li{
-				width:7.5rem;
+				width:100%;
 				height:1.68rem;
 				/*background:yellow;*/
 				border:1px solid #f4f4f4;

@@ -1,7 +1,7 @@
 <template>
 	<div id="main">
 		<ul>
-			<li>
+			<li v-for="{item,index} in List_att">
 				<router-link :to="{name:'chat'}">
 					<img src="../../../../../../static/gzdr_tx_01@2x.png">
 				</router-link>
@@ -9,15 +9,15 @@
 				<p>新鲜事金牌作者&nbsp一起回顾</p>
 				<span>互相关注</span>
 			</li>
-		    <li>
+		    <!-- <li>
 		    	<router-link :to="{name:'chat'}">
 		    	    <img src="../../../../../../static/gzdr_tx_02@2x.png">
 		    	</router-link>
 		    	<p>新鲜事</p>
 				<p>新鲜事金牌作者&nbsp;一起回顾</p>
 				<span>互相关注</span>
-		    </li>
-		    <li>
+		    </li> -->
+		    <!-- <li>
 		    	<router-link :to="{name:'chat'}">
 		    	    <img src="../../../../../../static/gzdr_tx_03@2x.png">
 		    	</router-link>
@@ -48,26 +48,83 @@
 		    	<p>新鲜事</p>
 				<p>新鲜事金牌作者&nbsp;一起回顾</p>
 				<span>互相关注</span>
-		    </li>
+		    </li> -->
 		</ul>
 	</div>
 </template>
 
 <script>
-	/*var vm = new Vue({
-		el:"#main",
-		data:{
-			user:[]
+	export default{
+		data(){
+			return{
+               List_att:[
+				   {
+					  "url":"../../../../../../static/gzdr_tx_02@2x.png",
+					  "p1":"新鲜事",
+					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
+					  "sp":"互相关注"
+
+				   },
+				   {
+                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
+					  "p1":"新鲜事",
+					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
+					  "sp":"互相关注"
+				   },
+				    {
+                      "url":"../../../../../../static/gzdr_tx_02@2x.png",
+					  "p1":"新鲜事",
+					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
+					  "sp":"互相关注"
+				   },
+				    {
+                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
+					  "p1":"新鲜事",
+					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
+					  "sp":"互相关注"
+				   },
+                    {
+                      "url":"../../../../../../static/gzdr_tx_02@2x.png",
+					  "p1":"新鲜事",
+					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
+					  "sp":"互相关注"
+				   },
+				   {
+                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
+					  "p1":"新鲜事",
+					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
+					  "sp":"互相关注"
+				   },
+				   {
+                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
+					  "p1":"新鲜事",
+					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
+					  "sp":"互相关注"
+				   },
+				   {
+                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
+					  "p1":"新鲜事",
+					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
+					  "sp":"互相关注"
+				   },
+				   {
+                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
+					  "p1":"新鲜事",
+					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
+					  "sp":"互相关注"
+				   },
+			   ]
+			}
 		}
-	})*/
+	}
 </script>
 
 <style lang="scss" scoped>
 	#main{
-		width:7.5rem;
+		width:100%;
 		height:13.34rem;
 		li{
-			width:7.5rem;
+			width:100%;
 			height:1.68rem;
 			/*background:yellow;*/
 			border:1px solid #f4f4f4;

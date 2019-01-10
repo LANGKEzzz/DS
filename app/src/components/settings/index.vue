@@ -24,7 +24,7 @@ export default {
 <style lang="scss" scoped>
     .settings{
         width:7.5rem;
-        height:13.34rem;;
+        height:13.34rem;
         background: #eee;
     }
 </style>
