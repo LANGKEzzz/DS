@@ -143,7 +143,7 @@ export default {
 							margin-bottom:0.01rem;
 							
 							.left{
-								display:inline-block;
+						
 								float:left;
 								line-height:1.68rem;
 								margin-left:.24rem;
@@ -158,7 +158,7 @@ export default {
 								
 							}
 							.center{
-								display:inline-block;
+							
 								float:left;
 								margin-top:.55rem;
 								padding-left:.24rem;
@@ -180,7 +180,7 @@ export default {
 								
 							}
 							.right{
-								display:inline-block;
+							
 								float:right;
 								/*text-align:center;*/
 								line-height:0.48rem;

@@ -1,397 +1,342 @@
 <template>
-    <div class="app" ref="box">
-        <!-- <transition name="slide"  v-for="(item,index) in obj" v-show="usershow"> -->
-            <div class="user" v-for="(item,index) in obj">
-                <div class="photo">
-                    <img :src="item.imgsrc">
-                </div>
-                <p class="username">{{item.username}}</p>
-            </div>
-        <!-- </transition> -->
+  <div class="app" ref="box">
+    <div class="user" v-for="(item,index) in obj"  @click="handleInfo()">
+      <router-link :to="{name:'main'}">
+        <div class="photo">
+          <img :src="item.imgsrc">
+        </div>
+        <p class="username">{{item.username}}</p>
+      </router-link>
     </div>
+  </div>
 </template>
 
 
 <script>
-
+import Vuex from "vuex";
+import axios from "../../../lib";
 export default {
-   data(){
-       return{
-           obj:[
-               {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_10@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_11@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_12@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_13@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_17@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_18@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_16@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_20@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_10@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_11@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_12@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_13@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_17@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_18@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_16@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_20@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_10@2x.png" 
-                               
-               },
-               {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_10@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_11@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_12@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_13@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_17@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_18@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_16@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_20@2x.png" 
-                               
-               },
-               {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_18@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_16@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_20@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_17@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_18@2x.png" 
-                               
-               },
-                {
-                   id:1,
-                   username:"啦啦啦啦啦啦",
-                   imgsrc:"../../../static/home/sy_tx_16@2x.png" 
-                               
-               }
-               
-           ],
-           positions:[
-               {//第一行
-                   left:3.05,
-                   top: 1.05
-               },
-               {//第二行
-                   left:1.95,
-                   top: 1.35
-               },
-               {
-                   left:4.05,
-                   top: 1.35
-               },
-               {//第三行
-                   left:.9,
-                   top: 2.05
-               },
-               {
-                   left:3.05,
-                   top: 1.95
-               },
-               {
-                   left:5.15,
-                   top: 2.05
-               },
-               {//第四行
-                   left:.4,
-                   top: 2.9
-               },
-               {
-                   left:2.1,
-                   top: 2.6
-               },
-               {
-                   left:4,
-                   top: 2.6
-               },
-               {
-                   left:5.7,
-                   top: 2.9
-               },
-               {//第五行
-                   left:0.2,
-                   top: 3.7
-               },
-               {
-                   left:1.55,
-                   top: 3.5
-               },
-               {
-                   left:3.05,
-                   top: 3.05
-               },
-               {
-                   left:4.55,
-                   top: 3.5
-               },
-               {
-                   left:5.9,
-                   top: 3.7
-               },
-                {//第6行
-                   left:0.25,
-                   top: 4.5
-               },
-               {
-                   left:1.55,
-                   top: 4.3
-               },
-               {
-                   left:3.05,
-                   top: 3.95
-               },
-               {
-                   left:4.55,
-                   top: 4.3
-               },
-               {
-                   left:5.9,
-                   top: 4.5
-               },
-                {//第7行
-                   left:.6,
-                   top: 5.3
-               },
-               {
-                   left:2,
-                   top: 5.3
-               },
-               {
-                   left:4.1,
-                   top: 5.3
-               },
-               {
-                   left:5.5,
-                   top: 5.3
-               },
-                {//第8行
-                   left:1,
-                   top: 6.1
-               },
-               {
-                   left:3.05,
-                   top: 4.95
-               },
-               {
-                   left:5.05,
-                   top: 6.1
-               },
-              
-               {//第9行
-                   left:1.95,
-                   top: 6.6
-               },
-               {
-                   left:4.05,
-                   top: 6.6
-               },
-                {//第10行
-                   left:3.05,
-                   top: 6
-               },
-                {//第10行
-                   left:3.05,
-                   top: 6.9
-               },
-           ],
-
-           //后期加动画
-           usershow:true
-
-
-       }
-   },
-   mounted(){
-       let user = this.$refs.box.children;
-       let len = this.$refs.box.children.length;
-       for(var i = 0; i < len ; i ++){
-           user[i].style.position = "absolute";
-           user[i].style.left = this.positions[i].left + "rem";
-           user[i].style.top = this.positions[i].top + "rem";
-       }
-    //    setTimeout(function(){
-    //         this.usershow = true;
-    //    },1000)
+  created(){
+    axios({
       
-   },
-   created(){
-       
-   }
+    })
+  },
+  methods:{
+    ...Vuex.mapActions({
+      handleInfo:"Home/handleInfo"
+    })
 
-}
+  },
+  data() {
+    return {
+      obj: [
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_10@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_11@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_12@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_13@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_17@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_18@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_16@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_20@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_10@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_11@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_12@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_13@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_17@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_18@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_16@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_20@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_10@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_10@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_11@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_12@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_13@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_17@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_18@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_16@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_20@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_18@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_16@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_20@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_17@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_18@2x.png"
+        },
+        {
+          id: 1,
+          username: "啦啦啦啦啦啦",
+          imgsrc: "../../../static/home/sy_tx_16@2x.png"
+        }
+      ]
+    };
+  },
+  mounted() {
+    let tagEle = this.$refs.box.children;
+    let paper = this.$refs.box;
+    let RADIUS = 300,
+      fallLength = 500,
+      tags = [],
+      angleX = Math.PI / 500,
+      angleY = Math.PI / 500,
+      CX = paper.offsetWidth / 2,
+      CY = paper.offsetHeight / 2,
+      EX = paper.offsetLeft,
+      EY = paper.offsetTop ,
+      timer = null;
+    function innit() {
+      for (var i = 0; i < tagEle.length; i++) {
+        var a, b;
+        var k = (2 * (i + 1) - 1) / tagEle.length - 1;
+        var a = Math.acos(k);
+        var b = a * Math.sqrt(tagEle.length * Math.PI);
+        
+        var x = RADIUS * Math.sin(a) * Math.cos(b);
+        var y = RADIUS * Math.sin(a) * Math.sin(b);
+
+        var z = RADIUS * Math.cos(a);
+        var t = new tag(tagEle[i], x, y, z);
+        tagEle[i].style.color =
+          "rgb(" +
+          parseInt(Math.random() * 255) +
+          "," +
+          parseInt(Math.random() * 255) +
+          "," +
+          parseInt(Math.random() * 255) +
+          ")";
+        tags.push(t);
+        t.move();
+      }
+    }
+
+    Array.prototype.Each = function(callback) {
+      for (var i = 0; i < this.length; i++) {
+        callback.call(this[i]);
+      }
+    };
+
+    function animate() {
+     timer = setInterval(function() {
+        rotateX();
+        rotateY();
+        tags.Each(function() {
+          this.move();
+        });
+      }, 30);
+    }
+
+    if ("addEventListener" in window) {
+      paper.addEventListener("mousemove", function(event) {
+        var x = event.clientX - EX - CX;
+        var y = event.clientY - EY - CY;
+        angleY = -x * 0.0001;
+        angleX = -y * 0.0001;
+      });
+    } else {
+      paper.attachEvent("onmousemove", function(event) {
+        var x = event.clientX - EX - CX;
+        var y = event.clientY - EY - CY;
+        angleY = -x * 0.0001;
+        angleX = -y * 0.0001;
+      });
+    }
+    function rotateX() {
+      var cos = Math.cos(angleX);
+      var sin = Math.sin(angleX);
+      tags.Each(function() {
+        var y1 = this.y * cos - this.z * sin;
+        var z1 = this.z * cos + this.y * sin;
+        this.y = y1;
+        this.z = z1;
+      });
+    }
+
+    function rotateY() {
+      var cos = Math.cos(angleY);
+      var sin = Math.sin(angleY);
+      tags.Each(function() {
+        var x1 = this.x * cos - this.z * sin;
+        var z1 = this.z * cos + this.x * sin;
+        this.x = x1;
+        this.z = z1;
+      });
+    }
+
+    var tag = function(ele, x, y, z) {
+      this.ele = ele;
+      this.x = x;
+      this.y = y;
+      this.z = z;
+    };
+    tag.prototype = {
+      move: function() {
+        var scale = fallLength / (fallLength - this.z);
+        var alpha = (this.z + RADIUS) / (2 * RADIUS);
+        this.ele.style.fontSize = (15 * scale)/100 + "rem";
+        this.ele.style.opacity = alpha + 0.5;
+        this.ele.style.filter = "alpha(opacity = " + (alpha + 0.5) * 100 + ")";
+        this.ele.style.zIndex = parseInt(scale * 100);
+        this.ele.style.left = (this.x + CX - this.ele.offsetWidth / 2 + 120)/100 + "rem";
+        this.ele.style.top = (this.y + CY - this.ele.offsetHeight / 2)/100 + "rem";
+      }
+    };
+   innit();
+   animate();
+  },
+  created() {}
+};
 </script>
 <style lang="scss" scoped>
-    .app{
-        height: 12rem;
-        width: 100%;
-        background: black;
-        position: relative;
-        .user{
-            width: 1.4rem;
-            height: .86rem;
-            overflow: hidden;
-            .photo{
-                width: .5rem;
-                height: .5rem;
-                margin: 0 auto;
-                img{
-                    width:.5rem;
-                    height:.5rem;
-                }
-            }
-            p{
-                width:1.4rem;
-                font-size:0.2rem;
-                line-height: 0.24rem;
-                color: white;
-                text-align: center;
-                margin-top: 0.12rem;
-            }
-        }
+.app {
+  height: 12rem;
+  width: 100%;
+  background: black;
+  position: relative;
+  .user {
+    width: 1.4rem;
+    height: 0.86rem;
+    overflow: hidden;
+    position: absolute;
+    .photo {
+      width: 0.5rem;
+      height: 0.5rem;
+      margin: 0 auto;
+      img {
+        width: 0.5rem;
+        height: 0.5rem;
+      }
     }
-    // .slide-enter{
-    //     transform: scale(0);
-    // }
-    // .slide-enter-active{
-    //     transform: all .3s;
-    // }
+    p {
+      width: 1.4rem;
+      font-size: 0.2rem;
+      line-height: 0.24rem;
+      color: white;
+      text-align: center;
+      margin-top: 0.12rem;
+    }
+  }
+}
+// .slide-enter{
+//     transform: scale(0);
+// }
+// .slide-enter-active{
+//     transform: all .3s;
+// }
 </style>

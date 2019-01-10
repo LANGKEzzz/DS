@@ -15,6 +15,8 @@ import Dialogbox from "../components/message/dialogbox/dialogbox.vue"
 import My from '../components/my'
 import Attention from '../components/my/components/attention'
 import Fans from '../components/my/components/fans'
+import Comments from "../components/my/components/comments"
+import Likes from "../components/my/components/like"
 //err 下的路由
 import Err from '../components/error/error.vue'
 //login 下的路由
@@ -32,6 +34,7 @@ import Complaint from '../components/dynamic/content/complaint.vue'
 
 //settings 下的路由
 import Settings from '../components/settings'
+
 import AS from "../components/settings/page/AS.vue"
 import messageS from "../components/settings/page/messageS.vue"
 import generalS from "../components/settings/page/generalS.vue"
@@ -44,21 +47,8 @@ import Praise from '../components/my/components/praise'
 import Person from '../components/my/components/person'
 import Collect from '../components/my/components/collect'
 import Chat from '../components/my/components/chat'
-
 import NewList from '../components/my/components/newList'
-
 import ChangeName from '../components/my/components/changeName'
-
-
-
-
-
-
-
-
-
-
-
 import Loginphone from "../components/settings/page/components/loginPhone"
 import Changenum from "../components/settings/page/components/changenum"
 Vue.use(Router)
@@ -226,6 +216,16 @@ export default new Router({
         flag:true,
         requireAuth:true
       }
+    },
+    {
+      path:"/comments",
+      name:'comments',
+      component:Comments
+    },
+    {
+      path:"/like",
+      name:'like',
+      component:Likes
     },
         //设置
     {
