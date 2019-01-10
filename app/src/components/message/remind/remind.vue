@@ -2,33 +2,35 @@
     <div class="message_remind">
         <h2>
              谁@了我
-            <router-link to="/message">
-                <div class="remind_back">
+                <div class="remind_back" @click="handleBack()">
                     <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
                 </div>
-            </router-link>           
         </h2>
         <div class="loading" v-show="flag">
             <i class="fa fa-spinner fa-pulse"></i>
         </div>
-        <ul class="remind_ ">
-            <li v-for="(item,index) in remind_list">
-                <div class="remind_img">
-                    <img :src="item.url" alt="">
-                </div>
-                <div class="remind_remind">
-                    <p>{{item.people}}@了你</p>
-                    <p>
-                        <img src="../../../../static/message/icon_ax@2x.png" alt="">
-                        +1
-                    </p>
-                </div>
-                <span>{{item.time}}</span>
-            </li>
-        </ul>
+        <div class="wrapper_r" ref="wrapperR">       
+            <ul class="remind_ ">
+                <li v-for="(item,index) in remind_list">
+                    <div class="remind_img">
+                        <img :src="item.url" alt="">
+                    </div>
+                    <div class="remind_remind">
+                        <p>{{item.people}}@了你</p>
+                        <p>
+                            <img src="../../../../static/message/icon_ax@2x.png" alt="">
+                            +1
+                        </p>
+                    </div>
+                    <span>{{item.time}}</span>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 <script>
+import BScroll from 'better-scroll';
+
 export default{
     data(){
         return{
@@ -87,8 +89,18 @@ export default{
             ]
         }
     },
-    updated(){
-        
+    methods:{
+        handleBack(){
+            this.$router.back();
+        }
+    },
+    mounted() {
+        this.scroll = new BScroll(this.$refs.wrapperR,{
+            pullDownRefresh :  {
+                threshold: 20,
+                stop:0
+            }
+        })        
     }
 }
 </script>
@@ -104,7 +116,10 @@ export default{
         font-weight: 900;
         color:#1E1E1E;
         line-height:1.7rem;
-        position:relative;
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:5;
         background:#fff;
         .remind_back{
             position:absolute;
@@ -121,49 +136,52 @@ export default{
         height:.3rem;
         margin:.1rem auto 0;
     }
-    .remind_{
-        margin-top:.2rem;
-        background:#fff;
-        li{
-            width:100%;
-            height:1.68rem;
-            border-bottom:1px solid #f4f4f4;
-            display:flex;
-            position: relative;
-            .remind_img{
-                width:1.2rem;
-                height:1.2rem;
-                border-radius: 50%;
-                margin:.24rem;
-                img{
-                    width:100%;
-                    height:100%;
-                }
-            }
-            .remind_remind{
-                p:nth-child(1){
-                    font-size:.24rem;
-                    color:#313131;
-                    // font-weight:600;
-                    // line-height:.79rem;
-                    margin-top:.55rem;
-                }
-                p:nth-child(2){
-                    display: flex;
-                    margin-top:.17rem;
-                    color:#717171;
-                    font-size:.21rem;
+    .wrapper_r{   
+        height:11.76rem;
+        margin-top:1.48rem;
+        .remind_{           
+            background:#fff;
+            li{
+                width:100%;
+                height:1.68rem;
+                border-bottom:1px solid #f4f4f4;
+                display:flex;
+                position: relative;
+                .remind_img{
+                    width:1.2rem;
+                    height:1.2rem;
+                    border-radius: 50%;
+                    margin:.24rem;
                     img{
-                        width:.26rem;
-                        height:.21rem;
-                        margin-right:.1rem;
+                        width:100%;
+                        height:100%;
                     }
-                }                
-            }
-            span{
-                position:absolute;
-                top:.75rem;
-                right:.24rem;
+                }
+                .remind_remind{
+                    p:nth-child(1){
+                        font-size:.24rem;
+                        color:#313131;
+                        // font-weight:600;
+                        // line-height:.79rem;
+                        margin-top:.55rem;
+                    }
+                    p:nth-child(2){
+                        display: flex;
+                        margin-top:.17rem;
+                        color:#717171;
+                        font-size:.21rem;
+                        img{
+                            width:.26rem;
+                            height:.21rem;
+                            margin-right:.1rem;
+                        }
+                    }                
+                }
+                span{
+                    position:absolute;
+                    top:.75rem;
+                    right:.24rem;
+                }
             }
         }
     }
