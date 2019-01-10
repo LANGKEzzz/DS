@@ -1,11 +1,11 @@
 <template>
   <div class="loginPhone">
     <div class="header">
-	        <router-link to="/loginphone">
-	            <div class="header_pic">
+	        
+	            <div class="header_pic" @click="handleJump">
 	                <img src="../../../../../static/icon/icon_jiantou1@2x.png"/>
 	            </div>
-	        </router-link>
+	        
 	      <p>更换号码</p>
 	</div>
     <div class="main">
@@ -22,7 +22,7 @@
     </div>
     <div class=footer>
     	
-    	<router-link to="">
+    	<router-link to="/login">
     		<div>完成</div>
     	</router-link>
     </div>
@@ -30,7 +30,11 @@
 </template>
 <script>
 export default {
-   
+   methods:{
+	   handleJump(){
+		   this.$router.go(-1)
+	   }
+   }
 }
 </script>
 <style lang="scss" scoped>

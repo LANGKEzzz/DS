@@ -1,11 +1,11 @@
 <template>
   <div class="loginPhone">
     <div class="header">
-	        <router-link to="/phonenum">
-	            <div class="header_pic">
+	        
+	            <div class="header_pic" @click="handleJump">
 	                <img src="../../../../../static/icon/icon_jiantou1@2x.png"/>
 	            </div>
-	        </router-link>
+	        
 	      <p>手机号码</p>
 	</div>
     <div class="main">
@@ -22,15 +22,43 @@
     </div>
     <div class=footer>
     	<p>更换后,原手机号将不能用于登录</p>
-    	<router-link to="/changenum">
-    		<div>更换登录手机</div>
-    	</router-link>
+    	
+    		<div @click="modal1=true">更换登录手机</div>
+    	
     </div>
+	            <Modal
+						v-model="modal1"
+						cancel-text="取消"
+						ok-text="确定"
+						title="为确保您的账号与安全，请填写密码验证身份"
+				        @on-ok="ok"
+				        @on-cancel="cancel"
+				        :mask-closable=true>
+				    	<input type="text" placeholder="请输入密码"/>
+                        
+		
+			    </Modal> 
    </div>
 </template>
 <script>
 export default {
-   
+	data(){
+		return{
+			modal1:false
+		}
+	},
+   methods:{
+	   handleJump(){
+		   this.$router.go(-1)
+	   },
+	   ok () { 
+            
+            this.$router.push("changenum")
+		},
+		cancel () { 
+			this.$Message.info('密码错误');
+   		}
+	}
 }
 </script>
 <style lang="scss" scoped>
@@ -140,4 +168,70 @@ export default {
 	        }          
     }
    
+</style>
+<style>
+	.ivu-modal{
+		width:100%;
+		height:100%;
+	}
+	.ivu-modal-content{
+		width:4.72rem;
+		height:3.3rem;
+		background:rgba(255,255,255,1);
+		border-radius:0.4rem;
+		position:relative;
+		left:19%;
+		top:30%;
+	}
+	.ivu-modal-header,.ivu-modal-footer{
+		border:none;
+	}
+	
+	.ivu-modal-header p, .ivu-modal-header-inner{
+		overflow:initial;
+		text-overflow: initial;
+		white-space:initial;
+		width:3.98rem;
+		height:.2rem;
+		font-size:.22rem;
+		font-family:PingFangSC-Regular;
+		font-weight:400;
+		color:rgba(49,49,49,1);
+		margin-top:.2rem;
+		margin-left:.1rem;
+		line-height:.32rem;
+	}
+	.ivu-modal-body input{
+		width:4rem;
+		height:0.71rem;
+		border:0.01rem solid rgba(198,197,197,1);
+		opacity:0.3;
+		border-radius:0.04rem;
+        font-size:.2rem;
+        margin-left:.1rem;
+	}
+	.ivu-modal-footer{
+		display:flex;
+		justify-content:space-between;
+		padding-left:.5rem;
+		padding-right:.5rem;
+		
+	}
+	.ivu-btn-large{
+		width:1.24rem;
+		height:.54rem;
+		border:0.01rem solid rgba(198,197,197,1);
+		border-radius:0.05rem;
+		font-size:.23rem;
+		background:#fff;
+		
+	}
+	.ivu-btn-text{
+		color:#313131;
+	}
+	.ivu-btn-primary{
+		color:#63D7D4;
+	}
+	
+
 </style>
