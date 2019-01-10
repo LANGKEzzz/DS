@@ -1,23 +1,31 @@
 <template>
   <div class="app" ref="box">
-    <div class="user" v-for="(item,index) in obj">
+    <div class="user" v-for="(item,index) in obj"  @click="handleInfo()">
       <router-link :to="{name:'main'}">
         <div class="photo">
           <img :src="item.imgsrc">
         </div>
+        <p class="username">{{item.username}}</p>
       </router-link>
-      <p class="username">{{item.username}}</p>
     </div>
   </div>
 </template>
 
 
 <script>
+import Vuex from "vuex";
+import axios from "../../../lib";
 export default {
   created(){
     axios({
       
     })
+  },
+  methods:{
+    ...Vuex.mapActions({
+      handleInfo:"Home/handleInfo"
+    })
+
   },
   data() {
     return {

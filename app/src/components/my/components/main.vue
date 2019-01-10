@@ -8,10 +8,10 @@
 				<p>12-25&nbsp;&nbsp;18:20&nbsp;&nbsp;&nbsp;来自iphone客户端</p>
 			</div>
 			<div class="main_bottom_two">
- 				<p>"以前我以为</p>
- 				<p>钱可以买到一切</p>
- 				<p>现在我觉得真的不行</p>
- 				<p>因为钱不够"</p>
+ 				<p>"以前我以为<br>
+					钱可以买到一切<br>
+					现在我觉得真的不行<br>
+					因为钱不够"</p>
 			</div>
 			<div class="main_bottom_thr">
 				<img src="../../../../static/tu_01@2x.png">
@@ -26,8 +26,8 @@
 				<p>北京科技职业技术学院</p>
 				<div class="fx">
 					<div><img src="../../../../static/icon/icon_zf@2x.png"><span>100</span></div>
-				    <div><img src="../../../../static/icon/icon_pl@2x.png"><span>266</span></div>
-				    <div><img src="../../../../static/icon/icon_dz@2x.png"><span>300</span></div>
+				    <router-link :to="{name:'comments'}"><div><img src="../../../../static/icon/icon_pl@2x.png"><span>266</span></div></router-link>
+				    <router-link :to="{name:'like'}"><div><img src="../../../../static/icon/icon_dz@2x.png"><span>300</span></div></router-link>
 				</div>
 				
 			</div>
@@ -77,7 +77,7 @@
 	    	}
 	    	.main_bottom_two{
 	    	    width:7.5rem;
-	    	    height:1.1rem;
+	    	    // height:1.1rem;
 	    	    /*background:green;*/
 	    	    margin-top:0.18rem;
 	    	    p{

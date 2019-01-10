@@ -1,61 +1,33 @@
 <template>
   <div class="app">
     <div class="nav" :style="{opacity:transparent}">
-      <router-link :to="{name:'home'}">
-        <div class="return">
+     
+        <div class="return" @click="handleBakc()">
           <img src="../../../static/icon/icon_jiantou1@2x.png">
         </div>
-      </router-link>
+
     </div>
     <div class="wrapper conout" ref="box">
       <div class="content conin">
         <div class="main">
           <div class="photo">
-            <img src="../../../static/gzdr_tx_02@2x.png">
+            <!-- <img src="../../../static/gzdr_tx_02@2x.png"> -->
+            <img :src="tx">
           </div>
-          <p>为吃疯狂</p>
+          <p>{{uname}}</p>
         </div>
 
-        <div class="dynamic">
+        <div class="dynamic" v-for="(item,index) in content">
           <div class="user_tx">
-            <img src="../../../static/tx_02@2x.png">
-            <h2>偶像观察员</h2>
-            <p>12-25&nbsp;&nbsp;18:20&nbsp;&nbsp;&nbsp;来自iphone客户端</p>
+            <img :src="tx">
+            <h2>{{uname}}</h2>
+            <p>{{item.day}}&nbsp;&nbsp;{{item.time}}&nbsp;&nbsp;&nbsp;{{item.equipment}}</p>
           </div>
           <div class="user_con">
-            <p>"以前我以为</p>
-            <p>钱可以买到一切</p>
-            <p>现在我觉得真的不行</p>
-            <p>因为钱不够"</p>
+            <p>{{item.con}}</p>
           </div>
           <div class="user_show">
-            <img src="../../../static/tu_01@2x.png">
-            <img src="../../../static/tu_02@2x.png">
-            <img src="../../../static/tu_03@2x.png">
-            <img src="../../../static/tu_04@2x.png">
-            <img src="../../../static/tu_05@2x.png">
-            <img src="../../../static/tu_06@2x.png">
-          </div>
-        </div>
-        <div class="dynamic">
-          <div class="user_tx">
-            <img src="../../../static/tx_02@2x.png">
-            <h2>偶像观察员</h2>
-            <p>12-25&nbsp;&nbsp;18:20&nbsp;&nbsp;&nbsp;来自iphone客户端</p>
-          </div>
-          <div class="user_con">
-            <p>"以前我以为</p>
-            <p>钱可以买到一切</p>
-            <p>现在我觉得真的不行</p>
-            <p>因为钱不够"</p>
-          </div>
-          <div class="user_show">
-            <img src="../../../static/tu_01@2x.png">
-            <img src="../../../static/tu_02@2x.png">
-            <img src="../../../static/tu_03@2x.png">
-            <img src="../../../static/tu_04@2x.png">
-            <img src="../../../static/tu_05@2x.png">
-            <img src="../../../static/tu_06@2x.png">
+            <img v-for="(item,index) in item.pic" :src="item">
           </div>
         </div>
       </div>
@@ -70,6 +42,7 @@
 
 
 <script>
+import Vuex from "vuex";
 import Bscroll from "better-scroll";
 export default {
   data() {
@@ -81,8 +54,17 @@ export default {
       transparent:0.3
     };
   },
+  computed:{
+    ...Vuex.mapState({
+      id:state=>state.Home.id,
+      uname:state=>state.Home.username,
+      tx:state=>state.Home.imgurl,
+      content:state=>state.Home.content
+    })
+  },
   methods: {
     handleAdd() {
+      console.log(this.tx);
       if (this.addFlag) {
         this.message = "已取消";
         this.messageAdd = "关注";
@@ -95,6 +77,9 @@ export default {
       setTimeout(() => {
         this.flag = false;
       }, 800);
+    },
+    handleBakc(){
+      this.$router.back();
     }
   },
   mounted() {
@@ -102,10 +87,12 @@ export default {
       pullUpLoad:true,
       click:true
     });
-
     this.scroll.on("scroll",({x,y})=>{
       if(y > -300 && y < -90){ 
            this.transparent = -y/300;
+      }
+      if( y < -300){
+        this.transparent = 1;
       }
     })
   }
@@ -140,6 +127,7 @@ export default {
   .conout {
     height: 100%;
     width: 100%;
+    background: #f4f4f4;
     .conin {
       padding-bottom: 1.8rem;
       .main {
@@ -152,6 +140,8 @@ export default {
           width: 1.8rem;
           height: 1.8rem;
           margin: 0 auto;
+          border-radius: 50%;
+          overflow: hidden;
           margin-top: 1.1rem;
           img {
             width: 100%;
@@ -166,10 +156,12 @@ export default {
         }
       }
       .dynamic {
-        height: 7.2rem;
         width: 100%;
+        margin-top: 0.15rem;
+        background: white;
+        overflow: hidden;
         .user_tx {
-          width: 7.5rem;
+          width: 100%;
           height: 0.8rem;
           /*background:blue;*/
           margin-top: 0.24rem;
@@ -178,22 +170,22 @@ export default {
             width: 0.8rem;
             height: 0.8rem;
             margin-left: 0.24rem;
+            border-radius: 50%;
             float: left;
           }
           h2 {
             font-size: 0.24rem;
             margin-left: 1.38rem;
-            margin-top: 0.16rem;
+            margin-top: 0.1rem;
           }
           p {
             font-size: 0.2rem;
             margin-left: 1.38rem;
-            margin-top: 0.16rem;
+            margin-top: 0.1rem;
           }
         }
         .user_con {
-          width: 7.5rem;
-          height: 1.1rem;
+          width: 100%;
           /*background:green;*/
           margin-top: 0.18rem;
           p {
@@ -202,17 +194,17 @@ export default {
           }
         }
         .user_show {
-          width: 7.5rem;
-          height: 4.6rem;
-          /*background:skyblue;*/
+          width: 100%;
+         display: flex;
+         flex-wrap: wrap;
+        //  justify-content: space-around;
+        padding: 0 0.1rem;
           margin-top: 0.18rem;
           img {
             width: 2.3rem;
             height: 2.3rem;
-            float: left;
-            margin-right: 0.06rem;
-            margin-bottom: 0.1rem;
-            margin-left: 0.14rem;
+           width: 32%;          
+            margin: 0.04rem;
           }
         }
       }
