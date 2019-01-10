@@ -9,6 +9,7 @@ module.exports = {
 
     // Paths
     //https://www.easy-mock.com/mock/5c346519fad511025643ee90/example/dynamic
+   
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {

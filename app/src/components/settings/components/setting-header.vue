@@ -1,17 +1,23 @@
 <template>
  
     <div class="header">
-        <router-link to="/my">
-            <div class="header_pic">
+        
+            <div class="header_pic" @click="handleJump">
                 <img src="../../../../static/icon/icon_jiantou1@2x.png"/>
             </div>
-        </router-link>
+        
       <p>设置</p>
     </div>
   
 </template>
 <script>
-export default {};
+export default {
+    methods: {
+        handleJump(){
+            this.$router.go(-1);
+        }
+    }
+}
 </script>
 <style lang="scss" scoped>
 @import "../../../common/css/fontSize";

@@ -1,11 +1,11 @@
 <template>
   <div class="at">
     <div class="header">
-      <router-link to="/settings">
-        <div class="header_pic">
+      
+        <div class="header_pic" @click="handleJump">
           <img src="../../../../../static/icon/icon_jiantou1@2x.png">
         </div>
-      </router-link>
+      
       <p>@设置</p>
     </div>
     <div class="main">
@@ -106,6 +106,9 @@ export default {
               this.flag=false;
           }
             
+        },
+        handleJump(){
+            this.$router.go(-1);
         }
      }
 }

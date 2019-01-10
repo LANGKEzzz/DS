@@ -1,11 +1,11 @@
 <template>
  <div class="as">
     <div class="header">
-        <router-link to="/settings">
-            <div class="header_pic">
+       
+            <div class="header_pic" @click="handleJump">
                 <img src="../../../../static/icon/icon_jiantou1@2x.png"/>
             </div>
-        </router-link>
+        
       <p>账号与安全</p>
     </div>
     <div class="main">
@@ -30,7 +30,9 @@
 				        @on-ok="ok"
 				        @on-cancel="cancel"
 				        :mask-closable=true>
-				    	<input type="text" placeholder="请输入密码"/>
+				    	<input type="text" placeholder="请输入原密码"/>
+                        <input type="text" placeholder="请输入新密码"/>
+                        <input type="text" placeholder="确认密码"/>
 		
 			    </Modal> 
     </div>
@@ -48,11 +50,15 @@ export default {
 	},
 	methods:{
 		ok () { 
-			this.$Message.info('Clicked ok'); 
+            this.$Message.info('修改成功,请重新登录'); 
+            this.$router.push("login")
 		},
 		cancel () { 
-			this.$Message.info('Clicked cancel');
-		}
+			this.$Message.info('修改失败');
+        },
+        handleJump(){
+            this.$router.go(-1);
+        }
 
 	}
 }
@@ -130,7 +136,7 @@ export default {
 	}
 	.ivu-modal-content{
 		width:4.72rem;
-		height:2.94rem;
+		height:4.6rem;
 		background:rgba(255,255,255,1);
 		border-radius:0.4rem;
 		position:relative;
@@ -161,7 +167,8 @@ export default {
 		border:0.01rem solid rgba(198,197,197,1);
 		opacity:0.3;
 		border-radius:0.04rem;
-		font-size:.2rem;
+        font-size:.2rem;
+        margin-left:.1rem;
 	}
 	.ivu-modal-footer{
 		display:flex;
