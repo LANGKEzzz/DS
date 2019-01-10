@@ -1,4 +1,4 @@
 export default{
-    messageList:[],
-    messageFocus:[]
+    messageList:[]
+   
 }

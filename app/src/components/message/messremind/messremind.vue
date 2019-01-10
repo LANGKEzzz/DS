@@ -2,42 +2,41 @@
     <div class="message_mess">
         <h2>
              谁评论了我
-            <router-link to="/message">
-                <div class="mess_back">
+                <div class="mess_back" @click="back_()">
                     <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
                 </div>
-            </router-link>           
         </h2>
         <div class="loading" v-show="flag">
             <i class="fa fa-spinner fa-pulse"></i>
         </div>
-        <ul class="comment_">
-            <li v-for="(item,index) in comment">
-                <div class="comment_p">
-                    <div class="comment_img">
-                        <img :src="item.url" alt="">
+        <div class="wrapper_" ref="messremind">        
+            <ul class="comment_" >
+                <li v-for="(item,index) in comment">
+                    <div class="comment_p">
+                        <div class="comment_img">
+                            <img :src="item.url" alt="">
+                        </div>
+                        <div class="comment_conent">
+                            <span>{{item.people}}</span>
+                            <span>评论：</span>
+                            <span>{{item.timer}}</span>                                              
+                        </div>                                                       
+                    </div> 
+                    <p class="comment_disc">{{item.discuss}}</p>                
+                    <div class="comment_m">
+                        <img :src="item.src_list" alt="">
+                        <div @click="handlePush()">
+                                <span>{{item.Nickname}}:</span>
+                            <p>{{item.content}}</p>
+                        </div>
                     </div>
-                    <div class="comment_conent">
-                        <span>{{item.people}}</span>
-                        <span>评论：</span>
-                        <span>{{item.timer}}</span>                                              
-                    </div>                                                       
-                </div> 
-                <p class="comment_disc">{{item.discuss}}</p>                
-                <div class="comment_m">
-                    <img :src="item.src_list" alt="">
-                    <div>
-                        <router-link to="/my">
-                            <span>{{item.Nickname}}:</span>
-                        </router-link>
-                        <p>{{item.content}}</p>
-                    </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 <script>
+import Bscroll from "better-scroll";
 export default{
     data(){
         return{
@@ -81,6 +80,23 @@ export default{
                 }
             ]
         }
+    },
+    methods:{
+        back_(){
+            this.$router.back();
+        },
+        handlePush(){
+            this.$router.push("/my");
+        }       
+    },
+    mounted(){
+        this.scroll= new Bscroll( this.$refs.messremind,{
+            pullDownRefresh: {
+                threshold: 20,
+                stop:0
+            },
+            pullUpLoad:true
+        } )
     }
 }
 </script>
@@ -96,8 +112,13 @@ export default{
         font-weight: 900;
         color:#1E1E1E;
         line-height:1.7rem;
-        position:relative;
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:9;
+        // position:relative;
         background:#fff;
+        // background:red;
         .mess_back{
             position:absolute;
             left:.24rem;
@@ -112,76 +133,82 @@ export default{
         width:.3rem;
         height:.3rem;
         margin:.1rem auto 0;
-    }
-    .comment_{
-        width:100%;
-        margin-top:.2rem;
         background:#f4f4f4;
-        li{
-            padding:.24rem;
-            background:#fff;
-            margin-bottom:.2rem;
-            position: relative;
-            .comment_p{
-               display:flex;
-               .comment_img{
-                    width:.9rem;
-                    height:.9rem;
-                    border-radius: 50%;
-                    margin-bottom:.2rem;
-                    margin-right:.2rem;
-                    img{
-                        width:100%;
-                        height:100%;
+    }
+    .wrapper_{  
+        height:11.76rem;
+         margin-top:1.48rem;
+        //  background:pink;
+        .comment_{
+            width:100%;
+           
+            background:#f4f4f4;
+            li{
+                padding:.24rem;
+                background:#fff;
+                margin-bottom:.2rem;
+                position: relative;
+                .comment_p{
+                display:flex;
+                .comment_img{
+                        width:.9rem;
+                        height:.9rem;
+                        border-radius: 50%;
+                        margin-bottom:.2rem;
+                        margin-right:.2rem;
+                        img{
+                            width:100%;
+                            height:100%;
+                        }
+                    }
+                    .comment_conent{
+                        box-sizing:border-box;
+                        line-height:.9rem;
+                        span:nth-child(3){
+                            position:absolute;
+                            right:.24rem;
+                            top:.2rem;
+                        }           
                     }
                 }
-                .comment_conent{
-                    box-sizing:border-box;
-                    line-height:.9rem;
-                    span:nth-child(3){
-                        position:absolute;
-                        right:.24rem;
-                        top:.2rem;
-                    }           
+                .comment_disc{
+                    color:#313131;
+                    font-size:.24rem;
+                    margin:.2rem;      
                 }
-            }
-            .comment_disc{
-                color:#313131;
-                font-size:.24rem;
-                margin:.2rem;      
-            }
-            .comment_m{
-               display:flex;
-               img{
-                   width:2rem;
-                   height:2rem;
-                } 
-                div{
+                .comment_m{
+                display:flex;
+                img{
                     width:2rem;
                     height:2rem;
-                    box-sizing:border-box;
-                    margin-left:.2rem;
-                    line-height:.3rem;
-                    display:flex;
-                    flex-direction: column;
-                    justify-content: center;                                           
-                    span{
-                        font-size:.3rem;
-                        font-weight: 600;
-                                              
-                    }                                   
-                    p{
-                         padding-top:.3rem;
-                        font-size:.24rem;
-                        width:4rem;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                    }
-                }               
-            } 
+                    } 
+                    div{
+                        width:2rem;
+                        height:2rem;
+                        box-sizing:border-box;
+                        margin-left:.2rem;
+                        line-height:.3rem;
+                        display:flex;
+                        flex-direction: column;
+                        justify-content: center;                                           
+                        span{
+                            font-size:.3rem;
+                            font-weight: 600;
+                                                
+                        }                                   
+                        p{
+                            padding-top:.3rem;
+                            font-size:.24rem;
+                            width:4rem;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                    }               
+                } 
+            }
         }
-    }
+    }    
 }
 
 </style>
