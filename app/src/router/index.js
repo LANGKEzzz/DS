@@ -139,7 +139,8 @@ export default new Router({
       name: 'comment',
       component: Comm,
       meta:{
-        flag:false
+        flag:false,
+        keepAlive: true
       }
     },
     {

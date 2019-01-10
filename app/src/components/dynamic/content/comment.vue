@@ -42,8 +42,11 @@
                 </li>
             </ul>
         </div>
-        <div class="input" v-show="!flag">
-            <input type="text">
+        <div class="input" v-if="!flag">
+            <i class="sound"></i>
+            <input type="text" v-focus>
+            <i class="face"></i>
+            <button class="btn">发送</button>
         </div>
     </div>
 </template>
@@ -52,18 +55,24 @@ export default {
     data() {
         return {
             item:'',
-            flag:true
+            flag:true,
         }
     },
-    // filters:{
-    //     name:function(val){
-    //         return "@"+val
-    //     }
-    // },
-    beforeMount() {
+    directives: {
+        // 注册一个局部的自定义指令 v-focus
+        focus: {
+            // 指令的定义
+            inserted: function (el) {
+                console.log(el)
+            // 聚焦元素
+            el.focus()
+            }
+        }
+    },
+
+    created() {
         let item = this.$route.params.itm
         this.item = item
-        console.log(item)
     },
     methods: {
         goback(){
@@ -208,10 +217,35 @@ export default {
                 width: 4.64rem;
                 height: .53rem;
                 border: none;
-                margin-left: .99rem;
+                margin-left: .2rem;
                 margin-top: .17rem;
                 outline: none;
                 font-size: .34rem;
+            }
+            .sound{
+                width: .59rem;
+                height: .59rem;
+                display: inline-block;
+                background: url("../../../../static/dynamicImg/sy.png") no-repeat center center;
+                vertical-align: middle;
+                margin-bottom: .08rem;
+                margin-left: .2rem;
+                background-size:cover;
+            }
+            .face{
+                width: .59rem;
+                height: .59rem;
+                display: inline-block;
+                background: url("../../../../static/dynamicImg/bq.png") no-repeat center center;
+                vertical-align: middle;
+                margin-bottom: .08rem;
+                background-size:cover;
+                margin-left: .1rem;
+            }
+            .btn{
+                width: .69rem;
+                height: .59rem;
+                margin-left: .15rem;
             }
         }
     }
