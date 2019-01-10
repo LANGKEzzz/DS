@@ -1,6 +1,6 @@
 <template>
 	<div id="inp">
-		<input type="text" id="ipt" value="搜索全部粉丝" style="padding-left:0.85rem;color='#717171';">
+		<input type="text" id="ipt" placeholder="搜索全部粉丝" style="padding-left:0.85rem;color='#717171';">
 	</div>
 </template>
 
@@ -12,6 +12,8 @@
     	width:100%;
     	height:0.95rem;
     	background:#f4f4f4;
+		position: relative;
+		z-index: 5;
     	#ipt{
     		width:7.02rem;
     		height:0.58rem;

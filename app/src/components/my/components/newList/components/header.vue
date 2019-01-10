@@ -1,20 +1,30 @@
 <template>
 	<div id="header">
-		<router-link :to="{name:'my'}">
-			<img src="../../../../../../static/icon/icon_jiantou1@2x.png">
-		</router-link>
+		<!-- <router-link :to="{name:'my'}"> -->
+			<img @click="handleBack()"     src="../../../../../../static/icon/icon_jiantou1@2x.png">
+		<!-- </router-link> -->
 		<h2><b>消息列表</b></h2>
 	</div>
 </template>
 
 <script>
+ export default{
+		 methods:{
+			 handleBack(){
+				  this.$router.back();
+		     }
+		 }
+			
+	 }
 </script>
 
 <style lang="scss" scoped>
 	#header{
 		width:100%;
 		height:1.28rem;
-		
+		background:#fff;
+		position: relative;
+		z-index: 5;
 		overflow:hidden;
 		img{
 			width:0.22rem;

@@ -2,12 +2,19 @@
 	<div id="newList">
 		<Header-com></Header-com>
 		<Inp-com></Inp-com>
-		<Main-com></Main-com>
-		<router-view/>
+		<div class="wrapper" ref="box">
+			<div class="content">
+				<Main-com></Main-com>
+				<Main-com></Main-com>
+				<Main-com></Main-com>
+			</div>
+           
+		</div>
 	</div>
 </template>
 
 <script>
+     import BScroll from "better-scroll"; 
 	import Header from "./components/header.vue";
 	import Inp from "./components/inp.vue";
 	import Main from "./components/main.vue";
@@ -18,9 +25,25 @@ export default{
 		"Header-com":Header,
 		"Inp-com":Inp,
 		"Main-com":Main
-	}
+	},
+	mounted(){
+			let wrapper = document.querySelector('.wrapper')
+			let scroll = new BScroll(wrapper)
+			this.scroll = new BScroll(this.$refs.box,{
+				scrollY:true,
+				click:true
+			})
+			console.log(this.scroll)
+        }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+   #newList{
+	   width:100%;
+	   height:100%;
+	   .wrapper{
+		   height:12.26rem;
+	   }
+   }
 </style>

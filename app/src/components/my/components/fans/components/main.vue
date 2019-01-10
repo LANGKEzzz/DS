@@ -5,13 +5,13 @@
 		</div>
 		<div class="friends">
 			<ul>
-				<li>
+				<li v-for="{item,index} in List_fans">
 					<img src="../../../../../../\static\my\hy_tx_01@2x.png">
 					<p>新鲜事</p>
 					<p>新鲜事金牌作者&nbsp一起回顾</p>
 					
 				</li>
-			    <li>
+			    <!-- <li>
 			    	<img src="../../../../../../\static\my\hy_tx_02@2x.png">
 			    	<p>新鲜事</p>
 					<p>新鲜事金牌作者&nbsp;一起回顾</p>
@@ -39,13 +39,91 @@
 			    	<img src="../../../../../../static/gzdr_tx_03@2x.png">
 			    	<p>新鲜事</p>
 					<p>新鲜事金牌作者&nbsp;一起回顾</p>
-			    </li>
+			    </li> -->
 		    </ul>
 		</div>
 	</div>
 </template>
 
 <script>
+    export default{
+		data(){
+			return{
+				List_fans:[
+					{
+                        "url":"../../../../../../static/gzdr_tx_02@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_03@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_04@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_05@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_07@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_07@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+					{
+                        "url":"../../../../../../static/gzdr_tx_06@2x.png",
+						"p1":"新鲜事",
+						"p1":"新鲜事金牌作者&nbsp;一起回顾"
+					},
+				]
+			}
+		}
+	}
 </script>
 
 <style lang="scss" scoped>

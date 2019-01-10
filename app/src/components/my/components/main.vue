@@ -8,10 +8,10 @@
 				<p>12-25&nbsp;&nbsp;18:20&nbsp;&nbsp;&nbsp;来自iphone客户端</p>
 			</div>
 			<div class="main_bottom_two">
- 				<p>"以前我以为</p>
- 				<p>钱可以买到一切</p>
- 				<p>现在我觉得真的不行</p>
- 				<p>因为钱不够"</p>
+ 				<p>"以前我以为<br/>
+ 				钱可以买到一切<br/>
+ 				现在我觉得真的不行<br/>
+ 				因为钱不够"</p>
 			</div>
 			<div class="main_bottom_thr">
 				<img src="../../../../static/tu_01@2x.png">
@@ -30,6 +30,11 @@
 				    <div><img src="../../../../static/icon/icon_dz@2x.png"><span>300</span></div>
 				</div>
 				
+
+				<!-- 加载图标 -->
+				<!-- <div class="loading" v-show="flag">
+				   <i class="fa fa-spinner fa-pulse"></i>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -42,7 +47,6 @@
 	#main{
 		width:7.5rem;
 	    height:10.1rem;
-	    
 	    .ex{
 	    	width:100%;
 	    	height:0.2rem;
@@ -82,7 +86,7 @@
 	    	    margin-top:0.18rem;
 	    	    p{
 	    	    	margin-left:0.24rem;
-	    	    	margin-top:-0.06rem;
+	    	    	margin-top:-0.1rem;
 					font-weight:bold;
 	    	    }
 	    	}
@@ -90,7 +94,7 @@
 	    		width:100%;
 	    		height:4.6rem;
 	    		/*background:skyblue;*/
-	    		margin-top:0.18rem;
+	    		margin-top:0.24rem;
 	    		img{
 	    			width:2.3rem;
 	    			height:2.3rem;

@@ -1,19 +1,21 @@
 <template>
-	<div class="wrapper att" ref="box">
-		<div class="content">
-			<Header-com></Header-com>
-			<Inp-com></Inp-com>
-			<Main-com></Main-com>
-			<Main-com></Main-com>
-	   </div>
-		
-		
-		<router-view/>
+    <div id="att">
+		<Header-com></Header-com>	
+		<Inp-com></Inp-com>
+		<div class="wrapper" ref="box">
+			<div class="content">
+				<Main-com></Main-com>
+				<!-- <Main-com></Main-com>
+				<Main-com></Main-com>
+				<Main-com></Main-com>
+				<Main-com></Main-com> -->
+		    </div>
+	    </div>	
 	</div>
 </template>
 
 <script>
-    import Bscroll from "better-scroll";
+    import BScroll from "better-scroll";
 	import Header from "./components/header.vue";
 	import Inp from "./components/inp.vue";
 	import Main from "./components/main.vue";
@@ -26,9 +28,9 @@ export default{
 		"Main-com":Main
 	},
 	mounted(){
-		// let wrapper = document.querySelector('.wrapper')
-		// let scroll = new Bscroll(wrapper)
-		this.scroll = new Bscroll(this.$refs.box,{
+		 let wrapper = document.querySelector('.wrapper')
+		 let scroll = new BScroll(wrapper)
+		 this.scroll = new BScroll(this.$refs.box,{
 			scrollY:true,
 			click:true
 		})
@@ -37,9 +39,13 @@ export default{
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
    #att{
 	   width:100%;
-	   height:100%；
+	   height:100%;
+	   .wrapper{
+		   height:12.26rem;
+	   }
+	   
    }
 </style>

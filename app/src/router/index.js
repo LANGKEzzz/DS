@@ -47,6 +47,8 @@ import Chat from '../components/my/components/chat'
 
 import NewList from '../components/my/components/newList'
 
+import ChangeName from '../components/my/components/changeName'
+
 
 
 
@@ -392,6 +394,15 @@ export default new Router({
     	path: '/newList',
       name: 'newList',
       component: NewList,
+      meta:{
+        flag:true
+      }
+    },
+    {
+
+    	path: '/changeName',
+      name: 'changeName',
+      component: ChangeName,
       meta:{
         flag:true
       }

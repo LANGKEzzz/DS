@@ -60,7 +60,9 @@
 		width:100%;
  		height:3.8rem;
  		background:url("../../../../static/my/wd_bj@2x.png") no-repeat ;
-		background-size: 7.5rem 4.23rem;
+		background-size: 100% 4.23rem;
+		position: relative;
+		z-index: 5;
 		.header_top{
 			width:100%;
  		    height:1.17rem;//1.27----1.1
