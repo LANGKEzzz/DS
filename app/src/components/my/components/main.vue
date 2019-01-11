@@ -8,10 +8,6 @@
 				<p>12-25&nbsp;&nbsp;18:20&nbsp;&nbsp;&nbsp;来自iphone客户端</p>
 			</div>
 			<div class="main_bottom_two">
- 				<p>"以前我以为<br>
-					钱可以买到一切<br>
-					现在我觉得真的不行<br>
-					因为钱不够"</p>
  				<p>"以前我以为<br/>
  				钱可以买到一切<br/>
  				现在我觉得真的不行<br/>

@@ -21,8 +21,8 @@ export default {
     	"Main-com":Main
     },
     mounted(){
-        // let wrapper = document.querySelector('.wrapper')
-        // let scroll = new BScroll(wrapper)
+        let wrapper = document.querySelector('.wrapper')
+        let scroll = new BScroll(wrapper)
         this.scroll = new BScroll(this.$refs.box,{
             scrollY:true,
             click:true
