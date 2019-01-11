@@ -19,11 +19,11 @@
                 <li class="phonenum">手机号码</li>
             </router-link >
               <!-- <router-link to=""> -->
-                <li @click="modal1=true" class="phonenum" >修改密码</li>
+                <li @click="modal2=true" class="phonenum" >修改密码</li>
   				
         </ul>
             <Modal
-						v-model="modal1"
+						v-model="modal2"
 						cancel-text="取消"
 						ok-text="确定"
 						title="为确保您的账号与安全，修改密码请填写原密码"
@@ -44,7 +44,7 @@
 export default {
 	data(){
 		return{
-			modal1:false
+			modal2:false
 		}
 		
 	},
@@ -129,7 +129,7 @@ export default {
     }
   
 </style>
-<style>
+<style >
 	.ivu-modal{
 		width:100%;
 		height:100%;
