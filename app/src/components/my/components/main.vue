@@ -32,9 +32,9 @@
 				
 
 				<!-- 加载图标 -->
-				<!-- <div class="loading" v-show="flag">
+				<div class="loading" v-show="flag">
 				   <i class="fa fa-spinner fa-pulse"></i>
-				</div> -->
+				</div>
 			</div>
 		</div>
 	</div>
@@ -139,6 +139,10 @@
 	    				height:0.33rem;
 	    			}
 	    		}
+				.loading{
+					width: 0.3rem;
+					height: 0.3rem;
+				}
 	    	}
 	    }
 	}
