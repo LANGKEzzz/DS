@@ -1,7 +1,7 @@
 <template>
     <div class="message_list">
         <ul ref="messageList">
-            <li v-for="(item,index) in message_list" @click="handleClick()">
+            <li v-for="(item,index) in message_list" @click="handleClick($event)">
                 <div class="message_img">
                     <img :src="item.src"/>
                 </div>
@@ -96,6 +96,7 @@ export default{
            
         }
     },
+    
     // computed: {
     //     ...Vuex.mapState({
     //         messageList:state=>state.Message.messageList
@@ -104,11 +105,15 @@ export default{
     // created() {
     //     this.handleMessage();
     // },
-    // methods: {
+     methods: {
     //     ...Vuex.mapActions({
     //         handleMessage:"Message/handleMessage"
     //     })
-    // }
+          handleClick(e){
+           console.log(e)
+           this.$router.push("/message/dialogbox")      
+        }
+    }
 
 }
 </script>
