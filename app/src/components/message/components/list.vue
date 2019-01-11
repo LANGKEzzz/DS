@@ -1,12 +1,12 @@
 <template>
     <div class="message_list">
         <ul ref="messageList">
-            <li v-for="(item,index) in message_list" @click="handleClick($event)">
+            <li v-for="(item,index) in messageList" @click="handleClick($event)">
                 <div class="message_img">
-                    <img :src="item.src"/>
+                    <img :src="item.imgUrl"/>
                 </div>
                 <div class="message_c">
-                    <p>{{item.nickname}}</p>
+                    <p>{{item.people}}</p>
                     <p>{{item.message}}</p>
                 </div>
                 <span>{{item.time}}</span>
@@ -17,99 +17,22 @@
 <script>
 import Vuex from "vuex";
 export default{
-    data(){
-        return{
-            message_list : [
-                {
-                    "src" : "../../../static/message/dh_tx_02@2x.png",
-                    "nickname" : "昵称",
-                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
-                    "time" : "16:00"
-                },
-                {
-                    "src" : "../../../static/message/dh_tx_02@2x.png",
-                    "nickname" : "昵称",
-                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
-                    "time" : "16:00"
-                },
-                {
-                    "src" : "../../../static/message/dh_tx_02@2x.png",
-                    "nickname" : "昵称",
-                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
-                    "time" : "16:00"
-                },
-                {
-                     "src" : "../../../static/message/dh_tx_02@2x.png",
-                    "nickname" : "昵称",
-                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
-                    "time" : "16:00"
-                },
-                {
-                     "src" : "../../../static/message/dh_tx_02@2x.png",
-                    "nickname" : "昵称",
-                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
-                    "time" : "16:00"
-                },
-                {
-                     "src" : "../../../static/message/dh_tx_02@2x.png",
-                    "nickname" : "昵称",
-                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
-                    "time" : "16:00"
-                },
-                {
-                     "src" : "../../../static/message/dh_tx_02@2x.png",
-                    "nickname" : "昵称",
-                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
-                    "time" : "16:00"
-                },
-                {
-                     "src" : "../../../static/message/dh_tx_02@2x.png",
-                    "nickname" : "昵称",
-                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
-                    "time" : "16:00"
-                },
-                {
-                     "src" : "../../../static/message/dh_tx_02@2x.png",
-                    "nickname" : "昵称",
-                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
-                    "time" : "16:00"
-                },
-                {
-                     "src" : "../../../static/message/dh_tx_02@2x.png",
-                    "nickname" : "昵称",
-                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
-                    "time" : "16:00"
-                },
-                {
-                     "src" : "../../../static/message/dh_tx_02@2x.png",
-                    "nickname" : "昵称",
-                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
-                    "time" : "16:00"
-                },
-                {
-                     "src" : "../../../static/message/dh_tx_02@2x.png",
-                    "nickname" : "昵称",
-                    "message" : "消息：撤销 上述场景一,在未进行git push前的所有操作",
-                    "time" : "16:00"
-                }
-            ]
-           
-        }
-    },
     
-    // computed: {
-    //     ...Vuex.mapState({
-    //         messageList:state=>state.Message.messageList
-    //     })
-    // },
-    // created() {
-    //     this.handleMessage();
-    // },
-     methods: {
-    //     ...Vuex.mapActions({
-    //         handleMessage:"Message/handleMessage"
-    //     })
-          handleClick(e){
+    computed: {
+        ...Vuex.mapState({
+            messageList:state=>state.Message.messageList
+            
+        })
+    },
+    created() {
+        this.handleMessage();
+
+    },
+    methods: {
+        ...Vuex.mapActions({
+            handleMessage:"Message/handleMessage"
+        }),
+        handleClick(e){
            console.log(e)
            this.$router.push("/message/dialogbox")      
         }
