@@ -1,11 +1,11 @@
 <template>
  <div class="picture">
     <div class="header">
-        <router-link to="/settings">
-            <div class="header_pic">
+        
+            <div class="header_pic" @click="handleJump">
                 <img src="../../../../static/icon/icon_jiantou1@2x.png"/>
             </div>
-        </router-link>
+        
       <p>图片设置</p>
     </div>
     <div class="main">
@@ -56,7 +56,10 @@ export default {
     methods:{
     	handleChange(index){
     		this.activeIndex=index
-    	}
+        },
+        handleJump(){
+            this.$router.go(-1)
+        }
     }
 }
 </script>

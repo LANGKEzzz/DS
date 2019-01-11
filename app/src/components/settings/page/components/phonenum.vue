@@ -1,11 +1,11 @@
 <template>
 	<div class="phone">
 		<div class="header">
-	        <router-link to="/AS">
-	            <div class="header_pic">
+	        
+	            <div class="header_pic" @click="handleJump">
 	                <img src="../../../../../static/icon/icon_jiantou1@2x.png"/>
 	            </div>
-	        </router-link>
+	        
 	      <p>手机号码</p>
 	    </div>
 	    <div class="main">
@@ -18,7 +18,7 @@
 		    		<span>1785*****065</span>
 		    		<div class="login_phone">
 		    			<img src="../../../../../static/icon/icon_lianxiren.png" class="login">
-		    			<b>登录手机</b>
+		    			<b>更新手机</b>
 		    			<img src="../../../../../static/icon/icon_jiantou1_reserver.png" class="jiantou"/>
 		    		</div>
 		    	</div>
@@ -28,6 +28,13 @@
 </template>
 
 <script>
+ export default {
+	 methods: {
+		 handleJump(){
+			 this.$router.go(-1)
+		 }
+	 }
+ }
 </script>
 
 <style lang="scss" scoped>

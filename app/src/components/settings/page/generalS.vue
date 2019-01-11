@@ -2,11 +2,11 @@
 <template>
  <div class="generalS">
     <div class="header">
-        <router-link to="/settings">
-            <div class="header_pic">
+        
+            <div class="header_pic" @click="handleJump">
                 <img src="../../../../static/icon/icon_jiantou1@2x.png"/>
             </div>
-        </router-link>
+        
       <p>字体设置</p>
     </div>
      <div class="main">
@@ -61,6 +61,9 @@ export default {
         changeFlag(index){
             this.activeIndex=index;
             
+        },
+        handleJump(){
+            this.$router.go(-1)
         }
         // handleChange(index){
         //     if(index==0){

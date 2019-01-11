@@ -1,24 +1,21 @@
 <template>
     <div class="message_list">
         <ul ref="messageList">
-            <router-link to="/message/dialogbox">
-                <li v-for="(item,index) in message_list">
-                    <div class="message_img">
-                        <img :src="item.src"/>
-                    </div>
-                    <div class="message_c">
-                        <p>{{item.nickname}}</p>
-                        <p>{{item.message}}</p>
-                    </div>
-                    <span>{{item.time}}</span>
-                </li>
-            </router-link>
+            <li v-for="(item,index) in message_list" @click="handleClick()">
+                <div class="message_img">
+                    <img :src="item.src"/>
+                </div>
+                <div class="message_c">
+                    <p>{{item.nickname}}</p>
+                    <p>{{item.message}}</p>
+                </div>
+                <span>{{item.time}}</span>
+            </li>
         </ul>
     </div>
 </template>
 <script>
-
-
+import Vuex from "vuex";
 export default{
     data(){
         return{
@@ -96,8 +93,23 @@ export default{
                     "time" : "16:00"
                 }
             ]
+           
         }
-    }
+    },
+    // computed: {
+    //     ...Vuex.mapState({
+    //         messageList:state=>state.Message.messageList
+    //     })
+    // },
+    // created() {
+    //     this.handleMessage();
+    // },
+    // methods: {
+    //     ...Vuex.mapActions({
+    //         handleMessage:"Message/handleMessage"
+    //     })
+    // }
+
 }
 </script>
 <style lang="scss" scoped>
@@ -106,7 +118,9 @@ export default{
     flex:1;
     overflow: scroll;
     padding-bottom:.98rem;
-    ul{       
+    background:#fff;
+    ul{  
+        width:100%;     
         li{
             position:relative;
             height:1.22rem;

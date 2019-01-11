@@ -1,11 +1,11 @@
 <template>
  <div class="shield">
     <div class="header">
-        <router-link to="/settings">
-            <div class="header_pic">
+        
+            <div class="header_pic" @click="handleJump">
                 <img src="../../../../static/icon/icon_jiantou1@2x.png"/>
             </div>
-        </router-link>
+        
       <p>屏蔽设置</p>
     </div>
      <div class="main_t">
@@ -14,124 +14,70 @@
 			<p class="shieldP">已屏蔽用户</p>
     </div>
         
-    <div class="main"> 
+    
         <div class="wrapper" ref="wrapper">
         <ul class="content">
-            <li>
+            <li v-for="(item,index) in shieldList" :key="index">
                <div class="left">
-               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
+               	<!-- <img src="../../../../static/shield/pb_tx_01@2x.png"/> -->
+                   <img :src="item.imgUrl"/>
                </div>
                <div class="center">
-               	<p>昵称</p>
-               	<span>佛系更新作者</span>
+               	<p>{{item.name}}</p>
+               	<span>{{item.infor}}</span>
                </div>
-               <div class="right">已屏蔽</div>
+               <div class="right">{{item.message}}</div>
                
-            </li>
-            <li>
-               <div class="left">
-               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
-               </div>
-               <div class="center">
-               	<p>昵称</p>
-               	<span>佛系更新作者</span>
-               </div>
-               <div class="right">已屏蔽</div>
-               
-            </li>
-            <li>
-               <div class="left">
-               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
-               </div>
-               <div class="center">
-               	<p>昵称</p>
-               	<span>佛系更新作者</span>
-               </div>
-               <div class="right">已屏蔽</div>
-               
-            </li>
-            <li>
-               <div class="left">
-               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
-               </div>
-               <div class="center">
-               	<p>昵称</p>
-               	<span>佛系更新作者</span>
-               </div>
-               <div class="right">已屏蔽</div>
-               
-            </li>
-                        <li>
-               <div class="left">
-               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
-               </div>
-               <div class="center">
-               	<p>昵称</p>
-               	<span>佛系更新作者</span>
-               </div>
-               <div class="right">已屏蔽</div>
-               
-            </li>
-            <li>
-               <div class="left">
-               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
-               </div>
-               <div class="center">
-               	<p>昵称</p>
-               	<span>佛系更新作者</span>
-               </div>
-               <div class="right">已屏蔽</div>
-               
-            </li>
-            <li>
-               <div class="left">
-               	<img src="../../../../static/shield/pb_tx_01@2x.png"/>
-               </div>
-               <div class="center">
-               	<p>昵称</p>
-               	<span>佛系更新作者</span>
-               </div>
-               <div class="right">已屏蔽</div>
-               
-            </li>
-            
+            </li>        
          </ul>
         </div>
-    </div>
+    
   </div>
 </template>
 <script>
-import BScroll from 'better-scroll'
+import BScroll from 'better-scroll';
+import {mapActions,mapState} from "vuex";
 export default {
+     // https://www.easy-mock.com/mock/5c3465747db0f179db202922/example/shield
+
     data(){
         return{
-//          list:[
-//              {
-//                  
-//                  title:"@我的",
-//                  // messsage:"我关注的人",
-//                  url:"../../../../static/icon/icon_jiantou1_reserver.png"
-//              },
-//              {
-//                  // name:"phomeAS",
-//                  title:"评论",
-//                  // messsage:"所有人",
-//                  url:"../../../../static/icon/icon_jiantou1_reserver.png"
-//
-//              }
-// 
-//
-//
-//          ]
+
         }
    },
+   computed:{
+       ...mapState({
+           shieldList:state=>state.Settings.getshieldList
+       })
+   },
+   created(){
+      this.getshieldListA()
+   },
    mounted(){
-   	this.scroll = new BScroll(this.$refs.wrapper,{
-   		pullUpLoad:true,
-   	})
-   	console.log(scroll);
+         this.$nextTick(()=>{
+            this.scroll = new BScroll(this.$refs.wrapper,{
+              pullUpRefresh : {
+                threshold: 20,
+                stop:0
+            }
+        
+           
+           })
+            console.log(this.scroll)
+         })
+   },
+   methods: {
+     handleJump(){
+         this.$router.go(-1)
+     },
+
+   ...mapActions({
+       getshieldListA:"Settings/getshieldListA"
+   })
+ 
+
    	
-   }
+   }       
 }
 </script>
 </script>
@@ -140,6 +86,7 @@ export default {
     .shield{
         width:7.5rem;
         height:13.34rem;
+        // height:100%;
         background: #eee;
          .header {
             width: 7.5rem;
@@ -174,23 +121,21 @@ export default {
                     }
                 }
             }
-            .main{
-                width:7.5rem;
-                height:10.14rem;
-                /*margin-top:.53rem;*/
-                /*overflow:auto;*/
+            
+                
                 .wrapper{
-                	width:100%;
-                	height:100%;
-                	
+                    width:100%;
+                    // height:12.04rem;
+                    height:9rem;
                 	ul{
-	                	width:100%;
+                        width:100%;
+                        
 	                	/*background:#FFFFFF;*/
-	                	position:absolute;
-	                	left:0;
-	                	bottom:0;
-	                	right:0;
-	                	top:2.94rem;
+	                	// position:absolute;
+	                	// left:0;
+	                	// bottom:0;
+	                	// right:0;
+	                	// top:2.94rem;
 	                	li{
 	                		width:7.49rem;
 							height:1.68rem;
@@ -198,7 +143,7 @@ export default {
 							margin-bottom:0.01rem;
 							
 							.left{
-								display:inline-block;
+						
 								float:left;
 								line-height:1.68rem;
 								margin-left:.24rem;
@@ -213,7 +158,7 @@ export default {
 								
 							}
 							.center{
-								display:inline-block;
+							
 								float:left;
 								margin-top:.55rem;
 								padding-left:.24rem;
@@ -235,7 +180,7 @@ export default {
 								
 							}
 							.right{
-								display:inline-block;
+							
 								float:right;
 								/*text-align:center;*/
 								line-height:0.48rem;
@@ -252,7 +197,7 @@ export default {
 	                }
                 }
 
-            }
+            
             .main>ul>li>a{
                 color:#313131;
             }
@@ -265,6 +210,8 @@ export default {
                     position:relative;
                     z-index:10;
                     img{
+                        width:.42rem;
+                        height:.42rem;
                         display:inline-block; 
                         position:absolute;
                         left:.24rem;
