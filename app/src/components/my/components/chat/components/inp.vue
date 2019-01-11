@@ -14,10 +14,13 @@
 		width:100%;
 		height:1rem;
 		background:#fff;
+		position:fixed;
+		left:0;
+		bottom:0;
+		z-index: 5;
 		display:flex;
 		justify-content: space-around;
 		overflow:hidden;
-		
 		button{
 			width:0.6rem;
 			height:0.4rem;
@@ -30,7 +33,6 @@
 			box-shadow:0px 1px 3px 0px rgba(0, 0, 0, 0.15);
 			margin-top:0.2rem;
 			background:#f4f4f4;
-		
 		}
 	}
 </style>
