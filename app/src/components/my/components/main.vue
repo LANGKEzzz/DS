@@ -120,7 +120,7 @@
 	    		}
 	    		.fx{
 	    			width:100%;
-	    			height:0.51rem;
+	    			height:0.8rem;
 	    			display:flex;
 	    			justify-content:space-around;
 	    			margin-top:0.2rem;
@@ -128,6 +128,7 @@
 	    			    width:0.51rem;
 	    			    height:0.51rem;
 	    			    /*float:left;*/
+						margin-top:-0.08rem;
 	    			    img{
 	    				width:0.33rem;
 	    				height:0.33rem;
