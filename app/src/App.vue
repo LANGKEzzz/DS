@@ -6,13 +6,13 @@
 </template>
 
 <script>
-import Footer from './components/footer'
+import Footer from "./components/footer";
 export default {
-  name: 'App',
-  components:{
+  name: "App",
+  components: {
     Footer
-  }
-}
+  },
+};
 </script>
 
 <style lang="sass" scoped>

@@ -12,6 +12,7 @@ import Nearby from '../components/dynamic/content/nearby.vue'
 import Login from '../components/login'
 import Settings from '../components/settings'
 import Register from '../components/register'
+import Location from '../components/release/Location.vue'
 
 Vue.use(Router)
 
@@ -74,7 +75,16 @@ export default new Router({
       name: 'release',
       component: Release,
       meta:{
-        flag:true,
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path: '/location',
+      name: 'location',
+      component: Location,
+      meta:{
+        flag:false,
         requireAuth:true
       }
     },
