@@ -8,6 +8,7 @@ export default {
         }).then((data)=>{
             // console.log(data)
             commit("getshieldListM",data.data)
+            
         })
     }
  }
