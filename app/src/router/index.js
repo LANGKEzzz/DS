@@ -35,6 +35,8 @@ import Complaint from '../components/dynamic/content/complaint.vue'
 //settings 下的路由
 import Settings from '../components/settings'
 
+import Location from '../components/release/Location.vue'
+
 import AS from "../components/settings/page/AS.vue"
 import messageS from "../components/settings/page/messageS.vue"
 import generalS from "../components/settings/page/generalS.vue"
@@ -159,7 +161,16 @@ export default new Router({
       name: 'release',
       component: Release,
       meta:{
-        flag:true,
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path: '/location',
+      name: 'location',
+      component: Location,
+      meta:{
+        flag:false,
         requireAuth:true
       }
     },
