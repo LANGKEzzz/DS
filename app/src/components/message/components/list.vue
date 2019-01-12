@@ -6,7 +6,7 @@
                     <img :src="item.imgUrl"/>
                 </div>
                 <div class="message_c">
-                    <p>{{item.people}}</p>
+                    <p>{{item.nickname}}</p>
                     <p>{{item.message}}</p>
                 </div>
                 <span>{{item.time}}</span>
@@ -33,7 +33,6 @@ export default{
             handleMessage:"Message/handleMessage"
         }),
         handleClick(e){
-           console.log(e)
            this.$router.push("/message/dialogbox")      
         }
     }

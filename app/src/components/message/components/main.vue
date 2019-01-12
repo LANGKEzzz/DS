@@ -42,8 +42,7 @@
                 ]
             }
         },
-        methods:{
-            
+        methods:{           
             handle_push(index){
                 this.$router.push(this.ulList[index].path)
             }
