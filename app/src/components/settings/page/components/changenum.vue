@@ -16,7 +16,9 @@
 			</li>
 			<li>
 				<i>手机号码</i>
-				<span>186*****052</span>
+				<span>
+					<input type="text" value="178*****0181"/>
+				</span>
 			</li>
         </ul>
     </div>
@@ -102,9 +104,16 @@ export default {
 	                    i{
 	                    	font-style: normal;
 	                    	font-size:$font_size_24;
-							font-family:PingFang-SC-Medium;
-							font-weight:500;
-							color:rgba(49,49,49,1);
+												font-family:PingFang-SC-Medium;
+												font-weight:500;
+												color:rgba(49,49,49,1);
+	                    }
+	                    input {
+	                    	width:102%;
+	                    	height:98%;
+	                    	outline:none;
+	                    	text-align:right;
+	                    	border:none;
 	                    }
 	                    
 	                }

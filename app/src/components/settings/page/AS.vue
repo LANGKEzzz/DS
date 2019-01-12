@@ -31,8 +31,7 @@
 				        @on-cancel="cancel"
 				        :mask-closable=true>
 				    	<input type="text" placeholder="请输入原密码"/>
-                        <input type="text" placeholder="请输入新密码"/>
-                        <input type="text" placeholder="确认密码"/>
+                      
 		
 			    </Modal> 
     </div>
@@ -50,15 +49,16 @@ export default {
 	},
 	methods:{
 		ok () { 
-            this.$Message.info('修改成功,请重新登录'); 
-            this.$router.push("login")
+            this.$Message.info('确认成功'); 
+            this.$router.push("modifyPwd")
 		},
 		cancel () { 
-			this.$Message.info('修改失败');
+			this.$Message.info('密码');
         },
         handleJump(){
             this.$router.go(-1);
         }
+      
 
 	}
 }
@@ -134,9 +134,9 @@ export default {
 		width:100%;
 		height:100%;
 	}
-	.ivu-modal-content{
+	.ivu-modal .ivu-modal-content{
 		width:4.72rem;
-		height:4.6rem;
+		height:3.3rem;
 		background:rgba(255,255,255,1);
 		border-radius:0.4rem;
 		position:relative;
