@@ -7,11 +7,14 @@ import Main from "../components/main"
 import Release from '../components/release'
 //message 下的路由
 import Message from '../components/message'
-//my 下的路由
+
 import MessageFocus from '../components/message/focus/focus.vue'
 import MessageMessremind from '../components/message/messremind/messremind.vue'
 import MessageRemind from '../components/message/remind/remind.vue'
 import Dialogbox from "../components/message/dialogbox/dialogbox.vue"
+
+import Replay from "../components/message/replay/replay.vue"
+//my 下的路由
 import My from '../components/my'
 import Attention from '../components/my/components/attention'
 import Fans from '../components/my/components/fans'
@@ -214,6 +217,15 @@ export default new Router({
       path:"/message/remind",
       name:'Messageremind',
       component:MessageRemind,
+      meta:{
+        flag:false,
+        requireAuth:true
+      }
+    },
+    {
+      path:"/message/replay",
+      name:'Replay',
+      component:Replay,
       meta:{
         flag:false,
         requireAuth:true
