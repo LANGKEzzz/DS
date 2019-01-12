@@ -9,21 +9,23 @@
                 <p>{{item.content}}</p>
                 <img :src="item.pic[0]" alt="">
             </div>
-            <ul class="mainM">
-                <li v-for="(itm,index) in item.handle[1].con" v-bind:key="index">
-                    <div class="mainM_T">
-                        <img :src="itm.photo" alt="">
-                        <div>
-                            <h2>{{itm.nickname}}</h2>
-                            <p>{{itm.infor}}</p>
+            <div class="mainM_W">
+                <ul class="mainM">
+                    <li v-for="(itm,index) in item.handle[1].con" v-bind:key="index">
+                        <div class="mainM_T">
+                            <img :src="itm.photo" alt="">
+                            <div>
+                                <h2>{{itm.nickname}}</h2>
+                                <p>{{itm.infor}}</p>
+                            </div>
                         </div>
-                    </div>
-                    <span>{{itm.time}}</span>
-                    <!-- <ul>
-                        <li></li>
-                    </ul> -->
-                </li>
-            </ul>
+                        <span class="time">{{itm.time}}</span>
+                        <span class="zf"></span> <span class="count">12</span>
+                        <span class="pl" @click.stop="jump(2)"></span> <span class="count">12</span>
+                        <span class="dz"></span> <span class="count">12</span>
+                    </li>
+                </ul>
+            </div>
 
         </div>
         <div>
@@ -105,7 +107,7 @@ export default {
     #comment{
         width: 100%;
         height: 100%;
-        overflow: auto;
+        // overflow: auto;
         .main{
             background: #f4f4f4;
             .header{
@@ -144,11 +146,13 @@ export default {
                     height: 2.9rem;
                 }
             }
-            .mainM{
+            .mainM_W{
+                overflow: auto;
                 width: 100%;
                 margin-top: .24rem;
-                //overflow: auto;
-                height: auto;
+                height: 6.12rem;
+                .mainM{
+                
                 li{
                     width: 100%;
                     height: 1.62rem;
@@ -178,8 +182,37 @@ export default {
                             }
                         }
                     }
+                    .time{
+                        margin-right: 2rem;
+                    }
+                    .zf{
+                        background: url("../../../assets/icon/icon_zf@2x.png") no-repeat center;
+                        display: inline-block;
+                        width: .22rem;
+                        height: .22rem;
+                        background-size:cover;
+                        margin-left: .2rem;
+                    }
+                    .pl{
+                        background: url("../../../assets/icon/icon_pl@2x.png") no-repeat center;
+                        display: inline-block;
+                        width: .22rem;
+                        height: .22rem;
+                        background-size:cover;
+                        margin-left: .2rem;
+                    }
+                    .dz{
+                        background: url("../../../assets/icon/icon_dz@2x.png") no-repeat center;
+                        display: inline-block;
+                        width: .22rem;
+                        height: .22rem;
+                        background-size:cover;
+                        margin-left: .2rem;
+                    }
+                
                 }
                 
+            }
             }
         }
         .mainB{
@@ -192,6 +225,7 @@ export default {
             position: fixed;
             bottom: 0;
             background:rgba(255,255,255,1);
+            overflow: auto;
             li{
                 line-height: .75rem;
                img{

@@ -95,9 +95,10 @@ export default {
                     height: 2.4rem;
                 }
                 div{
-                    padding:.33rem 0 0 .27rem;
+                    padding:.33rem 0 .33rem .27rem;
                     background:rgba(244,244,244,1);
                     width: 100%;
+                    overflow: hidden;
                     h2{
                         color: #1F1F1F;
                         font-size: .34rem;
