@@ -24,23 +24,25 @@
     	<p>更换后,原手机号将不能用于登录</p>
     	
     		<div @click="modal1=true">更换登录手机</div>
-    	
-    </div>
-	            <Modal
+			<Modal
 						v-model="modal1"
 						cancel-text="取消"
 						ok-text="确定"
-						title="为确保您的账号与安全，请填写密码验证身份"
+						title="为确保您的身份，更换号码前请填写原密码"
 				        @on-ok="ok"
 				        @on-cancel="cancel"
 				        :mask-closable=true>
-				    	<input type="text" placeholder="请输入密码"/>
-                        
+				    	<input type="text" placeholder="请输入原密码"/>
+                       
 		
 			    </Modal> 
+    	
+    </div>
+
    </div>
 </template>
 <script>
+import { MessageBox } from 'mint-ui';
 export default {
 	data(){
 		return{
@@ -57,8 +59,26 @@ export default {
 		},
 		cancel () { 
 			this.$Message.info('密码错误');
-   		}
-	}
+		   },
+		handlechange(){
+				MessageBox.prompt('为保证您的账号与安全,修改密码前请填写原密码')
+				.then(({ value, action }) => {
+				  console.log(action)
+					  this.$router.push("/changenum")
+			}).catch((err)=>{
+				if(err="cancel"){
+						// console.log(1)
+						return;
+					}
+					
+				
+			})
+		}
+
+
+	},
+
+	
 }
 </script>
 <style lang="scss" scoped>
@@ -169,12 +189,12 @@ export default {
     }
    
 </style>
-<style>
+<style >
 	.ivu-modal{
 		width:100%;
 		height:100%;
 	}
-	.ivu-modal-content{
+	.ivu-modal .ivu-modal-content{
 		width:4.72rem;
 		height:3.3rem;
 		background:rgba(255,255,255,1);

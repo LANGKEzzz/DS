@@ -9,7 +9,7 @@
       <p>屏蔽设置</p>
     </div>
      <div class="main_t">
-            <img src="../../../../static/icon/icon_tianjia@2x.png"/>
+            <img src="../../../../static/icon/icon_tianjia@2x.png" @click="handleJumpF"/>
             <b>添加屏蔽用户</b>
 			<p class="shieldP">已屏蔽用户</p>
     </div>
@@ -26,8 +26,7 @@
                	<p>{{item.name}}</p>
                	<span>{{item.infor}}</span>
                </div>
-               <div class="right">{{item.message}}</div>
-               
+               <div class="right" >{{item.message}}</div>
             </li>        
          </ul>
         </div>
@@ -42,7 +41,7 @@ export default {
 
     data(){
         return{
-
+			
         }
    },
    computed:{
@@ -73,8 +72,11 @@ export default {
 
    ...mapActions({
        getshieldListA:"Settings/getshieldListA"
-   })
- 
+   }),
+   handleJumpF(){
+   	  this.$router.push("fans");
+   }
+  
 
    	
    }       

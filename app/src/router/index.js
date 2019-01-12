@@ -56,6 +56,7 @@ import NewList from '../components/my/components/newList'
 import ChangeName from '../components/my/components/changeName'
 import Loginphone from "../components/settings/page/components/loginPhone"
 import Changenum from "../components/settings/page/components/changenum"
+import Modifypwd from "../components/settings/page/components/modifyPwd"
 Vue.use(Router)
 
 export default new Router({
@@ -338,6 +339,14 @@ export default new Router({
     	path:"/changenum",
       name:"changenum",
       component:Changenum,
+      meta:{
+        flag:false
+      }
+    },
+    {
+    	path:"/modifypwd",
+      name:"modifypwd",
+      component:Modifypwd,
       meta:{
         flag:false
       }
