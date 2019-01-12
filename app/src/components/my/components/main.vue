@@ -36,9 +36,9 @@
 				
 
 				<!-- 加载图标 -->
-				<!-- <div class="loading" v-show="flag">
+				<div class="loading" v-show="flag">
 				   <i class="fa fa-spinner fa-pulse"></i>
-				</div> -->
+				</div>
 			</div>
 		</div>
 	</div>
@@ -120,7 +120,7 @@
 	    		}
 	    		.fx{
 	    			width:100%;
-	    			height:0.51rem;
+	    			height:0.8rem;
 	    			display:flex;
 	    			justify-content:space-around;
 	    			margin-top:0.2rem;
@@ -128,6 +128,7 @@
 	    			    width:0.51rem;
 	    			    height:0.51rem;
 	    			    /*float:left;*/
+						margin-top:-0.08rem;
 	    			    img{
 	    				width:0.33rem;
 	    				height:0.33rem;
@@ -143,6 +144,10 @@
 	    				height:0.33rem;
 	    			}
 	    		}
+				.loading{
+					width: 0.3rem;
+					height: 0.3rem;
+				}
 	    	}
 	    }
 	}

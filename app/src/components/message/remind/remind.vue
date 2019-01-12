@@ -137,8 +137,10 @@ export default{
         margin:.1rem auto 0;
     }
     .wrapper_r{   
-        height:11.76rem;
-        margin-top:1.48rem;
+        height:12rem;
+        margin-top:1.28rem; 
+        background:#f4f4f4;
+        padding-top:.2rem;  
         .remind_{           
             background:#fff;
             li{

@@ -19,7 +19,7 @@
                         <i class="triangle_border_left"></i>
                     </span>                     
                 </div>  
-                <!-- <div class="dialogbox_my">
+                <div class="dialogbox_my">
                     <span>
                         {{item.my}}
                         <i class="triangle_border_right"></i>
@@ -28,7 +28,7 @@
                     <div>
                         <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
                     </div>                    
-                </div>               -->
+                </div>              
             </li>            
              
         </ul>

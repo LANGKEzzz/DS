@@ -3,7 +3,7 @@ import Vuex from "vuex"
 Vue.use(Vuex)
 import Dynamic from "./dynamic"
 import Home from "./home"
-
+import Release from "./release"
 import Message from "./message"
 
 //引入自己的库
@@ -18,7 +18,9 @@ var store = new Vuex.Store({
         Settings,    
         Home,
         Message,
-        My
+        My,
+        Release
+        
     }
 })
 

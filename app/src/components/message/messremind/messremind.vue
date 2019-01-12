@@ -93,9 +93,11 @@ export default{
         this.scroll= new Bscroll( this.$refs.messremind,{
             pullDownRefresh: {
                 threshold: 20,
-                stop:0
+                stop:0,
+                
             },
-            pullUpLoad:true
+            pullUpLoad:true,
+            click:true
         } )
     }
 }
@@ -137,7 +139,9 @@ export default{
     }
     .wrapper_{  
         height:11.76rem;
-         margin-top:1.48rem;
+         margin-top:1.48rem;        
+        background:#f4f4f4;
+        padding-top:.2rem;  
         //  background:pink;
         .comment_{
             width:100%;

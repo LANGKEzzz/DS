@@ -9,6 +9,88 @@
 				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
 				<p class="ip">嗯</p>
 			</li>
+			<li>
+				<img src="../../../../../../static/gzdr_tx_01@2x.png">
+				<p>嗨，你好</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img src="../../../../../../static/gzdr_tx_01@2x.png">
+				<p>嗨，你好</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img src="../../../../../../static/gzdr_tx_01@2x.png">
+				<p>嗨，你好</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img src="../../../../../../static/gzdr_tx_01@2x.png">
+				<p>嗨，你好</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img src="../../../../../../static/gzdr_tx_01@2x.png">
+				<p>嗨，你好</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			<li>
+				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
+				<p class="ip">嗯</p>
+			</li>
+			
+			
 		</ul>
 	</div>
 </template>

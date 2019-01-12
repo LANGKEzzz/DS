@@ -15,8 +15,11 @@
 	#header{
 		width:100%;
 		height:1.28rem;
+		background: #ffffff;
 		border-bottom:1px solid grey;
 		overflow:hidden;
+		position: relative;
+		z-index: 5;
 		img{
 			width:0.22rem;
 			height:0.42rem;
