@@ -11,18 +11,48 @@
         </div>
         <div class="wrapper_r" ref="wrapperR">       
             <ul class="remind_ ">
-                <li v-for="(item,index) in remind_list">
-                    <div class="remind_img">
-                        <img :src="item.url" alt="">
+                <li>
+                    <div class="information">
+                        <div class="infor_img">
+                            <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
+                        </div>
+                        <div class="infor_he">
+                            <p>昵称昵称昵称</p>
+                            <div>
+                                <span>12-25</span>
+                                <span>12:30</span>
+                                <span>来自iphone客户端</span>
+                            </div>
+                        </div>
+                        <div class="replay" @click="replayButton($event)">回复</div>
                     </div>
-                    <div class="remind_remind">
-                        <p>{{item.people}}@了你</p>
-                        <p>
-                            <img src="../../../../static/message/icon_ax@2x.png" alt="">
-                            +1
-                        </p>
+                    <div class="commend">
+                        <span>赞了这个动态</span>
+                        <img src="../../../../static/message/z_icon_dainzan@2x.png" alt="">
                     </div>
-                    <span>{{item.time}}</span>
+                    <div  class="infor_my">
+                        <div class="infor_my_img">
+                            <img src="../../../../static/tu_06@2x.png" alt="">
+                        </div>                    
+                        <div class="infor_mess">
+                            <div class="myMessage">
+                                <div class="myMessage_img">
+                                    <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
+                                </div>
+                                <div class="myMessage_i">
+                                    <p>昵称昵称昵称</p>
+                                    <div>
+                                        <span>12-25</span>
+                                        <span>12:30</span>
+                                        <span>来自iphone客户端</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="my_content">                       
+                                PingFang SC Medium,也叫苹方中等体,即苹方字体中的中等字重,是支持MAC osX系统的字体。 pingfang sc ...
+                            </p>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -35,64 +65,24 @@ export default{
     data(){
         return{
             flag : false,
-            remind_list:[
-                {
-                    "url":"../../../../static/message/xx_tx_01@2x.png",
-                    "people":"林更新",
-                    "time":"12:00"
-                },
-                {
-                    "url":"../../../../static/message/xx_tx_06@2x.png",
-                    "people":"林更新",
-                    "time":"12:00"
-                },
-                {
-                    "url":"../../../../static/message/xx_tx_01@2x.png",
-                    "people":"林更新",
-                    "time":"12:00"
-                },
-                {
-                    "url":"../../../../static/message/xx_tx_06@2x.png",
-                    "people":"林更新",
-                    "time":"12:00"
-                },
-                {
-                    "url":"../../../../static/message/xx_tx_01@2x.png",
-                    "people":"林更新",
-                    "time":"12:00"
-                },
-                {
-                    "url":"../../../../static/message/xx_tx_06@2x.png",
-                    "people":"林更新",
-                    "time":"12:00"
-                },
-                {
-                    "url":"../../../../static/message/xx_tx_06@2x.png",
-                    "people":"林更新",
-                    "time":"12:00"
-                },
-                {
-                    "url":"../../../../static/message/xx_tx_06@2x.png",
-                    "people":"林更新",
-                    "time":"12:00"
-                },
-                {
-                    "url":"../../../../static/message/xx_tx_06@2x.png",
-                    "people":"林更新",
-                    "time":"12:00"
-                },
-                {
-                    "url":"../../../../static/message/xx_tx_06@2x.png",
-                    "people":"林更新",
-                    "time":"12:00"
-                }
-            ]
+            // remind_list:[
+            //     {
+            //         "url":"../../../../static/message/xx_tx_01@2x.png",
+            //         "people":"林更新",
+            //         "time":"12:00"
+            //     }
+           
+            // ]
         }
     },
     methods:{
         handleBack(){
             this.$router.back();
-        }
+        },
+        replayButton(e){
+            this.$router.push('/message/replay')
+            alert()
+        }    
     },
     mounted() {
         this.scroll = new BScroll(this.$refs.wrapperR,{
@@ -144,47 +134,124 @@ export default{
         .remind_{           
             background:#fff;
             li{
-                width:100%;
-                height:1.68rem;
-                border-bottom:1px solid #f4f4f4;
+                height:5.24rem;
                 display:flex;
-                position: relative;
-                .remind_img{
-                    width:1.2rem;
-                    height:1.2rem;
-                    border-radius: 50%;
-                    margin:.24rem;
-                    img{
-                        width:100%;
-                        height:100%;
-                    }
-                }
-                .remind_remind{
-                    p:nth-child(1){
-                        font-size:.24rem;
-                        color:#313131;
-                        // font-weight:600;
-                        // line-height:.79rem;
-                        margin-top:.55rem;
-                    }
-                    p:nth-child(2){
-                        display: flex;
-                        margin-top:.17rem;
-                        color:#717171;
-                        font-size:.21rem;
+                flex-direction: column;
+                margin-bottom:.2rem;
+                .information{
+                    width:100%;
+                    display:flex;
+                    position: relative;
+                    .infor_img{
+                        width:.9rem;
+                        height:.9rem;
+                        border-radius:50%;
+                        margin:.25rem .3rem .25rem .24rem;
                         img{
-                            width:.26rem;
-                            height:.21rem;
-                            margin-right:.1rem;
+                            width:100%;
+                            height:100%;
                         }
-                    }                
+                    }
+                    .infor_he{
+                        p{
+                            font-size:.24rem;
+                            font-weight:500;
+                            margin-top:.47rem; 
+                        }
+                        div{                       
+                                font-size:.20rem;
+                                color:#717171;
+                            span:nth-child(1),span:nth-child(2){                           
+                                line-height:.41rem;
+                            }
+                            span:nth-child(3){
+                               line-height:.3rem;                         
+                            }
+                        }
+                    }
+                    .replay{
+                        width:.79rem;
+                        height:.47rem;
+                        border:1px solid #C3C3C3;
+                        border-radius:.04rem;
+                        line-height:.47rem;
+                        text-align: center;
+                        position: absolute;
+                        top:.32rem;
+                        right:.24rem;
+                    }
                 }
-                span{
-                    position:absolute;
-                    top:.75rem;
-                    right:.24rem;
+                .commend{
+                    color:#313131;
+                    font-size:.24rem;
+                    margin-left:.24rem;
+                    margin-top:.11rem;
+                    display: flex;                
+                    img{
+                        margin-left:.11rem;
+                        width:.17rem;
+                        height:.18rem;
+                        margin-top:.04rem;
+                    }
+                }
+                .infor_my{
+                    width:100%;
+                    height:2.8rem;
+                    display: flex; 
+                    justify-content: space-between;
+                    background:#d1d1d1; 
+                    margin-top:.23rem;
+                    .infor_my_img{
+                        width:2.3rem;
+                        height:2.3rem;
+                        margin:.24rem;
+                        img{
+                            width:100%;
+                            height:100%;                       
+                        }                
+                    }
+                    .infor_mess{
+                        flex:1;
+                        .myMessage{
+                            display:flex;
+                            color:#313131;
+                            margin-top:.24rem;
+                            .myMessage_img{
+                                width:.87rem;
+                                height:.87rem;
+                                margin-right:.16rem;
+                                img{
+                                    width:100%;
+                                    height:100%;
+                                }
+                            }
+                            .myMessage_i{
+                                margin-top:.12rem;
+                                p{
+                                    font-size:.24rem;
+                                    margin-bottom:.1rem;
+                                }
+                                div{
+                                    color:#717171;
+                                    font-size:.2rem;
+                                    span:nth-child(1),span:nth-child(2){
+                                        margin-right:.2rem;
+                                    }
+                                }
+                            }
+                        }
+                        .my_content{
+                            line-height: .33rem;
+                            margin-right:.4rem;
+                            margin-top:.26rem;
+                            width:4.3rem;
+                            height:.92rem;
+                            overflow: hidden;                       
+                        }
+                    }
                 }
             }
+            
         }
     }
 }

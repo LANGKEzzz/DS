@@ -7,7 +7,10 @@
             <h2>回复 </h2>                          
             <div>发送</div>        
         </div>
-        
+        <div class="import_">
+            <!-- <input type="text" value="说点什么..."> -->
+            <textarea>说点什么...</textarea>
+        </div>
     </div>
 </template>
 <script>
@@ -22,6 +25,9 @@ export default {
 <style lang="scss" scoped>
 .replay{
     width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
     .replay_content{
         width:100%;
         height:1.28rem;
@@ -35,6 +41,9 @@ export default {
         left:0;
         z-index:9;
         background:#fff;
+        display:flex;
+        border-bottom:1px solid #c3c3c3;
+        /* justify-content:space-around; */
         .focus_back{
             position:absolute;
             left:.24rem;
@@ -43,6 +52,36 @@ export default {
                 width:.24rem;
                 height:.42rem;
             }
+           
+        }
+        h2{
+            width:100%;
+            /* height:100%; */
+            text-align: center;
+            font-size:.34rem;
+        }
+        div{
+            position: absolute;
+            right:.22rem;
+            font-size:.34rem;
+            /* top:.65rem; */
+            /* bottom:.35rem; */
+            /* height:0; */
+        }
+    }
+    .import_{
+        flex:1;
+        width:100%;
+        margin-top:1.3rem;
+        textarea{
+            color:#D6D6D6;
+            border:none;
+            width:100%;
+            /* height:100%; */
+            padding-top:.3rem;
+            padding-left:.35rem;
+            font-size:.28rem;
+            font-family:Adobe Heiti Std R;
         }
     }
 }

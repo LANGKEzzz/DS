@@ -85,12 +85,12 @@ export default {
                 }
                 .infor_he{
                     p{
-                        font-size:24px;
+                        font-size:.24rem;
                         font-weight:500;
                         margin-top:.47rem; 
                     }
                     div{                       
-                            font-size:20px;
+                            font-size:.20rem;
                             color:#717171;
                         span:nth-child(1),span:nth-child(2){                           
                             line-height:.41rem;
@@ -104,7 +104,7 @@ export default {
                     width:.79rem;
                     height:.47rem;
                     border:1px solid #C3C3C3;
-                    border-radius:4px;
+                    border-radius:.04rem;
                     line-height:.47rem;
                     text-align: center;
                     position: absolute;
@@ -114,7 +114,7 @@ export default {
             }
             .commend{
                 color:#313131;
-                font-size:24px;
+                font-size:.24rem;
                 margin-left:.24rem;
                 margin-top:.11rem;
                 display: flex;                
