@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from "./store";
+import Observer from "./common/js/observer.js"
+Vue.prototype.Observer=Observer;
 
 // 引入iview
 import iView from 'iview';
