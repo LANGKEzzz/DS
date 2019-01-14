@@ -21,13 +21,16 @@ export default {
     	"Main-com":Main
     },
     mounted(){
-        // let wrapper = document.querySelector('.wrapper')
-        // let scroll = new BScroll(wrapper)
-        this.scroll = new BScroll(this.$refs.box,{
+        this.$nextTick(function(){
+            this.scroll = new BScroll(this.$refs.box,{
             scrollY:true,
             click:true
+            })
+            console.log(this.scroll)
         })
-        console.log(this.scroll)
+        // let wrapper = document.querySelector('.wrapper')
+        // let scroll = new BScroll(wrapper)
+       
     }
 }
 </script>

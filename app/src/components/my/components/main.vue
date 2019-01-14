@@ -45,6 +45,13 @@
 </template>
 
 <script>
+export default {
+	data(){
+		return{
+			flag:true
+		}
+	}
+}
 </script>
 
 <style lang="scss" scoped>
