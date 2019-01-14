@@ -299,7 +299,7 @@ export default new Router({
     },
     //屏蔽设置
     {
-      path:"/shieldS",
+      path:"/shieldS/:index",
       name:"shieldS",
       component:shieldS,
         meta:{
@@ -332,7 +332,7 @@ export default new Router({
       meta:{
         flag:false
       }
-      
+
     },
     //更换号码
     {
@@ -439,7 +439,7 @@ export default new Router({
         flag:true
       }
     },
-    
+
     {
       path: '/**',
       name: 'error',
@@ -459,5 +459,3 @@ export default new Router({
 
 //   }
 // })
-
-

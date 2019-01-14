@@ -1,11 +1,11 @@
 <template>
  <div class="shield">
     <div class="header">
-        
+
             <div class="header_pic" @click="handleJump">
                 <img src="../../../../static/icon/icon_jiantou1@2x.png"/>
             </div>
-        
+
       <p>屏蔽设置</p>
     </div>
      <div class="main_t">
@@ -13,11 +13,11 @@
             <b>添加屏蔽用户</b>
 			<p class="shieldP">已屏蔽用户</p>
     </div>
-        
-    
+
+
         <div class="wrapper" ref="wrapper">
         <ul class="content">
-            <li v-for="(item,index) in shieldList" :key="index">
+            <li v-for="(item,index) in list" :key="index">
                <div class="left">
                	<!-- <img src="../../../../static/shield/pb_tx_01@2x.png"/> -->
                    <img :src="item.imgUrl"/>
@@ -27,10 +27,10 @@
                	<span>{{item.infor}}</span>
                </div>
                <div class="right" >{{item.message}}</div>
-            </li>        
+            </li>
          </ul>
         </div>
-    
+
   </div>
 </template>
 <script>
@@ -41,16 +41,17 @@ export default {
 
     data(){
         return{
-			
+          list:this.$route.params
         }
    },
    computed:{
-       ...mapState({
-           shieldList:state=>state.Settings.getshieldList
-       })
+    // ...mapState({
+    //     shieldList:state=>state.Settings.getshieldList
+    // })
    },
    created(){
-      this.getshieldListA()
+   // this.getshieldListA();
+
    },
    mounted(){
          this.$nextTick(()=>{
@@ -59,8 +60,8 @@ export default {
                 threshold: 20,
                 stop:0
             }
-        
-           
+
+
            })
             console.log(this.scroll)
          })
@@ -70,16 +71,16 @@ export default {
          this.$router.go(-1)
      },
 
-   ...mapActions({
-       getshieldListA:"Settings/getshieldListA"
-   }),
+// ...mapActions({
+//     getshieldListA:"Settings/getshieldListA"
+// }),
    handleJumpF(){
-   	  this.$router.push("fans");
+   	  this.$router.push("attention");
    }
-  
 
-   	
-   }       
+
+
+   }
 }
 </script>
 </script>
@@ -108,7 +109,7 @@ export default {
                     position:absolute;
                     left: 3.08rem;
                     bottom:.29rem;
-                    
+
                 }
                 .header_pic{
                     width:.24rem;
@@ -119,19 +120,19 @@ export default {
                     bottom:.31rem;
                      img{
                     width:.24rem;
-                    height:.42rem; 
+                    height:.42rem;
                     }
                 }
             }
-            
-                
+
+
                 .wrapper{
                     width:100%;
                     // height:12.04rem;
                     height:9rem;
                 	ul{
                         width:100%;
-                        
+
 	                	/*background:#FFFFFF;*/
 	                	// position:absolute;
 	                	// left:0;
@@ -143,9 +144,9 @@ export default {
 							height:1.68rem;
 							background:rgba(255,255,255,1);
 							margin-bottom:0.01rem;
-							
+
 							.left{
-						
+
 								float:left;
 								line-height:1.68rem;
 								margin-left:.24rem;
@@ -157,10 +158,10 @@ export default {
                                     width:100%;
                                     height:100%;
                                 }
-								
+
 							}
 							.center{
-							
+
 								float:left;
 								margin-top:.55rem;
 								padding-left:.24rem;
@@ -170,19 +171,19 @@ export default {
 									font-weight:500;
 									color:rgba(49,49,49,1);
 									padding-bottom: .1rem;
-									
+
 								}
 								span{
 									font-size:$font_size_20;
 									font-family:PingFang-SC-Medium;
 									font-weight:500;
 									color:rgba(113,113,113,1);
-									
+
 								}
-								
+
 							}
 							.right{
-							
+
 								float:right;
 								/*text-align:center;*/
 								line-height:0.48rem;
@@ -194,12 +195,12 @@ export default {
 								margin-right:.23rem;
 								padding-left:.22rem;
 							}
-							
+
 	                	}
 	                }
                 }
 
-            
+
             .main>ul>li>a{
                 color:#313131;
             }
@@ -214,10 +215,10 @@ export default {
                     img{
                         width:.42rem;
                         height:.42rem;
-                        display:inline-block; 
+                        display:inline-block;
                         position:absolute;
                         left:.24rem;
-                        top:.53rem;  
+                        top:.53rem;
                     }
                     b{
                         font-size:$font_size_24;
@@ -243,7 +244,7 @@ export default {
                 }
                 }
 
-    
+
     }
-   
+
 </style>
