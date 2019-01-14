@@ -16,12 +16,10 @@
 </template>
 <script>
 import Vuex from "vuex";
-export default{
-    
+export default{   
     computed: {
         ...Vuex.mapState({
             messageList:state=>state.Message.messageList
-            
         })
     },
     created() {
@@ -62,6 +60,7 @@ export default{
                 img{
                     width:.88rem;
                     height:.88rem;
+                    border-radius: 50%;
                 }
             }
             .message_c{

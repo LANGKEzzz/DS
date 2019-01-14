@@ -32,7 +32,7 @@ export default {
         this.scroll = new Bscroll(this.$refs.message_box,{
             scrollY:true,
             pullDownRefresh:{
-                threshold: 20,
+                threshold: 50,
                 stop:0
             },
             click:true,

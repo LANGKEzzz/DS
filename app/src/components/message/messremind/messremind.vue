@@ -1,7 +1,7 @@
 <template>
     <div class="message_mess">
         <h2>
-             谁评论了我
+             评论
                 <div class="mess_back" @click="back_()">
                     <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
                 </div>
@@ -11,17 +11,17 @@
         </div>
         <div class="wrapper_" ref="messremind">        
             <ul class="comment_" >
-                <li>
+                <li v-for="(item,index) in commentList">
                     <div class="information">
                         <div class="infor_img">
-                            <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
+                            <img :src="item.headPortrait" alt="">
                         </div>
                         <div class="infor_he">
-                            <p>昵称昵称昵称</p>
+                            <p>{{item.nickname}}</p>
                             <div>
-                                <span>12-25</span>
-                                <span>12:30</span>
-                                <span>来自iphone客户端</span>
+                                <span>{{item.datatime}}</span>
+                                <span>{{item.time}}</span>
+                                <span>{{item.equipment}}</span>
                             </div>
                         </div>
                         <div class="replay" @click="replayButton($event)">回复</div>
@@ -32,24 +32,25 @@
                     </div>
                     <div  class="infor_my">
                         <div class="infor_my_img">
-                            <img src="../../../../static/tu_06@2x.png" alt="">
+                            <img :src="item.layoutImg" alt="">
                         </div>                    
                         <div class="infor_mess">
                             <div class="myMessage">
-                                <div class="myMessage_img">
-                                    <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
+                                <div class="myMessage_img">                                    
+                                    <img :src="item.myimg" alt="">                               
                                 </div>
                                 <div class="myMessage_i">
-                                    <p>昵称昵称昵称</p>
+                                    <p>{{item.mynickname}}</p>
                                     <div>
-                                        <span>12-25</span>
-                                        <span>12:30</span>
-                                        <span>来自iphone客户端</span>
+                                        <span>{{item.mydata}}</span>
+                                        <span>{{item.mytime}}</span>
+                                        <span>{{item.myEquipment}}</span>
                                     </div>
                                 </div>
                             </div>
-                            <p class="my_content">                       
-                                PingFang SC Medium,也叫苹方中等体,即苹方字体中的中等字重,是支持MAC osX系统的字体。 pingfang sc ...
+                            <p class="my_content"> 
+                                {{item.publish}}                      
+                                <!-- PingFang SC Medium,也叫苹方中等体,即苹方字体中的中等字重,是支持MAC osX系统的字体。 pingfang sc ... -->
                             </p>
                         </div>
                     </div>
@@ -60,24 +61,21 @@
 </template>
 <script>
 import Bscroll from "better-scroll";
-export default{
-    // data(){
-    //     return{
-    //         flag : false,
-    //         comment:[
-    //             {
-    //                 "url" : "../../../../static/message/xx_tx_06@2x.png",
-    //                 "people" : "土豆土豆",
-    //                 "timer" : "2019.1.8",
-    //                 "discuss":"地瓜地瓜地瓜地瓜",
-    //                 "src_list" : "../../../../static/tu_01@2x.png",
-    //                 "Nickname" : "地瓜地瓜",
-    //                 "content" : "中国铁路济南局集团,已终止权健动车组冠名 全部撤除中国铁路济南局集团"
-    //             }
-    //            
-    //         ]
-    //     }
-    // },
+import Vuex from "vuex"
+export default{ 
+    data(){
+        return{
+            flag:false
+        }
+    },
+    computed:{
+        ...Vuex.mapState({
+            commentList:state=>state.Message.commentList
+        })
+    },
+    created() {
+        this.getComment();
+    },
     methods:{
         back_(){
             this.$router.back();
@@ -87,7 +85,10 @@ export default{
         },
         replayButton(e){
             this.$router.push('/message/replay')
-        }       
+        } ,
+        ...Vuex.mapActions({
+            getComment : "Message/getComment"
+        })      
     },
     mounted(){
         this.scroll= new Bscroll( this.$refs.messremind,{
@@ -163,6 +164,7 @@ export default{
                         img{
                             width:100%;
                             height:100%;
+                            border-radius:50%;
                         }
                     }
                     .infor_he{
@@ -232,10 +234,12 @@ export default{
                             .myMessage_img{
                                 width:.87rem;
                                 height:.87rem;
+                                border-radius:50%;
                                 margin-right:.16rem;
                                 img{
                                     width:100%;
                                     height:100%;
+                                    border-radius:50%;
                                 }
                             }
                             .myMessage_i{

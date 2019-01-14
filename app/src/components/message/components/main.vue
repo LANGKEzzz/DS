@@ -9,8 +9,7 @@
                 <div class="top_img">
                     <img src="../../../../static/icon/icon_jiantou1_reserver.png" alt="">
                 </div>
-                <div class="show_num" >
-                    <span class="num" v-show="flagNum">0</span>
+                <div class="show_num" >                 
                     <span class="spot" v-show="flagSpot"></span>
                 </div>
             </li>
@@ -21,7 +20,7 @@
     export default{
         data(){
             return{                
-                flagNum: false,
+               
                 flagSpot: true,
                 ulList:[
                     {
@@ -105,26 +104,19 @@
                 }
             
             .show_num{
-                .num{
-                    display:block;
-                    width:.34rem;
-                    height:.34rem;
-                    border-radius: 50%;
-                    background:#F93A2B;
-                    margin-left:.3rem;
-                    margin-top:.25rem;
-                    line-height: .34rem;
-                    text-align:center;
-                    color:#fff;
-                    font-size:.24rem;
-                }
+                width:.1rem;
+                height:.1rem;   
+                border-radius: 50%;  
+                margin-left:1px;  
+                // background:url("../../../../static/icon/sz_hd@2x.png") no-repeat;
+                // background-size:100% 100%;     
                 .spot{
                     display:block;                    
                     width:.1rem;
                     height:.1rem;
                     background:#F93A2B;
                     border-radius: 50%;
-                    margin-top:.3rem;
+                    margin-top:.2rem;
                 }
             }
         }

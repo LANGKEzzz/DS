@@ -5,19 +5,28 @@
                 <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
             </div>
             <h2>回复 </h2>                          
-            <div>发送</div>        
+            <div @click="handleContent()">发送</div>        
         </div>
         <div class="import_">
-            <!-- <input type="text" value="说点什么..."> -->
-            <textarea>说点什么...</textarea>
+            <textarea v-model="textContent"></textarea>
         </div>
     </div>
 </template>
 <script>
 export default {
+    data(){
+        return{
+            textContent:"说点什么..."            
+        }
+    },
     methods:{
         handle_Back(){
             this.$router.go(-1)
+        },
+        handleContent(){
+            let message = this.textContent;
+            let time = new Date();
+           console.log(this.textContent,time.toLocaleString())
         }
     }
 }
@@ -51,8 +60,7 @@ export default {
             img{
                 width:.24rem;
                 height:.42rem;
-            }
-           
+            }          
         }
         h2{
             width:100%;
@@ -64,9 +72,6 @@ export default {
             position: absolute;
             right:.22rem;
             font-size:.34rem;
-            /* top:.65rem; */
-            /* bottom:.35rem; */
-            /* height:0; */
         }
     }
     .import_{
@@ -77,7 +82,7 @@ export default {
             color:#D6D6D6;
             border:none;
             width:100%;
-            /* height:100%; */
+            height:100%;
             padding-top:.3rem;
             padding-left:.35rem;
             font-size:.28rem;

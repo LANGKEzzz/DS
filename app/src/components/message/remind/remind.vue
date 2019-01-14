@@ -1,7 +1,7 @@
 <template>
     <div class="message_remind">
         <h2>
-             谁@了我
+             @我的
                 <div class="remind_back" @click="handleBack()">
                     <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
                 </div>
@@ -11,17 +11,17 @@
         </div>
         <div class="wrapper_r" ref="wrapperR">       
             <ul class="remind_ ">
-                <li>
+                <li v-for="(item,index) in remindList">
                     <div class="information">
                         <div class="infor_img">
-                            <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
+                            <img :src="item.headPortrait" alt="">
                         </div>
                         <div class="infor_he">
-                            <p>昵称昵称昵称</p>
+                            <p>{{item.nickname}}</p>
                             <div>
-                                <span>12-25</span>
-                                <span>12:30</span>
-                                <span>来自iphone客户端</span>
+                                <span>{{item.datatime}}</span>
+                                <span>{{item.time}}</span>
+                                <span>{{item.equipment}}</span>
                             </div>
                         </div>
                         <div class="replay" @click="replayButton($event)">回复</div>
@@ -32,24 +32,25 @@
                     </div>
                     <div  class="infor_my">
                         <div class="infor_my_img">
-                            <img src="../../../../static/tu_06@2x.png" alt="">
+                            <img :src="item.layoutImg" alt="">
                         </div>                    
                         <div class="infor_mess">
                             <div class="myMessage">
                                 <div class="myMessage_img">
-                                    <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
+                                    <img :src="item.myimg" alt="">
                                 </div>
                                 <div class="myMessage_i">
-                                    <p>昵称昵称昵称</p>
+                                    <p>{{item.mynickname}}</p>
                                     <div>
-                                        <span>12-25</span>
-                                        <span>12:30</span>
-                                        <span>来自iphone客户端</span>
+                                        <span>{{item.mydata}}</span>
+                                        <span>{{item.mytime}}</span>
+                                        <span>{{item.myEquipment}}</span>
                                     </div>
                                 </div>
                             </div>
                             <p class="my_content">                       
-                                PingFang SC Medium,也叫苹方中等体,即苹方字体中的中等字重,是支持MAC osX系统的字体。 pingfang sc ...
+                                <!-- PingFang SC Medium,也叫苹方中等体,即苹方字体中的中等字重,是支持MAC osX系统的字体。 pingfang sc ... -->
+                            {{item.publish}}
                             </p>
                         </div>
                     </div>
@@ -60,20 +61,20 @@
 </template>
 <script>
 import BScroll from 'better-scroll';
-
+import Vuex from 'vuex';
 export default{
     data(){
         return{
-            flag : false,
-            // remind_list:[
-            //     {
-            //         "url":"../../../../static/message/xx_tx_01@2x.png",
-            //         "people":"林更新",
-            //         "time":"12:00"
-            //     }
-           
-            // ]
+            flag : false
         }
+    },
+    computed:{
+        ...Vuex.mapState({
+            remindList:state=>state.Message.remindList
+        })
+    },
+     created(){
+        this.getRemind()
     },
     methods:{
         handleBack(){
@@ -81,15 +82,19 @@ export default{
         },
         replayButton(e){
             this.$router.push('/message/replay')
-            alert()
-        }    
-    },
+            
+        },
+        ...Vuex.mapActions({
+            getRemind:"Message/getRemind"
+        })   
+    },  
     mounted() {
         this.scroll = new BScroll(this.$refs.wrapperR,{
             pullDownRefresh :  {
                 threshold: 20,
                 stop:0
-            }
+            },
+            click:true
         })        
     }
 }
@@ -150,6 +155,7 @@ export default{
                         img{
                             width:100%;
                             height:100%;
+                            border-radius:50%;
                         }
                     }
                     .infor_he{
@@ -220,9 +226,11 @@ export default{
                                 width:.87rem;
                                 height:.87rem;
                                 margin-right:.16rem;
+                                border-radius:50%;
                                 img{
                                     width:100%;
                                     height:100%;
+                                    border-radius:50%;
                                 }
                             }
                             .myMessage_i{

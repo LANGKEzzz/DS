@@ -1,17 +1,17 @@
 <template>
     <div class="focus_list">
         <ul>
-            <li>
+            <li v-for="(item,index) in focusList">
                 <div class="information">
                     <div class="infor_img">
-                        <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
+                        <img :src="item.headPortrait" alt="">
                     </div>
                     <div class="infor_he">
-                        <p>昵称昵称昵称</p>
+                        <p>{{item.nickname}}</p>
                         <div>
-                            <span>12-25</span>
-                            <span>12:30</span>
-                            <span>来自iphone客户端</span>
+                            <span>{{item.datatime}}</span>
+                            <span>{{item.time}}</span>
+                            <span>{{item.equipment}}</span>
                         </div>
                     </div>
                     <div class="replay" @click="replayButton($event)">回复</div>
@@ -22,24 +22,25 @@
                 </div>
                 <div  class="infor_my">
                     <div class="infor_my_img">
-                        <img src="../../../../static/tu_06@2x.png" alt="">
+                        <img :src="item.layoutImg" alt="">
                     </div>                    
                     <div class="infor_mess">
                         <div class="myMessage">
                             <div class="myMessage_img">
-                                <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
+                                <img :src="item.myimg" alt="">
                             </div>
                             <div class="myMessage_i">
-                                <p>昵称昵称昵称</p>
+                                <p>{{item.mynickname}}</p>
                                 <div>
-                                    <span>12-25</span>
-                                    <span>12:30</span>
-                                    <span>来自iphone客户端</span>
+                                    <span>{{item.mydata}}</span>
+                                    <span>{{item.mytime}}</span>
+                                    <span>{{item.myEquipment}}</span>
                                 </div>
                             </div>
                         </div>
-                        <p class="my_content">                       
-                            PingFang SC Medium,也叫苹方中等体,即苹方字体中的中等字重,是支持MAC osX系统的字体。 pingfang sc ...
+                        <p class="my_content"> 
+                            {{item.publish}}                      
+                            <!-- PingFang SC Medium,也叫苹方中等体,即苹方字体中的中等字重,是支持MAC osX系统的字体。 pingfang sc ... -->
                         </p>
                     </div>
                 </div>
@@ -48,11 +49,27 @@
     </div>
 </template>
 <script>
+import Vuex from "vuex"
 export default {
-    methods:{
+    
+    computed: {
+        ...Vuex.mapState({
+            focusList:state=>state.Message.focusList           
+        })
+    },
+    created() {
+        this.getFocus();
+
+    },
+    methods: {
+        ...Vuex.mapActions({
+            getFocus:"Message/getFocus"
+        }),
         replayButton(e){
             this.$router.push('/message/replay')
+           
         }
+        
     }
 }
 </script>
@@ -81,6 +98,7 @@ export default {
                     img{
                         width:100%;
                         height:100%;
+                        border-radius:50%;
                     }
                 }
                 .infor_he{
@@ -154,6 +172,7 @@ export default {
                             img{
                                 width:100%;
                                 height:100%;
+                                border-radius:50%;
                             }
                         }
                         .myMessage_i{
