@@ -8,9 +8,9 @@
                 </div>
             </router-link>           
         </h2>
-        <ul >
-            <li class="dialogbox_box" v-for="(item,index) in lists">
-                <div class="dialogbox_he">
+        <div class="wraper">
+            <div class="dialogbox_box" ref="message_box" :scrollToEndFlag="scrollToEndFlag">
+                <div class="dialogbox_he" v-for="(item,index) in lists">
                     <div>
                         <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
                     </div> 
@@ -19,19 +19,20 @@
                         <i class="triangle_border_left"></i>
                     </span>                     
                 </div>  
-                <div class="dialogbox_my">
+                <!-- <div class="send"> -->
+                <div class="dialogbox_my" v-for="(item,index) in messageList">
                     <span>
-                        {{item.my}}
+                    {{item}}
                         <i class="triangle_border_right"></i>
-                    </span> 
-                    
+                    </span>                     
                     <div>
                         <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
                     </div>                    
-                </div>              
-            </li>            
+                </div>       
+                <!-- </div> -->
+            </div>            
              
-        </ul>
+        </div>
         <div class="dialogbox_inptbox">
             <div>语音</div>
             <input type="text" v-model="messageInput">
@@ -40,43 +41,56 @@
     </div>
 </template>
 <script>
+import BScroll from 'better-scroll';
+
     export default{
         data(){
             return{
-                messageInput:"",
+                messageList:[],
+                messageInput:'',
                 lists : [
                     {
                         "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"                     
-                    },
-                    {
-                        "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"
                     }
-                ]
+                ],
+                scrollToEndFlag: {
+                    type: Boolean,
+                    default: false
+                }
             }
+        },
+        methods:{          
+            handleSendout(){
+                if(this.messageInput!=""){
+                    this.messageList.push(this.messageInput);
+                    this.messageInput="";
+                    let time = new Date().toLocaleString();
+                    
+                    localStorage.setItem("messageList" , this.messageList)
+                    // console.log(this.messageList)
+                    // console.log(time)
+                }                              
+            },           
+        } ,  
+        
+        mounted(){
+            this.$nextTick(function(){
+                let div = this.$refs.message_box;
+                div.scrollTop = div.scrollHeight;
+                // console.log(div.scrollHeight)
+            })
+        },
+        updated() {
+            this.$nextTick(function(){
+                let box = this.$refs.message_box;
+                box.scrollTop = box.scrollHeight;
+                console.log(box.scrollTop)
+                console.log(box.scrollHeight)
+            })
         }
-    
     }
+
+
 </script>
 <style lang="scss" scoped>
 .dialogbox{
@@ -113,17 +127,17 @@
             }
         }
     }
-    ul{
+    .wraper{
         flex:1;
         overflow: scroll;
         padding-bottom:.98rem;
-        li{       
-            height:2rem; 
-            margin-top:.2rem;      
+        .dialogbox_box{  
+            // height:100rem;
             .dialogbox_he,.dialogbox_my{
                 border-radius: 50%;
                 display:flex;
-                             
+                height:1rem;  
+                margin-top:.29rem;      
                 div{
                     width:.88rem;
                     height:.88rem;
@@ -162,7 +176,8 @@
             .dialogbox_my{ 
                 display:flex;
                 justify-content: flex-end;
-                padding-right:.24rem;             
+                padding-right:.24rem;   
+                      
                 div{
                     margin-left:.09rem;
                 }
@@ -190,8 +205,12 @@
         }                                                        
     }
     .dialogbox_inptbox{
+        width:100%;
         height:.98rem;
         background:#fff;
+        position:fixed;
+        left:0;
+        bottom:0;
         display:flex;
         justify-content: space-between; 
         align-items: center;       
@@ -210,6 +229,7 @@
             border:none;
             border-radius: .29rem;
             background:#dfdede;
+            padding-left:.2rem;
         }
     }
 }

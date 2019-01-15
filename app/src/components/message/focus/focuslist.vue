@@ -26,11 +26,11 @@
                     </div>                    
                     <div class="infor_mess">
                         <div class="myMessage">
-                            <div class="myMessage_img">
+                            <div class="myMessage_img" @click="toMy()">
                                 <img :src="item.myimg" alt="">
                             </div>
                             <div class="myMessage_i">
-                                <p>{{item.mynickname}}</p>
+                                <p @click="toMy()">{{item.mynickname}}</p>
                                 <div>
                                     <span>{{item.mydata}}</span>
                                     <span>{{item.mytime}}</span>
@@ -68,6 +68,9 @@ export default {
         replayButton(e){
             this.$router.push('/message/replay')
            
+        },
+        toMy(){
+            this.$router.push("/my")
         }
         
     }
