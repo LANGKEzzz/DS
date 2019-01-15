@@ -4,9 +4,9 @@
         <div class="wrapper" ref="box">
            <div class="content">
                 <Main-com></Main-com>
+                <!-- <Main-com></Main-com>
                 <Main-com></Main-com>
-                <Main-com></Main-com>
-                <Main-com></Main-com>
+                <Main-com></Main-com> -->
            </div>
         </div>
     </div>

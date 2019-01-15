@@ -1,60 +1,26 @@
 <template>
 	<div id="main">
 		<ul>
+<<<<<<< HEAD
 			<li v-for="(item,index) in List_att" @click="handleShield(item,index)" >
+=======
+			<li v-for="(item,index) in arrAttention" v-bind:key="index">
+>>>>>>> zhang
 				<router-link :to="{name:'chat'}">
-					<img src="../../../../../../static/gzdr_tx_01@2x.png">
+				   <img :src="item.picUrl">
 				</router-link>
-				<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp一起回顾</p>
-				<span>互相关注</span>
+				<p>{{item.friendName}}</p>
+				<p>{{item.friendMain}}</p>
+				<span>已关注</span>
 			</li>
-		    <!-- <li>
-		    	<router-link :to="{name:'chat'}">
-		    	    <img src="../../../../../../static/gzdr_tx_02@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li> -->
-		    <!-- <li>
-		    	<router-link :to="{name:'chat'}">
-		    	    <img src="../../../../../../static/gzdr_tx_03@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li>
-		    <li>
-		    	<router-link :to="{name:'chat'}">
-		    	   <img src="../../../../../../static/gzdr_tx_01@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li>
-		    <li>
-		    	<router-link :to="{name:'chat'}">
-		    	   <img src="../../../../../../static/gzdr_tx_02@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li>
-		    <li>
-		    	<router-link :to="{name:'chat'}">
-		    	   <img src="../../../../../../static/gzdr_tx_03@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li> -->
 		</ul>
 	</div>
 </template>
 
 <script>
+	import  Vuex from "vuex";
 	export default{
+<<<<<<< HEAD
 
 		data(){
 			return{
@@ -131,6 +97,32 @@
 					this.$router.push({name:'shieldS',params:{list:this.List_att[index]}})
 
 			}
+=======
+	  created(){
+		 	//console.log( this );
+			this.handleAttentionData();
+			// console.log(this.state)
+        },
+        methods:{
+          ...Vuex.mapActions({
+              handleAttentionData:"My/handleAttentionData"
+          })
+        },
+		computed:{
+				...Vuex.mapState({
+					arrAttention:state=>state.My.arrAttention
+				})
+			},
+		
+
+
+
+		data(){
+			return{
+            
+			}
+				console.log(this.state)
+>>>>>>> zhang
 		}
 	}
 </script>

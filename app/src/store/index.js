@@ -14,6 +14,7 @@ import Settings from "./settings"
 
 var store = new Vuex.Store({
     modules:{
+        namespaced:true,
         Dynamic,
         Settings,    
         Home,

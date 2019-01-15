@@ -14,8 +14,9 @@
     import BScroll from "better-scroll";
 	import Header from "./components/header.vue";
     import Main from "./components/main.vue";
-    
+    import Vuex from "vuex";
 export default {
+      
     components:{
     	"Header-com":Header,
     	"Main-com":Main
@@ -28,9 +29,13 @@ export default {
             })
             console.log(this.scroll)
         })
+<<<<<<< HEAD
         // let wrapper = document.querySelector('.wrapper')
         // let scroll = new BScroll(wrapper)
        
+=======
+        // console.log(this.scroll)
+>>>>>>> zhang
     }
 }
 </script>
