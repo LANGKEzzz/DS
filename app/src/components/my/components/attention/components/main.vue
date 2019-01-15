@@ -1,120 +1,45 @@
 <template>
 	<div id="main">
 		<ul>
-			<li v-for="{item,index} in List_att">
+			<li v-for="(item,index) in arrAttention" v-bind:key="index">
 				<router-link :to="{name:'chat'}">
-					<img src="../../../../../../static/gzdr_tx_01@2x.png">
+				   <img :src="item.picUrl">
 				</router-link>
-				<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp一起回顾</p>
-				<span>互相关注</span>
+				<p>{{item.friendName}}</p>
+				<p>{{item.friendMain}}</p>
+				<span>已关注</span>
 			</li>
-		    <!-- <li>
-		    	<router-link :to="{name:'chat'}">
-		    	    <img src="../../../../../../static/gzdr_tx_02@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li> -->
-		    <!-- <li>
-		    	<router-link :to="{name:'chat'}">
-		    	    <img src="../../../../../../static/gzdr_tx_03@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li>
-		    <li>
-		    	<router-link :to="{name:'chat'}">
-		    	   <img src="../../../../../../static/gzdr_tx_01@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li>
-		    <li>
-		    	<router-link :to="{name:'chat'}">
-		    	   <img src="../../../../../../static/gzdr_tx_02@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li>
-		    <li>
-		    	<router-link :to="{name:'chat'}">
-		    	   <img src="../../../../../../static/gzdr_tx_03@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li> -->
 		</ul>
 	</div>
 </template>
 
 <script>
+	import  Vuex from "vuex";
 	export default{
+	  created(){
+		 	//console.log( this );
+			this.handleAttentionData();
+			// console.log(this.state)
+        },
+        methods:{
+          ...Vuex.mapActions({
+              handleAttentionData:"My/handleAttentionData"
+          })
+        },
+		computed:{
+				...Vuex.mapState({
+					arrAttention:state=>state.My.arrAttention
+				})
+			},
+		
+
+
+
 		data(){
 			return{
-               List_att:[
-				   {
-					  "url":"../../../../../../static/gzdr_tx_02@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-
-				   },
-				   {
-                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-				    {
-                      "url":"../../../../../../static/gzdr_tx_02@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-				    {
-                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-                    {
-                      "url":"../../../../../../static/gzdr_tx_02@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-				   {
-                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-				   {
-                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-				   {
-                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-				   {
-                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-			   ]
+            
 			}
+				console.log(this.state)
 		}
 	}
 </script>

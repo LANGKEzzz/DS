@@ -20,8 +20,8 @@
 	import Inp from "./components/inp.vue";
 	import Main from "./components/main.vue";
 	
-	
 export default{
+  
 	components:{
 		"Header-com":Header,
 		"Inp-com":Inp,

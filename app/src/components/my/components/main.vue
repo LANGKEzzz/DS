@@ -36,7 +36,7 @@
 				
 
 				<!-- 加载图标 -->
-				<div class="loading" v-show="flag">
+				<div class="loading">
 				   <i class="fa fa-spinner fa-pulse"></i>
 				</div>
 			</div>

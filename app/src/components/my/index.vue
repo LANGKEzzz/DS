@@ -14,8 +14,9 @@
     import BScroll from "better-scroll";
 	import Header from "./components/header.vue";
     import Main from "./components/main.vue";
-    
+    import Vuex from "vuex";
 export default {
+      
     components:{
     	"Header-com":Header,
     	"Main-com":Main
@@ -27,7 +28,7 @@ export default {
             scrollY:true,
             click:true
         })
-        console.log(this.scroll)
+        // console.log(this.scroll)
     }
 }
 </script>
