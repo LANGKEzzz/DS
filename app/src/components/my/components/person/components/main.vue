@@ -201,6 +201,7 @@
 		width:100%;
 		height:12.06rem;
 		position: relative;
+		font-family: PingFangSC-Regular;
 		.ex{
 			width:100%;
 	    	height:0.2rem;
@@ -367,20 +368,23 @@
 				border-top: 2px solid #f4f4f4;
 				#btn1{
 						width: 1rem;
-						background:#f4f4f4;
+						background:#fff;
 						border: #fff;
 						margin-left: 1.2rem;
 						margin-top:0.5rem;
 						color:skyblue;
+						font-size: 0.3rem;
 						
 					}
 				#btn2{
 						width: 1rem;
-						background: #f4f4f4;
+						background:#fff;
 						border: #fff;
 						margin-left: 1.2rem;
 						margin-top:0.5rem;
 						color:skyblue;
+						font-size: 0.3rem;
+						
 						
 			    }
 			}	

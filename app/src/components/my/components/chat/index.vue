@@ -41,7 +41,11 @@
        height:100%;
        font-family: PingFang-SC-Medium;
        .wrapper{
-           height:11rem;
+           height:11.09rem;
+		   .content{
+			   background: #f4f4f4;
+			   height:100rem;
+		   }
        }
    }
     

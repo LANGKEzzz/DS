@@ -209,6 +209,7 @@ export default {
         margin-top: 0.15rem;
         background: white;
         overflow: hidden;
+        font-family: PingFang-SC-Medium;
         .user_tx {
           width: 100%;
           height: 0.8rem;

@@ -12,10 +12,6 @@
 					钱可以买到一切<br>
 					现在我觉得真的不行<br>
 					因为钱不够"</p>
- 				<p>"以前我以为<br/>
- 				钱可以买到一切<br/>
- 				现在我觉得真的不行<br/>
- 				因为钱不够"</p>
 			</div>
 			<div class="main_bottom_thr">
 				<img src="../../../../static/tu_01@2x.png">
@@ -36,9 +32,9 @@
 				
 
 				<!-- 加载图标 -->
-				<div class="loading">
+				<!-- <div class="loading">
 				   <i class="fa fa-spinner fa-pulse"></i>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -57,7 +53,7 @@ export default {
 <style lang="scss" scoped>
 	#main{
 		width:7.5rem;
-	    height:10.1rem;
+	    height:8.81rem;
 	    .ex{
 	    	width:100%;
 	    	height:0.2rem;
@@ -105,17 +101,20 @@ export default {
 	    		width:100%;
 	    		height:4.6rem;
 	    		/*background:skyblue;*/
-	    		margin-top:0.24rem;
+	    		margin-top:0.08rem;
+				display: flex;
+				justify-content: space-around;
+				flex-wrap: wrap;
 	    		img{
 	    			width:2.3rem;
 	    			height:2.3rem;
-	    			float:left;
 	    			margin-right:0.06rem;
 	    			margin-bottom:0.1rem;
-	    			margin-left:0.14rem;
+	    			margin-left:0.1rem;
 	    		}
 	    	}
 	    	.main_bottom_four{
+				margin-top: 0.3rem;
 	    		.tx{
 	    			width:0.27rem;
 	    			height:0.35rem;
@@ -130,7 +129,7 @@ export default {
 	    			height:0.8rem;
 	    			display:flex;
 	    			justify-content:space-around;
-	    			margin-top:0.2rem;
+	    			margin-top:0.25rem;
 	    			div{
 	    			    width:0.51rem;
 	    			    height:0.51rem;

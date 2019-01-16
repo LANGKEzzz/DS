@@ -52,7 +52,7 @@ export default{
     #main{
      	width:100%;
      	height:12.06rem;
-     	
+     	font-family:PingFangSC-Regular;
      	.ex{
      		width:100%;
      		height:0.19rem;
@@ -66,7 +66,6 @@ export default{
      		.list_one{
      			width:100%;
      			height:7.44rem;
-     			
      			overflow:hidden;
      			p:nth-child(4){
      				margin-left:0.24rem;
@@ -79,6 +78,7 @@ export default{
      				width:0.9rem;
      				height:0.9rem;
      				margin-left:0.24rem;
+					margin-top: 0.16rem;
 	    			float:left;
      			}
      			h2{
@@ -111,7 +111,6 @@ export default{
 	    		}.fx{
 	    			width:100%;
 	    			height:7.44rem;
-	    		
 	    			display:flex;
 	    			justify-content:space-around;
 	    			div{

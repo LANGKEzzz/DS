@@ -44,7 +44,10 @@ export default{
 	   width:100%;
 	   height:100%;
 	   .wrapper{
-		   height:12.26rem;
+		   height:12rem;
+		   .content{
+			   height: 100rem;
+		   }
 	   }
 	   
    }

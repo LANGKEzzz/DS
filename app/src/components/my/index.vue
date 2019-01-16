@@ -29,13 +29,7 @@ export default {
             })
             console.log(this.scroll)
         })
-<<<<<<< HEAD
-        // let wrapper = document.querySelector('.wrapper')
-        // let scroll = new BScroll(wrapper)
-       
-=======
         // console.log(this.scroll)
->>>>>>> zhang
     }
 }
 </script>

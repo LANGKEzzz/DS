@@ -47,6 +47,7 @@ import  Vuex from "vuex";
 	#main{
 		width:100%;
 		height:12.06rem;
+		font-family:PingFangSC-Regular;
 		.exa{
 			width:100%;
 			height:0.5rem;
