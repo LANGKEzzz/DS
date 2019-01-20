@@ -23,7 +23,7 @@
           <img :src="item.imgUrl" />
         </div>
         <div class="center">
-          <p>{{item.name}}</p>
+          <p>{{item.username}}</p>
           <span>{{item.infor}}</span>
         </div>
         <div class="right">{{item.message}}</div>
@@ -45,7 +45,7 @@ export default {
 
   data() {
     return {
-      list: this.$route.params
+      list:[]
     }
   },
   computed: {
@@ -55,6 +55,7 @@ export default {
   },
   created() {
     // this.getshieldListA();
+
 
   },
   mounted() {
@@ -67,8 +68,19 @@ export default {
 
 
       })
-      console.log(this.scroll)
+      // console.log(this.scroll)
     })
+
+      // let obj={}
+      //   obj.id=this.$route.params.id;
+      //   obj.username=this.$route.params.username;
+      //   obj.message=this.$route.params.sp;
+      //   this.list=this.list.push(obj)
+
+
+
+
+
   },
   methods: {
     handleJump() {
@@ -79,14 +91,14 @@ export default {
     //     getshieldListA:"Settings/getshieldListA"
     // }),
     handleJumpF() {
-      this.$router.push("attention");
+      this.$router.push("/attention");
     }
 
 
 
   }
 }
-</script>
+
 </script>
 <style lang="scss" scoped>
 @import "../../../common/css/fontSize.scss";

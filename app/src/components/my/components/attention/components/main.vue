@@ -1,7 +1,7 @@
 <template>
 	<div id="main">
 		<ul>
-			<li v-for="(item,index) in List_att" @click="handleShield(item,index)" >
+			<li v-for="(item,index) in List_att"  >
 				<router-link :to="{name:'chat'}">
 					<img src="../../../../../../static/gzdr_tx_01@2x.png">
 				</router-link>
@@ -127,10 +127,7 @@
 			}
 		},
 		methods:{
-			handleShield(item,index){
-					this.$router.push({name:'shieldS',params:{list:this.List_att[index]}})
-					
-			}
+
 		}
 	}
 </script>
