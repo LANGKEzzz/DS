@@ -6,7 +6,7 @@ export default{
             url:"/api/mock/5c387d557198202bdf59ef4c/example/attention"
         })
         .then( (data)=>{
-            console.log(data.cities.item);
+            // console.log(data.cities.item);
             commit("handleAttentionData",data.cities.item);
         })
     },

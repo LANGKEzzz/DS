@@ -20,13 +20,13 @@
       <li v-for="(item,index) in list" :key="index">
         <div class="left">
           <!-- <img src="../../../../static/shield/pb_tx_01@2x.png"/> -->
-          <img :src="item.imgUrl" />
+          <img :src="item.picUrl" />
         </div>
         <div class="center">
-          <p>{{item.username}}</p>
-          <span>{{item.infor}}</span>
+          <p>{{item.friendName}}</p>
+          <span>{{item.friendMain}}</span>
         </div>
-        <div class="right">{{item.message}}</div>
+        <div class="right">已屏蔽</div>
 
       </li>
     </ul>
@@ -35,6 +35,7 @@
 </div>
 </template>
 <script>
+import axios from "../../../lib"
 import BScroll from 'better-scroll';
 import {
   mapActions,
@@ -42,22 +43,15 @@ import {
 } from "vuex";
 export default {
   // https://www.easy-mock.com/mock/5c3465747db0f179db202922/example/shield
-
-  data() {
-    return {
-      list:[]
-    }
-  },
+  created(){
+    this.getshieldListA()
+},
   computed: {
-    // ...mapState({
-    //     shieldList:state=>state.Settings.getshieldList
-    // })
+    ...mapState({
+        list:state=>state.Settings.list
+    })
   },
-  created() {
-    // this.getshieldListA();
 
-
-  },
   mounted() {
     this.$nextTick(() => {
       this.scroll = new BScroll(this.$refs.wrapper, {
@@ -65,31 +59,18 @@ export default {
           threshold: 20,
           stop: 0
         }
-
-
       })
-      // console.log(this.scroll)
     })
-
-      // let obj={}
-      //   obj.id=this.$route.params.id;
-      //   obj.username=this.$route.params.username;
-      //   obj.message=this.$route.params.sp;
-      //   this.list=this.list.push(obj)
-
-
-
-
 
   },
   methods: {
     handleJump() {
-      this.$router.go(-1)
+      this.$router.push("settings")
     },
 
-    // ...mapActions({
-    //     getshieldListA:"Settings/getshieldListA"
-    // }),
+    ...mapActions({
+        getshieldListA:"Settings/getshieldListA"
+    }),
     handleJumpF() {
       this.$router.push("/attention");
     }

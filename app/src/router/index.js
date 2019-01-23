@@ -304,6 +304,7 @@ export default new Router({
       component:shieldS,
         meta:{
           flag:false
+
       }
     },
     //@设置
