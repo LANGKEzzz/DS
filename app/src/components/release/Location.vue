@@ -6,8 +6,9 @@
     </div>
     <div>
       <input type="text" v-model="maptext1">
+      <img src="../../../static/release/4.png" class="image" @click="autoInput()">
       <ul>
-        <li v-for="(item,index) in address" class="address" :key="item" @click="transmit(item)">
+        <li v-for="(item,index) in address" class="address" :key="index" @click="transmit(item)">
           <span class="iconfont">&#xe624;</span>
           {{item}}
         </li>
@@ -28,18 +29,44 @@ export default {
     handleBank() {
       this.$router.back();
     },
-    transmit(item){
+    ...Vuex.mapActions({
+      modify:"Release/modify"
+    }),
+    transmit(item) {
       this.$router.push({
-        name:'release',
-        query:{
-          id:item
+        name: "release",
+        query: {
+          id: item
         }
-      })
+      });
+    },
+    // 获取输入提示信息
+    autoInput() {
+      var keywords = this.maptext1;
+      AMap.plugin("AMap.Autocomplete", () => {
+        // 实例化Autocomplete
+        var autoOptions = {
+          city: ""
+        };
+        autoOptions.city = this.province;
+        var autoComplete = new AMap.Autocomplete(autoOptions);
+        autoComplete.search(keywords, (status, result) => {
+          // 搜索成功时，result即是对应的匹配数据
+          var arr = result.tips;
+          var arr1 = arr.map(arr => {
+            return arr.name;
+          });
+          this.modify(arr1)
+        });
+      });
     }
   },
   computed: {
     ...Vuex.mapState({
       address: state => state.Release.address
+    }),
+    ...Vuex.mapState({
+      province: state => state.Release.province
     })
   }
 };
@@ -90,7 +117,14 @@ input {
 }
 .address > .iconfont {
   color: blueviolet;
-  font-size: 0.38rem
+  font-size: 0.38rem;
+}
+.image {
+  width: 0.38rem;
+  height: 0.38rem;
+  position: absolute;
+  left: 6.5rem;
+  top: 1.63rem;
 }
 </style>
  

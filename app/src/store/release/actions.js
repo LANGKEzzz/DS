@@ -1,7 +1,8 @@
 export default{
     handleadd({commit},data){
-        var arr = [];
-        arr.push(data.formattedAddress)
-        commit("handleadd",arr)
-    },
+        commit("handleadd",data)
+    },    
+    modify({commit},data){
+        commit("modify",data)
+    }
 }
