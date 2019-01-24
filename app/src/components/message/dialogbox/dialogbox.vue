@@ -1,16 +1,16 @@
 <template>
     <div class="dialogbox">
         <h2>
-            昵称
+            {{name}}
             <router-link to="/message">
                 <div class="dialogbox_back">
                     <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
                 </div>
             </router-link>           
         </h2>
-        <ul >
-            <li class="dialogbox_box" v-for="(item,index) in lists">
-                <div class="dialogbox_he">
+        <div class="wraper">
+            <div class="dialogbox_box" ref="message_box">
+                <div class="dialogbox_he" v-for="(item,index) in lists">
                     <div>
                         <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
                     </div> 
@@ -19,64 +19,102 @@
                         <i class="triangle_border_left"></i>
                     </span>                     
                 </div>  
-                <div class="dialogbox_my">
+                <!-- <div class="send"> -->
+                <div class="dialogbox_my" v-for="(item,index) in messageList">
                     <span>
-                        {{item.my}}
+                    {{item}}
                         <i class="triangle_border_right"></i>
-                    </span> 
-                    
+                    </span>                     
                     <div>
                         <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
                     </div>                    
-                </div>              
-            </li>            
+                </div>       
+                <!-- </div> -->
+                <p ref="end" style="margin:0;"></p>
+            </div>            
              
-        </ul>
+        </div>
         <div class="dialogbox_inptbox">
             <div>语音</div>
-            <input type="text" v-model="messageInput">
+            <input type="text" v-model="value" ref="input">
             <div @click="handleSendout()">发送</div>
         </div>
     </div>
 </template>
 <script>
+import BScroll from 'better-scroll';
+
     export default{
         data(){
             return{
-                messageInput:"",
+                messageList:[],
+                value:'',
                 lists : [
                     {
                         "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"                     
-                    },
-                    {
-                        "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"
-                    },
-                    {
-                        "he" : "hhhh"
                     }
-                ]
+                ],
+                name:""
             }
+        },
+        methods:{          
+            handleSendout(){
+                if(this.value!=""){
+                    this.messageList.push(this.value);
+                    this.value="";
+                    let date = new Date()
+                    let hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
+                    let minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
+                    
+                    let chatRecord = {
+                        // friendId: this.friendId,
+                        singleRecord: {
+                            // userId: this.userInfo.userId,
+                            message: this.value,
+                            // img: this.userInfo.avatar,
+                            time: hour + ':' + minute
+                        }
+                    }
+                    console.log(chatRecord)
+                    let m = {
+                        // acceptId: this.friendId,
+                        // sendId: this.userInfo.userId,
+                        message: this.value,
+                        time: hour + ':' + minute,
+                        // 0代表聊天内容,接受到会按聊天内容对象进行封装
+                        // sendType: 0
+                    }
+                    this.value = ''
+                    // 发送消息时自动定位到最底部
+                    this.$nextTick(function () {
+                        this.$refs.end.scrollIntoView(true)
+                    })
+                    // 发送完成输入框获取焦点
+                    this.$refs.input.focus()
+                    // 调用后台handleTextMessage方法
+                    // this.websocket.send(JSON.stringify(m))
+                    console.log('发送成功!')
+                }                              
+            },           
+        } ,  
+        created() {
+            this.name = this.$route.query.name;            
+        },       
+        mounted(){
+            this.$nextTick(function(){
+                let div = this.$refs.message_box;
+                div.scrollTop = div.scrollHeight;           
+            })
+        },
+        updated() {
+            this.$nextTick(function(){
+                let box = this.$refs.message_box;
+                box.scrollTop = box.scrollHeight;               
+            })
         }
-    
     }
+
+
 </script>
 <style lang="scss" scoped>
 .dialogbox{
@@ -89,8 +127,7 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    h2{
-        
+    h2{       
         position:fixed;
         left:0;
         top:0;
@@ -113,17 +150,17 @@
             }
         }
     }
-    ul{
+    .wraper{
         flex:1;
         overflow: scroll;
         padding-bottom:.98rem;
-        li{       
-            height:2rem; 
-            margin-top:.2rem;      
+        .dialogbox_box{  
+            // height:100rem;
             .dialogbox_he,.dialogbox_my{
                 border-radius: 50%;
                 display:flex;
-                             
+                height:1rem;  
+                margin-top:.29rem;      
                 div{
                     width:.88rem;
                     height:.88rem;
@@ -162,7 +199,8 @@
             .dialogbox_my{ 
                 display:flex;
                 justify-content: flex-end;
-                padding-right:.24rem;             
+                padding-right:.24rem;   
+                      
                 div{
                     margin-left:.09rem;
                 }
@@ -190,8 +228,12 @@
         }                                                        
     }
     .dialogbox_inptbox{
+        width:100%;
         height:.98rem;
         background:#fff;
+        position:fixed;
+        left:0;
+        bottom:0;
         display:flex;
         justify-content: space-between; 
         align-items: center;       
@@ -210,6 +252,7 @@
             border:none;
             border-radius: .29rem;
             background:#dfdede;
+            padding-left:.2rem;
         }
     }
 }

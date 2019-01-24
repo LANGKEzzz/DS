@@ -1,5 +1,6 @@
 export default{
     getshieldListM(state,params){
-        state.getshieldList=params
+      // console.log(params)
+        state.list=state.list.concat(params)
     }
 }

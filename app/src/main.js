@@ -24,9 +24,6 @@ import "./common/css/release/iconfont.css";
 Vue.use(iView);
 
 
-
-
-
 Vue.config.productionTip = false
 Vue.use(iView);
 // Vue.use(MintUI);
