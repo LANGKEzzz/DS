@@ -1,7 +1,7 @@
 <template>
     <div class="message_focus" >
         <h2>
-             赞   
+            赞   
             <div class="focus_back" @click="handle_Back()">
                 <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
             </div>
@@ -33,7 +33,6 @@ export default{
             this.$router.back("/message");
         }
     },
-
     mounted() {
         this.scroll = new BScroll(this.$refs.focusWrapper,{
             pullDownRefresh : true,

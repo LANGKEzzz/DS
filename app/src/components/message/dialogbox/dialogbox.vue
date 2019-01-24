@@ -1,7 +1,7 @@
 <template>
     <div class="dialogbox">
         <h2>
-            昵称
+            {{name}}
             <router-link to="/message">
                 <div class="dialogbox_back">
                     <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
@@ -9,7 +9,7 @@
             </router-link>           
         </h2>
         <div class="wraper">
-            <div class="dialogbox_box" ref="message_box" :scrollToEndFlag="scrollToEndFlag">
+            <div class="dialogbox_box" ref="message_box">
                 <div class="dialogbox_he" v-for="(item,index) in lists">
                     <div>
                         <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
@@ -30,12 +30,13 @@
                     </div>                    
                 </div>       
                 <!-- </div> -->
+                <p ref="end" style="margin:0;"></p>
             </div>            
              
         </div>
         <div class="dialogbox_inptbox">
             <div>语音</div>
-            <input type="text" v-model="messageInput">
+            <input type="text" v-model="value" ref="input">
             <div @click="handleSendout()">发送</div>
         </div>
     </div>
@@ -47,45 +48,68 @@ import BScroll from 'better-scroll';
         data(){
             return{
                 messageList:[],
-                messageInput:'',
+                value:'',
                 lists : [
                     {
                         "he" : "hhhh"
                     }
                 ],
-                scrollToEndFlag: {
-                    type: Boolean,
-                    default: false
-                }
+                name:""
             }
         },
         methods:{          
             handleSendout(){
-                if(this.messageInput!=""){
-                    this.messageList.push(this.messageInput);
-                    this.messageInput="";
-                    let time = new Date().toLocaleString();
+                if(this.value!=""){
+                    this.messageList.push(this.value);
+                    this.value="";
+                    let date = new Date()
+                    let hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
+                    let minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
                     
-                    localStorage.setItem("messageList" , this.messageList)
-                    // console.log(this.messageList)
-                    // console.log(time)
+                    let chatRecord = {
+                        // friendId: this.friendId,
+                        singleRecord: {
+                            // userId: this.userInfo.userId,
+                            message: this.value,
+                            // img: this.userInfo.avatar,
+                            time: hour + ':' + minute
+                        }
+                    }
+                    console.log(chatRecord)
+                    let m = {
+                        // acceptId: this.friendId,
+                        // sendId: this.userInfo.userId,
+                        message: this.value,
+                        time: hour + ':' + minute,
+                        // 0代表聊天内容,接受到会按聊天内容对象进行封装
+                        // sendType: 0
+                    }
+                    this.value = ''
+                    // 发送消息时自动定位到最底部
+                    this.$nextTick(function () {
+                        this.$refs.end.scrollIntoView(true)
+                    })
+                    // 发送完成输入框获取焦点
+                    this.$refs.input.focus()
+                    // 调用后台handleTextMessage方法
+                    // this.websocket.send(JSON.stringify(m))
+                    console.log('发送成功!')
                 }                              
             },           
         } ,  
-        
+        created() {
+            this.name = this.$route.query.name;            
+        },       
         mounted(){
             this.$nextTick(function(){
                 let div = this.$refs.message_box;
-                div.scrollTop = div.scrollHeight;
-                // console.log(div.scrollHeight)
+                div.scrollTop = div.scrollHeight;           
             })
         },
         updated() {
             this.$nextTick(function(){
                 let box = this.$refs.message_box;
-                box.scrollTop = box.scrollHeight;
-                console.log(box.scrollTop)
-                console.log(box.scrollHeight)
+                box.scrollTop = box.scrollHeight;               
             })
         }
     }
@@ -103,8 +127,7 @@ import BScroll from 'better-scroll';
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    h2{
-        
+    h2{       
         position:fixed;
         left:0;
         top:0;

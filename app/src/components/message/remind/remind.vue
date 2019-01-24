@@ -48,8 +48,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="my_content">                       
-                                <!-- PingFang SC Medium,也叫苹方中等体,即苹方字体中的中等字重,是支持MAC osX系统的字体。 pingfang sc ... -->
+                            <p class="my_content">                                                  
                             {{item.publish}}
                             </p>
                         </div>
@@ -77,16 +76,20 @@ export default{
         this.getRemind()
     },
     methods:{
+			  //返回上一页
         handleBack(){
             this.$router.back();
         },
+				// 点击跳转到回复页面
         replayButton(e){
-            this.$router.push('/message/replay')
-            
+            let who = e.currentTarget.previousElementSibling.firstElementChild.innerHTML;   
+            this.$router.push({path:'/message/replay',query:{name:who}})
         },
+				// 数据
         ...Vuex.mapActions({
             getRemind:"Message/getRemind"
         }),
+				// 跳转到我的
         toMy(){
             this.$router.push("/my")
         }  

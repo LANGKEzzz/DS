@@ -8,7 +8,7 @@
             <div @click="handleContent()">发送</div>        
         </div>
         <div class="import_">
-            <textarea v-model="textContent"></textarea>
+            <textarea v-model="textContent" ref="contentBox"></textarea>
         </div>
     </div>
 </template>
@@ -21,14 +21,19 @@ export default {
     },
     methods:{
         handle_Back(){
-            this.$router.go(-1)
+            this.$router.go(-1);
+            // console.log(this.name)
         },
         handleContent(){
-            let message = this.textContent;
-            let time = new Date();
-           console.log(this.textContent,time.toLocaleString())
+            // this.$refs.contentBox.focus();
+            let content = {};
+            content.message = this.textContent;
+            content.time = new Date();
+            content.name = this.$route.query.name;          
+            console.log(content)
         }
     }
+   
 }
 </script>
 <style lang="scss" scoped>

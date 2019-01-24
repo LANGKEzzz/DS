@@ -31,10 +31,11 @@ export default {
     mounted(){
         this.scroll = new Bscroll(this.$refs.message_box,{
             scrollY:true,
-            pullDownRefresh:{
-                threshold: 50,
-                stop:0
-            },
+            pullDownRefresh:true,
+            // {
+            //     threshold: 50,
+            //     stop:0
+            // },
             click:true,
             pullUpLoad:true              
         });
@@ -56,6 +57,9 @@ export default {
         .wrapper{
             height:12rem; 
             margin-top:1rem;         
+        }
+        .content{
+            top:1.1rem;
         }
     }
    

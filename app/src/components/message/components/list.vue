@@ -6,7 +6,7 @@
                     <img :src="item.imgUrl"/>
                 </div>
                 <div class="message_c">
-                    <p>{{item.nickname}}</p>
+                    <p ref="who">{{item.nickname}}</p>
                     <p>{{item.message}}</p>
                 </div>
                 <span>{{item.time}}</span>
@@ -31,9 +31,11 @@ export default{
             handleMessage:"Message/handleMessage"
         }),
         handleClick(e){
-           this.$router.push("/message/dialogbox")      
+            let who = e.currentTarget.firstElementChild.nextElementSibling.firstElementChild.innerHTML;
+            this.$router.push({path:"/message/dialogbox",query:{name:who}})      
         }
     }
+    
 
 }
 </script>

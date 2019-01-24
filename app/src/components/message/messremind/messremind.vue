@@ -49,8 +49,7 @@
                                 </div>
                             </div>
                             <p class="my_content"> 
-                                {{item.publish}}                      
-                                <!-- PingFang SC Medium,也叫苹方中等体,即苹方字体中的中等字重,是支持MAC osX系统的字体。 pingfang sc ... -->
+                                {{item.publish}}                                                    
                             </p>
                         </div>
                     </div>
@@ -76,34 +75,51 @@ export default{
     created() {
         this.getComment();
     },
+    watch:{
+        commentList(newVal,oldVal){
+            //确定数据加载成功可以进行下一次上拉加载了
+            this.scroll.finishPullUp();
+            //作用 重新计算better-scroll
+            this.scroll.refresh();
+        }
+    },
     methods:{
+	    // 返回上一页
         back_(){
             this.$router.back();
         },
-        handlePush(){
-            this.$router.push("/my");
-        },
-        replayButton(e){
-            this.$router.push('/message/replay')
-        } ,
-        ...Vuex.mapActions({
-            getComment : "Message/getComment"
-        }),
+		//点击我的头像、昵称跳转到我的
         toMy(){
-            this.$router.push("/my")
-        }     
+        		this.$router.push("/my")
+        },
+		// 点击回复按钮跳转到回复消息页面，将当前回复的用户昵称传递过去
+        replayButton(e){
+		    let who = e.currentTarget.previousElementSibling.firstElementChild.innerHTML;   
+            this.$router.push({path:'/message/replay',query:{name:who}})
+        } ,
+		// 数据
+        ...Vuex.mapActions({
+            getComment : "Message/getComment",
+            getCommentAgain : "Message/getCommentAgain"
+        }),
+          
     },
     mounted(){
         this.scroll= new Bscroll( this.$refs.messremind,{
             pullDownRefresh: {
-                threshold: 0,
-                stop:0,
-                
+                threshold: 30,
+                stop:20,                
             },
             pullUpLoad:true,
             click:true
+            
         } )
+        this.scroll.on('pullingDown', ()=>{        
+            this.getCommentAgain();
+        });
+
     }
+    
 }
 </script>
 <style lang="scss" scoped>

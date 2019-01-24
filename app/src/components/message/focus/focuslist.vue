@@ -66,14 +66,18 @@ export default {
             getFocus:"Message/getFocus"
         }),
         replayButton(e){
-            this.$router.push('/message/replay')
-           
+            let who = e.currentTarget.previousElementSibling.firstElementChild.innerHTML;   
+			this.$router.push({ path:"/message/replay",query:{name:who} });
         },
         toMy(){
             this.$router.push("/my")
         }
-        
-    }
+    },
+    updated() {
+      
+    }  
+    
+    
 }
 </script>
 <style lang="scss" scoped>
@@ -188,7 +192,7 @@ export default {
                                 color:#717171;
                                 font-size:.2rem;
                                 span:nth-child(1),span:nth-child(2){
-                                    margin-right:.2rem;
+                                    margin-right:.18rem;
                                 }
                             }
                         }
