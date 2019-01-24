@@ -1,7 +1,7 @@
 <template>
 	<div id="main">
 		<ul>
-			<li v-for="(item,index) in arrAttention" v-bind:key="index" @click="handleJumpS(item)">
+			<li v-for="(item,index) in arrAttention" v-bind:key="index" >
 				<!-- <router-link :to="{name:'chat'}">
 				   <img :src="item.picUrl">
 				</router-link> -->
@@ -26,11 +26,6 @@
           ...Vuex.mapActions({
               handleAttentionData:"My/handleAttentionData"
           }),
-						handleJumpS(item){
-							var userID=item.id
-							localStorage.setItem("storeId",JSON.stringify(userID))
-							this.$router.push("/shieldS")
-					},
 					handleImg(e){
 						e.stopPropagation();
 						this.$router.push("chat")
