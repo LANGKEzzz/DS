@@ -1,6 +1,11 @@
 export default{
-    handleadd(state,arr){
+    handleadd(state,data){
+        var arr = [];
+        arr.push(data.formattedAddress)
         state.address = arr;
-        console.log(state.address)
+        state.province = data.addressComponent.province;
     },
+    modify(state,data){
+        state.address = data;
+    }
 }
