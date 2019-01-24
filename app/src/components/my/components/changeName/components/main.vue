@@ -1,14 +1,29 @@
 <template>
     <div id="main">
-       <input type="text" id="name" placeholder="偶像观察生">
-       <button id="btn">保存</button>
+       <input type="text" id="name" placeholder="偶像观察生" v-model="val">
+       <button id="btn" @click="handleSave()">保存</button>
     </div>
 </template>
     
 
 <script>
+import { MessageBox } from 'mint-ui';
 export default {
-    
+    data(){
+        return{
+           val:""         
+        }
+    },
+    methods:{
+         //更改名字
+        handleSave(){
+            //弹出框
+            MessageBox({
+                title: '提示',
+                message: '操作成功',
+            })
+        }     
+    }
 }
 </script>
 

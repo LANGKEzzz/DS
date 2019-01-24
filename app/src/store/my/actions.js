@@ -19,5 +19,15 @@ export default{
             console.log(data.item);
             commit("handleCollectData",data.item);
         })
+    },
+    handleMyData({commit}){
+        axios({
+            methods:"get",
+            url:" /api/mock/5c387d557198202bdf59ef4c/example/My"
+        })
+        .then( (data)=>{
+            console.log(data.item);
+            commit("handleMyData",data.item);
+        })
     }
 }

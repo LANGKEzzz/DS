@@ -368,25 +368,27 @@ export default new Router({
         flag:false
       }
     },
+    //关注
     {
     	path: '/attention',
       name: 'attention',
       component: Attention,
       meta:{
-        flag:true
+        flag:false
       }
     },
+    //粉丝
     {
 
     	path: '/fans',
       name: 'fans',
       component: Fans,
       meta:{
-        flag:true
+        flag:false
       }
     },
+    //我的赞
     {
-
     	path: '/praise',
       name: 'praise',
       component: Praise,
@@ -394,8 +396,8 @@ export default new Router({
         flag:true
       }
     },
+    //个人资料
     {
-
     	path: '/person',
       name: 'person',
       component: Person,
@@ -403,8 +405,8 @@ export default new Router({
         flag:true
       }
     },
+     //我的收藏
     {
-
     	path: '/collect',
       name: 'collect',
       component: Collect,
@@ -412,8 +414,8 @@ export default new Router({
         flag:true
       }
     },
+    //聊天
     {
-
     	path: '/chat',
       name: 'chat',
       component: Chat,
@@ -421,17 +423,17 @@ export default new Router({
         flag:false
       }
     },
+    //消息列表
     {
-
     	path: '/newList',
       name: 'newList',
       component: NewList,
       meta:{
-        flag:true
+        flag:false
       }
     },
+    //变更名字
     {
-
     	path: '/changeName',
       name: 'changeName',
       component: ChangeName,

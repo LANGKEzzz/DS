@@ -7,14 +7,12 @@
      				<h2>头像</h2>
      				<img src="../../../../../../static/tx_01@2x.png">
      			</li>
-			
-						<li>
-								<router-link :to="{name:'changeName'}">
-							<h2>昵称</h2>
-							<p>偶像观察员</p>
-							</router-link>
-						</li>
-                
+				<li>
+					<router-link :to="{name:'changeName'}">
+					<h2>昵称</h2>
+					<p>{{name}}</p>
+					</router-link>
+				</li>
      			<li @click="handleShow()">
      				<h2>性别</h2>
      				<span>{{se}}</span>
@@ -37,20 +35,15 @@
 					<ul>
 						<li>
 							<p>男</p><input id="s1" type="radio" name="1"
-						
 							 @click="handleSex(1)"/>
 						</li>
 						<li>
 							<p>女</p><input id="s2" type="radio" name="1"
-							
-							 @click="handleSex(2)"/>
+							@click="handleSex(2)"/>
 						</li>
 					</ul>
 				</div>
 		</mt-popup>
-
-
- 
 	    <!-- 选择地区 -->
 		<mt-popup
 			v-model="popupVisibleArea"
@@ -65,7 +58,6 @@
 				</div>
 			</div> 
 		</mt-popup>
-		
      </div>
 </template>
 <script>
@@ -73,15 +65,16 @@
 	   import Vue from "vue";
 	   import { Picker } from "mint-ui";
        import myaddress from "../data.json";
-       Vue.component(Picker.name, Picker);
-
-
+	   Vue.component(Picker.name, Picker);
+	   
+	   
         //引入性别
         import { Popup } from 'mint-ui';
 		import MintUI from 'mint-ui';	
 		export default{
 			data(){
 				return{
+					name:"偶像观察员",
 					popupVisible:false,
 					popupVisibleArea:false,
 					se:"男",
@@ -126,6 +119,9 @@
 			    };
 		   },		
 			methods:{
+				handleUser(){
+                      
+				},
 				//性别的显示隐藏
 				handleShow(){
 					this.popupVisible = true
@@ -143,9 +139,7 @@
 					  this.popupVisibleArea = false
 					  this.myAddressProvince = ""
 					  this.myAddressCity = ""
-					  this.myAddresscounty = ""
-
-					  
+					  this.myAddresscounty = ""	  
 				},
 				//确定按钮
 				handleSure(){
@@ -160,7 +154,6 @@
 						picker.setSlotValue(1, values[0]);
 					}
 				},
-
 				onMyAddressChange(picker, values) {
 					if (myaddress[values[0]]) {
 						//这个判断类似于v-if的效果（可以不加，但是vue会报错，很不爽）
@@ -172,23 +165,17 @@
 						this.myAddressCity = values[1];
 						//获取县
 						this.myAddresscounty = values[2];
-						
-
-						/*
-							setSlotValues(index, values)：设定给定 slot 的备选值数组
-						
-						*/
+	
 					}
                 }
 				
 			},
-
 			mounted() {
 					this.$nextTick(() => {
 					//vue里面全部加载好了再执行的函数 （类似于setTimeout）
 					this.myAddressSlots[0].defaultIndex = 0;
 					// 这里的值需要和 data里面 defaultIndex 的值不一样才能够初始化
-					//因为我没有看过源码（我猜测是因为数据没有改变，不会触发更新）
+				
 					});
             }
 
@@ -212,7 +199,7 @@
 			height:11.86rem;
 			li:nth-child(1){
 				height:1.38rem;
-				/*background:red;*/
+			
 				overflow:hidden;
 			    border:1px solid #F4F4F4;
 				h2{
@@ -303,6 +290,7 @@
 			position: absolute;
 			left:0.88rem;
 			top:4.93rem;
+			border-radius:0.04rem;
 			h1{
 			    margin-left:0.52rem;
 				margin-top:0.51rem;
@@ -346,7 +334,6 @@
 					margin-top:0.25rem;
 				}
 			}
-			
 		}
 		.area{
 			width:5.74rem;
@@ -357,8 +344,7 @@
 			top:4.93rem;
 			border-radius:0.04rem;
 			.picker-item{
-			 	font-size: 0.28rem;
-				
+			 	font-size: 0.28rem;	
 			}
 			.btn{
 				width:100%;

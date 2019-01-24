@@ -293,7 +293,7 @@ export default {
         this.ele.style.opacity = alpha + 0.5;
         this.ele.style.filter = "alpha(opacity = " + (alpha + 0.5) * 100 + ")";
         this.ele.style.zIndex = parseInt(scale * 100);
-        this.ele.style.left = (this.x + CX - this.ele.offsetWidth / 2 + 120)/100 + "rem";
+        this.ele.style.left = (this.x + CX - this.ele.offsetWidth / 2)/100 + "rem";
         this.ele.style.top = (this.y + CY - this.ele.offsetHeight / 2)/100 + "rem";
       }
     };

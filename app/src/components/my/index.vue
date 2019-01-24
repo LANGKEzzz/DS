@@ -2,7 +2,7 @@
     <div id="my">
         <Header-com></Header-com>
         <div class="wrapper" ref="box">  
-            <div class="content">
+            <div class="content bq">
                 <Main-com></Main-com>
                 <Main-com></Main-com>
             </div>
@@ -16,7 +16,6 @@
     import Main from "./components/main.vue";
     import Vuex from "vuex";
 export default {
-      
     components:{
     	"Header-com":Header,
     	"Main-com":Main
@@ -33,13 +32,16 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
    #my{
        width:100%;
        height:100%;
        font-family: PingFang-SC-Medium;
        .wrapper{
-           height:12.26rem;
+           height:9.7rem;
+           .bq{
+               padding-bottom:1rem;
+           }
        }
    }
     
