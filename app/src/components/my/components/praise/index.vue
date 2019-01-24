@@ -43,7 +43,7 @@
          .wrapper{
              height:12rem;
              .bq{
-                 padding-bottom: 138rem;
+                 padding-bottom: 136.8rem;
              }
          }
      }

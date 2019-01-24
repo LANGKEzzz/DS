@@ -62,6 +62,7 @@
 				float:left;
 				margin-left:0.24rem;
 				margin-top:0.24rem;
+				 border-radius:50%;
 			}
 			p:nth-child(2){
 				margin-left:1.69rem;

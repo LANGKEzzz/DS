@@ -399,7 +399,7 @@ export default new Router({
       name: 'praise',
       component: Praise,
       meta:{
-        flag:true
+        flag:false
       }
     },
     //个人资料
@@ -408,7 +408,7 @@ export default new Router({
       name: 'person',
       component: Person,
       meta:{
-        flag:true
+        flag:false
       }
     },
      //我的收藏
@@ -417,7 +417,7 @@ export default new Router({
       name: 'collect',
       component: Collect,
       meta:{
-        flag:true
+        flag:false
       }
     },
     //聊天
