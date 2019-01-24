@@ -1,11 +1,11 @@
 <template>
   <div class="at">
     <div class="header">
-      
+
         <div class="header_pic" @click="handleJump">
           <img src="../../../../../static/icon/icon_jiantou1@2x.png">
         </div>
-      
+
       <p>@设置</p>
     </div>
     <div class="main">
@@ -13,8 +13,8 @@
         <ul>
  					<li v-for="(item,index) in list" @click="handleChange(index);handleChangeFlag(index)" :key="index">
                     {{item.title}}
-                    <img src="../../../../../static/icon/icon_dh@2x.png" v-show="activeIndex==index"> 
-                
+                    <img src="../../../../../static/icon/icon_dh@2x.png" v-show="activeIndex==index">
+
             </li>
         </ul>
     </div>
@@ -23,8 +23,8 @@
         <div>
             <img src="../../../../../static/icon/sz_fh@2x.png"/>
             <p class="my1">我的</p>
-            <p class="bigquan">
-            	<span>9</span>
+            <p class="smallquan">
+
             </p>
         </div>
     </div>
@@ -34,7 +34,7 @@
             <img src="../../../../../static/icon/sz_fh@2x.png"/>
             <p class="my2">我的</p>
             <p class="smallquan">
-            	
+
             </p>
         </div>
     </div>
@@ -44,7 +44,7 @@
             <img src="../../../../../static/icon/sz_fh@2x.png"/>
             <p class="my2">我的</p>
             <p class="smallquan">
-            	
+
             </p>
         </div>
     </div>
@@ -56,7 +56,7 @@ export default {
         return{
             list:[
                 {
-                    
+
                     title:"所有人"
                     // messsage:"我关注的人",
                     // url:"../../../../../static/icon/icon_jiantou1_reserver.png"
@@ -75,15 +75,15 @@ export default {
                     // url:"../../../../../static/icon/icon_jiantou1_reserver.png"
 
                 }
-   
-  
+
+
 
             ],
             activeIndex:-1,
             flag:false,
             flag1:false,
             flag2:false
-           
+
         }
     },
     methods:{
@@ -105,7 +105,7 @@ export default {
               this.flag1=false;
               this.flag=false;
           }
-            
+
         },
         handleJump(){
             this.$router.go(-1);
@@ -137,7 +137,7 @@ export default {
                 position:absolute;
                 left: 3.08rem;
                 bottom:.29rem;
-                
+
             }
         .header_pic{
             width:.24rem;
@@ -148,7 +148,7 @@ export default {
             bottom:.31rem;
             img{
                    width:.24rem;
-                   height:.42rem; 
+                   height:.42rem;
                 }
         	}
     	}
@@ -156,7 +156,7 @@ export default {
             width:7.5rem;
             height:3.5rem;
             margin-top:.50rem;
-           
+
             p{
                 padding-left:.24rem;
                 padding-bottom: .17rem;
@@ -188,7 +188,7 @@ export default {
                         width:.42rem;
                         height:.3rem;
                     }
-                    
+
                 }
             }
         }
@@ -206,7 +206,7 @@ export default {
                 font-weight:500;
                 color:rgba(113,113,113,1);
                 display:inline-block;
-                
+
             }
             div{
             	 width:7.02rem;
@@ -235,30 +235,14 @@ export default {
 								top:.01rem;
 								left:.8rem;
             	 }
-            	 .bigquan{
-            	 	  width:.34rem;
-									height:.34rem;
-									background:rgba(249,58,43,1);
-									border-radius:50%;
-									display:inline-block;
-									position:absolute;
-									top:.25rem;
-									right:.14rem;
-									span{
-										  color:#fff;
-											position:absolute;
-											top:-0.26rem;
-											right:.1rem;
-											
-                                            }
-                        }
+
                     }
                 }
-                .footer1{
+                .footer{
                     div{
                             margin-top:0.2rem;
                             line-height:.88rem;
-                            
+
                             .smallquan{
                                 width:.1rem;
                                             height:.1rem;
@@ -271,5 +255,5 @@ export default {
                     }
                 }
    }
- 
+
 </style>

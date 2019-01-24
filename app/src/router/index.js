@@ -304,11 +304,12 @@ export default new Router({
     },
     //屏蔽设置
     {
-      path:"/shieldS/:index",
+      path:"/shieldS",
       name:"shieldS",
       component:shieldS,
         meta:{
           flag:false
+
       }
     },
     //@设置

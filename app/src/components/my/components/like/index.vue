@@ -178,6 +178,7 @@ export default {
         margin-top: 0.15rem;
         background: white;
         overflow: hidden;
+        font-family: PingFangSC-Regular;
         .user_tx {
           width: 100%;
           height: 0.8rem;
@@ -220,7 +221,7 @@ export default {
           img {
             width: 2.3rem;
             height: 2.3rem;
-           width: 32%;          
+            width: 32%;          
             margin-bottom: 0.1rem;
           }
         }
