@@ -23,13 +23,17 @@
 		overflow:hidden;
 		button{
 			width:0.6rem;
-			height:0.4rem;
-			margin-top:0.38rem;
+			height:0.6rem;
+			margin-top:0.18rem;
+			background:#fff;
+			border-radius: 30%;
+			background:skyblue;
+			color:#f4f4f4;
 		}
 		#send{
 			width:5rem;
 			height:0.58rem;
-			border-radius:0.2rem;
+			border-radius:0.5rem;
 			box-shadow:0px 1px 3px 0px rgba(0, 0, 0, 0.15);
 			margin-top:0.2rem;
 			background:#f4f4f4;

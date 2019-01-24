@@ -80,6 +80,7 @@ export default{
      				margin-left:0.24rem;
 					margin-top: 0.16rem;
 	    			float:left;
+					 border-radius:50%;
      			}
      			h2{
 	    			font-size:0.24rem;

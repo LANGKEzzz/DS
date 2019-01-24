@@ -5,15 +5,20 @@ import Home from '../components/home'
 import Main from "../components/main"
 //release 下的路由
 import Release from '../components/release'
+
 //message 下的路由
-import Message from '../components/message'
-
-import MessageFocus from '../components/message/focus/focus.vue'
-import MessageMessremind from '../components/message/messremind/messremind.vue'
-import MessageRemind from '../components/message/remind/remind.vue'
-import Dialogbox from "../components/message/dialogbox/dialogbox.vue"
-
-import Replay from "../components/message/replay/replay.vue"
+let Message = resolve=>require(["../components/message"],resolve)
+// import Message from '../components/message'
+let MessageFocus = resolve=>require(["../components/message/focus/focus.vue"],resolve)
+// import MessageFocus from '../components/message/focus/focus.vue'
+let MessageMessremind = resolve=>require(["../components/message/messremind/messremind.vue"],resolve)
+// import MessageMessremind from '../components/message/messremind/messremind.vue'
+let MessageRemind = resolve=>require(["../components/message/remind/remind.vue"],resolve)
+// import MessageRemind from '../components/message/remind/remind.vue'
+let Dialogbox = resolve=>require(["../components/message/dialogbox/dialogbox.vue"],resolve)
+// import Dialogbox from "../components/message/dialogbox/dialogbox.vue"
+let Replay = resolve=>require(["../components/message/replay/replay.vue"],resolve)
+// import Replay from "../components/message/replay/replay.vue"
 //my 下的路由
 import My from '../components/my'
 import Attention from '../components/my/components/attention'
@@ -369,52 +374,54 @@ export default new Router({
         flag:false
       }
     },
+    //关注
     {
     	path: '/attention',
       name: 'attention',
       component: Attention,
       meta:{
-        flag:true
+        flag:false
       }
     },
+    //粉丝
     {
 
     	path: '/fans',
       name: 'fans',
       component: Fans,
       meta:{
-        flag:true
+        flag:false
       }
     },
+    //我的赞
     {
-
     	path: '/praise',
       name: 'praise',
       component: Praise,
       meta:{
-        flag:true
+        flag:false
       }
     },
+    //个人资料
     {
-
     	path: '/person',
       name: 'person',
       component: Person,
       meta:{
-        flag:true
+        flag:false
       }
     },
+     //我的收藏
     {
-
     	path: '/collect',
       name: 'collect',
       component: Collect,
       meta:{
-        flag:true
+        flag:false
       }
     },
+    //聊天
     {
-
     	path: '/chat',
       name: 'chat',
       component: Chat,
@@ -422,17 +429,17 @@ export default new Router({
         flag:false
       }
     },
+    //消息列表
     {
-
     	path: '/newList',
       name: 'newList',
       component: NewList,
       meta:{
-        flag:true
+        flag:false
       }
     },
+    //变更名字
     {
-
     	path: '/changeName',
       name: 'changeName',
       component: ChangeName,

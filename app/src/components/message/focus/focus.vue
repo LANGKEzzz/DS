@@ -1,7 +1,7 @@
 <template>
     <div class="message_focus" >
         <h2>
-             赞   
+            赞   
             <div class="focus_back" @click="handle_Back()">
                 <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
             </div>
@@ -33,13 +33,13 @@ export default{
             this.$router.back("/message");
         }
     },
-
     mounted() {
         this.scroll = new BScroll(this.$refs.focusWrapper,{
-            pullDownRefresh : {
-                threshold: 20,
-                stop:0
-            },
+            pullDownRefresh : true,
+            // pullDownRefresh : {
+            //     threshold: 40,
+            //     stop:20
+            // },
             click:true
         })
     }
@@ -49,6 +49,9 @@ export default{
 .message_focus{
     width:100%;
     height:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
     background:#f4f4f4;
     // background:pink;
     h2{
@@ -82,9 +85,9 @@ export default{
     }
     .wrapper_focus{
         height:12rem;
-        margin-top:1.28rem; 
+        margin-top:1.48rem; 
         background:#f4f4f4;
-        padding-top:.2rem;  
+        // padding-top:.2rem;  
         .focus_{
            flex:1;
         }

@@ -21,6 +21,22 @@
 				<img src="../../../../static/tu_05@2x.png">
 				<img src="../../../../static/tu_06@2x.png">
 			</div>
+			<!-- <div class="main_bottom_one">
+				<img :src="item.userPhoto">
+				<h2>{{item.userName}}</h2>
+				<p>{{item.userTime}}</p>
+			</div>
+			<div class="main_bottom_two">
+ 				<p>{{item.userMain}}</p>
+			</div>
+			<div class="main_bottom_thr">
+				<img :src="item.mainPhotoOne">
+				<img :src="item.mainPhotoTwo">
+				<img :src="item.mainPhotoThree">
+				<img :src="item.mainPhotoFour">
+				<img :src="item.mainPhotoFive">
+				<img :src="item.mainPhotoSix">
+			</div> -->
 			<div class="main_bottom_four">
 				<img class="tx" src="../../../../static/icon/dw@2x.png">
 				<p>北京科技职业技术学院</p>
@@ -29,8 +45,6 @@
 				    <router-link :to="{name:'comments'}"><div><img src="../../../../static/icon/icon_pl@2x.png"><span>266</span></div></router-link>
 				    <router-link :to="{name:'like'}"><div><img src="../../../../static/icon/icon_dz@2x.png"><span>300</span></div></router-link>
 				</div>
-				
-
 				<!-- 加载图标 -->
 				<!-- <div class="loading">
 				   <i class="fa fa-spinner fa-pulse"></i>
@@ -39,14 +53,29 @@
 		</div>
 	</div>
 </template>
-
 <script>
+import  Vuex from "vuex";
 export default {
 	data(){
 		return{
 			flag:true
 		}
-	}
+	},
+	created(){
+		 	//console.log( this );
+			this.handleMyData();
+			// console.log(this.state)
+        },
+        methods:{
+          ...Vuex.mapActions({
+              handleMyData:"My/handleMyData"
+          })
+        },
+		computed:{
+				...Vuex.mapState({
+					arrMy:state=>state.My.arrMy
+				})
+		},
 }
 </script>
 
