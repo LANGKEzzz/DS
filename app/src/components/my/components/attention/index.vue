@@ -20,8 +20,8 @@
 	import Inp from "./components/inp.vue";
 	import Main from "./components/main.vue";
 	
-	
 export default{
+  
 	components:{
 		"Header-com":Header,
 		"Inp-com":Inp,
@@ -44,7 +44,10 @@ export default{
 	   width:100%;
 	   height:100%;
 	   .wrapper{
-		   height:12.26rem;
+		   height:12rem;
+		   .content{
+			   height: 100rem;
+		   }
 	   }
 	   
    }

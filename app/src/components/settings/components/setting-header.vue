@@ -1,20 +1,20 @@
 <template>
- 
+
     <div class="header">
-        
+
             <div class="header_pic" @click="handleJump">
                 <img src="../../../../static/icon/icon_jiantou1@2x.png"/>
             </div>
-        
+
       <p>设置</p>
     </div>
-  
+
 </template>
 <script>
 export default {
     methods: {
         handleJump(){
-            this.$router.go(-1);
+            this.$router.push("my");
         }
     }
 }
@@ -38,7 +38,7 @@ export default {
             position:absolute;
             left: 3.42rem;
             bottom:.29rem;
-            
+
         }
         .header_pic{
             width:.24rem;

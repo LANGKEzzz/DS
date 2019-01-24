@@ -89,8 +89,6 @@
 				<img class="mg" src="../../../../../../static/gzdr_tx_02@2x.png">
 				<p class="ip">嗯</p>
 			</li>
-			
-			
 		</ul>
 	</div>
 </template>
@@ -105,13 +103,11 @@
 		background:#f4f4f4;
 		li{
 			height:2rem;
-			
 			overflow:hidden;
 			img{
 				width:0.88rem;
 				margin-left:0.24rem;
-				margin-top:0.24rem;
-				
+				margin-top:0.24rem;	
 			}
 			.mg{
 				margin-left:6.38rem;

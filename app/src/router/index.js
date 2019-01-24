@@ -5,15 +5,20 @@ import Home from '../components/home'
 import Main from "../components/main"
 //release 下的路由
 import Release from '../components/release'
+
 //message 下的路由
-import Message from '../components/message'
-
-import MessageFocus from '../components/message/focus/focus.vue'
-import MessageMessremind from '../components/message/messremind/messremind.vue'
-import MessageRemind from '../components/message/remind/remind.vue'
-import Dialogbox from "../components/message/dialogbox/dialogbox.vue"
-
-import Replay from "../components/message/replay/replay.vue"
+let Message = resolve=>require(["../components/message"],resolve)
+// import Message from '../components/message'
+let MessageFocus = resolve=>require(["../components/message/focus/focus.vue"],resolve)
+// import MessageFocus from '../components/message/focus/focus.vue'
+let MessageMessremind = resolve=>require(["../components/message/messremind/messremind.vue"],resolve)
+// import MessageMessremind from '../components/message/messremind/messremind.vue'
+let MessageRemind = resolve=>require(["../components/message/remind/remind.vue"],resolve)
+// import MessageRemind from '../components/message/remind/remind.vue'
+let Dialogbox = resolve=>require(["../components/message/dialogbox/dialogbox.vue"],resolve)
+// import Dialogbox from "../components/message/dialogbox/dialogbox.vue"
+let Replay = resolve=>require(["../components/message/replay/replay.vue"],resolve)
+// import Replay from "../components/message/replay/replay.vue"
 //my 下的路由
 import My from '../components/my'
 import Attention from '../components/my/components/attention'
@@ -299,11 +304,12 @@ export default new Router({
     },
     //屏蔽设置
     {
-      path:"/shieldS/:index",
+      path:"/shieldS",
       name:"shieldS",
       component:shieldS,
         meta:{
           flag:false
+
       }
     },
     //@设置

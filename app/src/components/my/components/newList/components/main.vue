@@ -1,7 +1,7 @@
 <template>
 	<div id="main">
 		<ul>
-			<li>
+			<!-- <li>
 				<router-link :to="{name:'chat'}">
 					<img src="../../../../../../static/gzdr_tx_01@2x.png">
 				</router-link>
@@ -48,24 +48,54 @@
 		    	<p>新鲜事</p>
 				<p>天啊</p>
 				<span>已读</span>
-		    </li>
+		    </li> -->
+
+
+
+			<li v-for="(item,index) in arrAttention" v-bind:key="index">
+				<router-link :to="{name:'chat'}">
+				   <img :src="item.picUrl">
+				</router-link>
+				<p>{{item.friendName}}</p>
+				<p>{{item.friendMain}}</p>
+				<span>已读</span>
+			</li>
 		</ul>
 	</div>
 </template>
 
 <script>
-	/*var vm = new Vue({
-		el:"#main",
-		data:{
-			user:[]
+	import  Vuex from "vuex";
+	export default{
+	  created(){
+		 	//console.log( this );
+			this.handleAttentionData();
+			// console.log(this.state)
+        },
+        methods:{
+          ...Vuex.mapActions({
+              handleAttentionData:"My/handleAttentionData"
+          })
+        },
+		computed:{
+				...Vuex.mapState({
+					arrAttention:state=>state.My.arrAttention
+				})
+			},
+		data(){
+			return{
+            
+			}
+				console.log(this.state)
 		}
-	})*/
+	}
 </script>
 
 <style lang="scss" scoped>
 	#main{
 		width:100%;
 		height:13.34rem;
+		font-family:PingFangSC-Regular;
 		li{
 			width:100%;
 			height:1.68rem;

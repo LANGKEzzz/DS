@@ -1,7 +1,11 @@
 export default{
-    //mutations修改数据
-    handleShow(state){
-        state.flag = true
+    handleAttentionData(state,params){
+        console.log(params)
+        state.arrAttention = params
     },
-    
+    handleCollectData(state,params){
+        console.log(params)
+        state.arrCollect = params
+        console.log(state.arrCollect)
+    }
 }

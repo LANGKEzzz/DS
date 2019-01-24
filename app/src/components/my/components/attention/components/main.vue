@@ -1,136 +1,48 @@
 <template>
 	<div id="main">
 		<ul>
-			<li v-for="(item,index) in List_att" @click="handleShield(item,index)" >
+			<li v-for="(item,index) in arrAttention" v-bind:key="index" @click="handleJumpS(item)">
 				<router-link :to="{name:'chat'}">
-					<img src="../../../../../../static/gzdr_tx_01@2x.png">
+				   <img :src="item.picUrl">
 				</router-link>
-				<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp一起回顾</p>
-				<span>互相关注</span>
+				<p>{{item.friendName}}</p>
+				<p>{{item.friendMain}}</p>
+				<span>已关注</span>
 			</li>
-		    <!-- <li>
-		    	<router-link :to="{name:'chat'}">
-		    	    <img src="../../../../../../static/gzdr_tx_02@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li> -->
-		    <!-- <li>
-		    	<router-link :to="{name:'chat'}">
-		    	    <img src="../../../../../../static/gzdr_tx_03@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li>
-		    <li>
-		    	<router-link :to="{name:'chat'}">
-		    	   <img src="../../../../../../static/gzdr_tx_01@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li>
-		    <li>
-		    	<router-link :to="{name:'chat'}">
-		    	   <img src="../../../../../../static/gzdr_tx_02@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li>
-		    <li>
-		    	<router-link :to="{name:'chat'}">
-		    	   <img src="../../../../../../static/gzdr_tx_03@2x.png">
-		    	</router-link>
-		    	<p>新鲜事</p>
-				<p>新鲜事金牌作者&nbsp;一起回顾</p>
-				<span>互相关注</span>
-		    </li> -->
 		</ul>
 	</div>
 </template>
 
 <script>
+	import  Vuex from "vuex";
 	export default{
+	  created(){
+		 	//console.log( this );
+			this.handleAttentionData();
+			// console.log(this.state)
+        },
+        methods:{
+          ...Vuex.mapActions({
+              handleAttentionData:"My/handleAttentionData"
+          }),
+						handleJumpS(item){
+							var userID=item.id
+							localStorage.setItem("storeId",JSON.stringify(userID))
+							this.$router.push("/shieldS")
+					},
+
+        },
+		computed:{
+				...Vuex.mapState({
+					arrAttention:state=>state.My.arrAttention
+				})
+			},
 
 		data(){
 			return{
-               List_att:[
-				   {
-						 "id":1,
-					  "url":"../../../../../../static/gzdr_tx_02@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-
-				   },
-				   {
-						 "id":1,
-            "url":"../../../../../../static/gzdr_tx_03@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-				    {
-							"id":3,
-            "url":"../../../../../../static/gzdr_tx_02@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-				    {
-							"id":4,
-                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-                    {
-											"id":5,
-                      "url":"../../../../../../static/gzdr_tx_02@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-				   {
-						 "id":6,
-                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-				   {
-						 "id":7,
-                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-				   {
-						 "id":8,
-                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-				   {
-						 "id":9,
-                      "url":"../../../../../../static/gzdr_tx_03@2x.png",
-					  "p1":"新鲜事",
-					  "p1":"新鲜事金牌作者&nbsp;一起回顾",
-					  "sp":"互相关注"
-				   },
-			   ]
-			}
-		},
-		methods:{
-			handleShield(item,index){
-					this.$router.push({name:'shieldS',params:{list:this.List_att[index]}})
 
 			}
+				console.log(this.state)
 		}
 	}
 </script>
