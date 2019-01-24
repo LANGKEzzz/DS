@@ -11,6 +11,7 @@
 				</router-link>
 					<p>{{item.friendName}}</p>
 					<p>{{item.friendMain}}</p>	
+					<button>屏蔽</button>
 				</li>
 		    </ul>
 		</div>
@@ -60,12 +61,24 @@ import  Vuex from "vuex";
 		.friends{
 			width:100%;
 			height:11.71rem;
-			
 			li{
 				width:100%;
 				height:1.68rem;
 				/*background:yellow;*/
 				border:1px solid #f4f4f4;
+				button{
+					display:block;
+					width:1.16rem;
+					height:0.48rem;
+					margin-left:6.1rem;
+					margin-top:-0.3rem;
+					border:1px solid #717171;
+					text-align:center;
+					line-height:0.48rem;
+					background:skyblue;
+					color:#fff;
+					border-radius: 5%;
+				}
 		    }
 		    img{
 				width:1.2rem;
