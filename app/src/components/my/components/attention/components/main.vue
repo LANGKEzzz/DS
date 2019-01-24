@@ -2,9 +2,10 @@
 	<div id="main">
 		<ul>
 			<li v-for="(item,index) in arrAttention" v-bind:key="index" @click="handleJumpS(item)">
-				<router-link :to="{name:'chat'}">
+				<!-- <router-link :to="{name:'chat'}">
 				   <img :src="item.picUrl">
-				</router-link>
+				</router-link> -->
+				<img :src="item.picUrl" @click="handleImg($event)">
 				<p>{{item.friendName}}</p>
 				<p>{{item.friendMain}}</p>
 				<span>已关注</span>
@@ -30,6 +31,10 @@
 							localStorage.setItem("storeId",JSON.stringify(userID))
 							this.$router.push("/shieldS")
 					},
+					handleImg(e){
+						e.stopPropagation();
+						this.$router.push("chat")
+					}
 
         },
 		computed:{
@@ -74,7 +79,7 @@
 
 			}
 			span{
-				display:block;
+				display:inline-block;
 				/*float:left;*/
 				width:1.16rem;
 				height:0.48rem;
@@ -84,6 +89,7 @@
 				text-align:center;
 				line-height:0.48rem;
 			}
+
 		}
 	}
 </style>

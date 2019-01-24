@@ -2,17 +2,17 @@
 <template>
  <div class="generalS">
     <div class="header">
-        
+
             <div class="header_pic" @click="handleJump">
                 <img src="../../../../static/icon/icon_jiantou1@2x.png"/>
             </div>
-        
+
       <p>字体设置</p>
     </div>
      <div class="main">
-        
+
         <ul>
-            <li v-for="(item,index) in list" @click="changeFlag(index)" :key="index">
+            <li v-for="(item,index) of list" @click="changeFlag(index)" :key="index">
                 <router-link :to="{name:item.name}">
                     {{item.title}}
                     <img :src="item.url" v-show="activeIndex==index"/>
@@ -28,18 +28,18 @@ export default {
         return{
             list:[
                 {
-                    
+
                     title:"大",
                     // messsage:"我关注的人",
                     url:"../../../../static/icon/icon_dh@2x.png"
-                  
+
                 },
                 {
                     // name:"phomeAS",
                     title:"中",
                     // messsage:"所有人",
                     url:"../../../../static/icon/icon_dh@2x.png"
-                   
+
 
                 },
                                 {
@@ -47,20 +47,20 @@ export default {
                     title:"小",
                     // messsage:"所有人",
                     url:"../../../../static/icon/icon_dh@2x.png"
-                    
+
 
                 }
             ],
             activeIndex:-1
-            
-            
+
+
 
         }
     },
     methods:{
         changeFlag(index){
             this.activeIndex=index;
-            
+
         },
         handleJump(){
             this.$router.go(-1)
@@ -75,11 +75,11 @@ export default {
         //     }
         // }
 
- 
+
     },
     mounted(){
         console.log(window.document.childNodes[1].style.fontSize)
-       
+
     }
 }
 </script>
@@ -107,7 +107,7 @@ export default {
                         position:absolute;
                         left: 3.08rem;
                         bottom:.29rem;
-                        
+
                     }
                     .header_pic{
                         width:.24rem;
@@ -118,7 +118,7 @@ export default {
                         bottom:.31rem;
                         img{
                             width:.24rem;
-                            height:.42rem; 
+                            height:.42rem;
                             }
                     }
                 }
@@ -155,7 +155,7 @@ export default {
                                 right:.24rem;
                                 bottom:.33rem;
                             }
-                            
+
                         }
                     }
                 }
@@ -163,5 +163,5 @@ export default {
                             color:#313131;
                 }
     }
-  
+
 </style>
