@@ -8,11 +8,12 @@
             <div @click="handleContent()">发送</div>        
         </div>
         <div class="import_">
-            <textarea v-model="textContent" ref="contentBox"></textarea>
+            <textarea  v-model="textContent" ref="contentBox"></textarea>
         </div>
     </div>
 </template>
 <script>
+import { MessageBox } from 'mint-ui';
 export default {
     data(){
         return{
@@ -24,13 +25,25 @@ export default {
             this.$router.go(-1);
             // console.log(this.name)
         },
-        handleContent(){
-            // this.$refs.contentBox.focus();
+        handleContent(){           
+           
             let content = {};
+            let d = new Date();
+            let hour = d.getHours() < 10 ? '0' + d.getHours() : d.getHours()
+            let minute = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes()
+                    
             content.message = this.textContent;
-            content.time = new Date();
+            content.time = d.getFullYear() + "/" +(d.getMonth()+1) + "/" + d.getDate()  + "/" 
+                            + hour + ":" + minute;
             content.name = this.$route.query.name;          
-            console.log(content)
+            console.log(content)       
+             //弹出框
+            MessageBox({
+                title: '提示',
+                message: '发送成功',
+                className:"MessageBox"
+
+            })
         }
     }
    
@@ -94,5 +107,24 @@ export default {
             font-family:Adobe Heiti Std R;
         }
     }
+
 }
 </style>
+<style lang="scss">
+    .mint-msgbox{
+        height:2rem;
+    }
+    .mint-msgbox{
+        font-size:.3rem;        
+    }
+    .mint-msgbox-title{
+        margin-top:.2rem;
+        font-size:.3rem;        
+        
+    }
+    .mint-msgbox-confirm{
+        line-height:.7rem;
+    }
+    
+</style>
+
