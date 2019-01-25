@@ -21,19 +21,6 @@
         <div class="left">
           <!-- <img src="../../../../static/shield/pb_tx_01@2x.png"/> -->
           <img :src="item.picUrl" />
-<<<<<<< HEAD
-        </div>
-        <div class="center">
-          <p>{{item.friendName}}</p>
-          <span>{{item.friendMain}}</span>
-        </div>
-        <div class="right">已屏蔽</div>
-
-      </li>
-    </ul>
-  </div>
-
-=======
         </div>
         <div class="center">
           <p>{{item.friendName}}</p>
@@ -45,8 +32,7 @@
       </li>
     </ul>
   </div>
-                                   
->>>>>>> 716a0de049a9848d8cd78d9e02c43585fa045a97
+
 </div>
 </template>
 <script>
@@ -222,14 +208,13 @@ data(){
                     padding-left: 0.22rem;
                 }
 
+
             }
         }
     }
 
- 
-
     .main > ul > li > a {
-        color: #251515;
+        color: #313131;
     }
     .main_t {
         width: 100%;
