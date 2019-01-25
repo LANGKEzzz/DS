@@ -1,8 +1,6 @@
 <template>
 	<div id="header">
-		<!-- <router-link :to="{name:'my'}"> -->
 			<img @click="handleBack()"    src="../../../../../../static/icon/icon_jiantou1@2x.png">
-		<!-- </router-link> -->
 		<h2>更改名字</h2>
 	</div>
 </template>
@@ -16,7 +14,6 @@
 		 }
 	 }
 </script>
-
 <style lang="scss" scoped>
 	#header{
 		width:100%;
@@ -33,7 +30,7 @@
 		h2{
 			font-size:0.34rem;
 			margin-left:0.81rem;
-			margin-top:0.56rem;	
+			margin-top:0.65rem;	
 		}
 	}
 </style>

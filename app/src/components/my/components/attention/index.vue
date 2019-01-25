@@ -3,7 +3,7 @@
 		<Header-com></Header-com>	
 		<Inp-com></Inp-com>
 		<div class="wrapper" ref="box">
-			<div class="content">
+			<div class="content bq">
 				<Main-com></Main-com>
 				<!-- <Main-com></Main-com>
 				<Main-com></Main-com>
@@ -45,8 +45,8 @@ export default{
 	   height:100%;
 	   .wrapper{
 		   height:12rem;
-		   .content{
-			   height: 100rem;
+           .bq{
+			   padding-bottom:0.95rem;
 		   }
 	   }
 	   

@@ -1,13 +1,14 @@
 <template>
 	<div id="main">
 		<ul>
-			<li v-for="(item,index) in arrAttention" v-bind:key="index" @click="handleJumpS(item)">
-				<router-link :to="{name:'chat'}">
+			<li v-for="(item,index) in arrAttention" v-bind:key="index" >
+				<!-- <router-link :to="{name:'chat'}">
 				   <img :src="item.picUrl">
-				</router-link>
+				</router-link> -->
+				<img :src="item.picUrl" @click="handleImg($event)">
 				<p>{{item.friendName}}</p>
 				<p>{{item.friendMain}}</p>
-				<span>已关注</span>
+				<span>{{val}}</span>
 			</li>
 		</ul>
 	</div>
@@ -25,11 +26,14 @@
           ...Vuex.mapActions({
               handleAttentionData:"My/handleAttentionData"
           }),
-						handleJumpS(item){
-							var userID=item.id
-							localStorage.setItem("storeId",JSON.stringify(userID))
-							this.$router.push("/shieldS")
+					handleImg(e){
+						e.stopPropagation();
+						this.$router.push("chat")
 					},
+
+				
+
+
 
         },
 		computed:{
@@ -40,7 +44,7 @@
 
 		data(){
 			return{
-
+                val:"已关注"
 			}
 				console.log(this.state)
 		}
@@ -50,18 +54,20 @@
 <style lang="scss" scoped>
 	#main{
 		width:100%;
-		height:13.34rem;
+		// height:13.34rem;
 		li{
 			width:100%;
 			height:1.68rem;
 			/*background:yellow;*/
 			border:1px solid #f4f4f4;
+			position: relative;
 			img{
 				width:1.2rem;
 				height:1.2rem;
 				float:left;
 				margin-left:0.24rem;
 				margin-top:0.24rem;
+				 border-radius:50%;
 			}
 			p:nth-child(2){
 				margin-left:1.69rem;
@@ -74,16 +80,24 @@
 
 			}
 			span{
-				display:block;
+				display:inline-block;
 				/*float:left;*/
 				width:1.16rem;
 				height:0.48rem;
-				margin-left:6.1rem;
-				margin-top:-0.3rem;
+				// margin-left:6.1rem;
+				// margin-bottom:3rem;
 				border:1px solid #717171;
 				text-align:center;
 				line-height:0.48rem;
+				background: #ffff;
+				position:absolute;
+				left:6.1rem;
+				bottom:0.2rem;
+				border-radius: 5%;
+
+				
 			}
+
 		}
 	}
 </style>

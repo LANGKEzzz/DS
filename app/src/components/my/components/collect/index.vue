@@ -2,7 +2,7 @@
 	<div id="collect"> 
         <Header-com></Header-com>
         <div class="wrapper" ref="box">
-           <div class="content">
+           <div class="content bq">
                 <Main-com></Main-com>
                 <!-- <Main-com></Main-com>
                 <Main-com></Main-com>
@@ -16,7 +16,6 @@
      import BScroll from "better-scroll";
 	 import Header from "./components/header.vue";
      import Main from "./components/main.vue";
-
      export default{
        components:{
            "Header-com":Header,
@@ -41,9 +40,9 @@
          height:100%;
          .wrapper{
              height:12rem;
-             .content{
-                 height:1000rem;
-             }
+            // .bq{
+            //     padding-bottom: 136.8rem;
+            // }
          }
      }
 </style>

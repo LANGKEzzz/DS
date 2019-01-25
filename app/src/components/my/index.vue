@@ -2,7 +2,7 @@
     <div id="my">
         <Header-com></Header-com>
         <div class="wrapper" ref="box">  
-            <div class="content">
+            <div class="content bq">
                 <Main-com></Main-com>
                 <Main-com></Main-com>
             </div>
@@ -33,7 +33,7 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
    #my{
        width:100%;
        height:100%;
@@ -41,6 +41,7 @@ export default {
        .wrapper{
            height:9.5rem;
            .content{
+            
                padding-bottom: 1rem;
            }
        }
