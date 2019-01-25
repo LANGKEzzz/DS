@@ -30,7 +30,7 @@
 		h2{
 			font-size:0.34rem;
 			margin-left:0.81rem;
-			margin-top:0.56rem;	
+			margin-top:0.65rem;	
 		}
 	}
 </style>
