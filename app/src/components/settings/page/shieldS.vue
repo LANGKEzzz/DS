@@ -21,6 +21,7 @@
         <div class="left">
           <!-- <img src="../../../../static/shield/pb_tx_01@2x.png"/> -->
           <img :src="item.picUrl" />
+<<<<<<< HEAD
         </div>
         <div class="center">
           <p>{{item.friendName}}</p>
@@ -32,6 +33,20 @@
     </ul>
   </div>
 
+=======
+        </div>
+        <div class="center">
+          <p>{{item.friendName}}</p>
+          <span>{{item.friendMain}}</span>
+        </div>
+        <div class="right"    @click="handleClick($event)">已屏蔽</div>
+
+
+      </li>
+    </ul>
+  </div>
+                                   
+>>>>>>> 716a0de049a9848d8cd78d9e02c43585fa045a97
 </div>
 </template>
 <script>
@@ -46,6 +61,13 @@ export default {
   created(){
     this.getshieldListA()
 },
+data(){
+  return{
+
+
+  }
+
+},
   computed: {
     ...mapState({
         list:state=>state.Settings.list
@@ -55,6 +77,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.scroll = new BScroll(this.$refs.wrapper, {
+        click:true,
         pullUpRefresh: {
           threshold: 20,
           stop: 0
@@ -72,8 +95,15 @@ export default {
         getshieldListA:"Settings/getshieldListA"
     }),
     handleJumpF() {
-      this.$router.push("/attention");
+      this.$router.push("/fans");
+    },
+    handleClick(e){
+      var el = e.currentTarget;
+      el.innerHTML="屏蔽";
+
+
     }
+
 
 
 
@@ -196,8 +226,10 @@ export default {
         }
     }
 
+ 
+
     .main > ul > li > a {
-        color: #313131;
+        color: #251515;
     }
     .main_t {
         width: 100%;

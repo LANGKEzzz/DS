@@ -1,10 +1,11 @@
 <template>
 	<div id="main">
 		<ul>
-			<li v-for="(item,index) in arrAttention" v-bind:key="index" @click="handleJumpS(item)">
-				<router-link :to="{name:'chat'}">
+			<li v-for="(item,index) in arrAttention" v-bind:key="index" >
+				<!-- <router-link :to="{name:'chat'}">
 				   <img :src="item.picUrl">
-				</router-link>
+				</router-link> -->
+				<img :src="item.picUrl" @click="handleImg($event)">
 				<p>{{item.friendName}}</p>
 				<p>{{item.friendMain}}</p>
 				<span>已关注</span>
@@ -25,11 +26,10 @@
           ...Vuex.mapActions({
               handleAttentionData:"My/handleAttentionData"
           }),
-						handleJumpS(item){
-							var userID=item.id
-							localStorage.setItem("storeId",JSON.stringify(userID))
-							this.$router.push("/shieldS")
-					},
+					handleImg(e){
+						e.stopPropagation();
+						this.$router.push("chat")
+					}
 
         },
 		computed:{
@@ -62,6 +62,7 @@
 				float:left;
 				margin-left:0.24rem;
 				margin-top:0.24rem;
+				 border-radius:50%;
 			}
 			p:nth-child(2){
 				margin-left:1.69rem;
@@ -74,7 +75,7 @@
 
 			}
 			span{
-				display:block;
+				display:inline-block;
 				/*float:left;*/
 				width:1.16rem;
 				height:0.48rem;
@@ -84,6 +85,7 @@
 				text-align:center;
 				line-height:0.48rem;
 			}
+
 		}
 	}
 </style>
