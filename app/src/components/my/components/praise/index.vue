@@ -37,14 +37,14 @@
 </script>
 
 <style lang="scss" scoped>
-     #praise{
-         width:100%;
-         height:100%;
-         .wrapper{
-             height:12rem;
-             .bq{
-                 padding-bottom: 136.8rem;
-             }
-         }
-     }
+    #praise{
+        width:100%;
+        height:100%;
+        .wrapper{
+            height:12rem;
+            .bq{
+                padding-bottom: 136.8rem;
+            }
+        }
+    }
 </style>
