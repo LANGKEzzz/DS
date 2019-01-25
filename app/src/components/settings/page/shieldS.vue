@@ -26,12 +26,13 @@
           <p>{{item.friendName}}</p>
           <span>{{item.friendMain}}</span>
         </div>
-        <div class="right">已屏蔽</div>
+        <div class="right"    @click="handleClick($event)">已屏蔽</div>
+
 
       </li>
     </ul>
   </div>
-
+                                   
 </div>
 </template>
 <script>
@@ -46,6 +47,13 @@ export default {
   created(){
     this.getshieldListA()
 },
+data(){
+  return{
+
+
+  }
+
+},
   computed: {
     ...mapState({
         list:state=>state.Settings.list
@@ -55,6 +63,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.scroll = new BScroll(this.$refs.wrapper, {
+        click:true,
         pullUpRefresh: {
           threshold: 20,
           stop: 0
@@ -72,8 +81,15 @@ export default {
         getshieldListA:"Settings/getshieldListA"
     }),
     handleJumpF() {
-      this.$router.push("/attention");
+      this.$router.push("/fans");
+    },
+    handleClick(e){
+      var el = e.currentTarget;
+      el.innerHTML="屏蔽";
+
+
     }
+
 
 
 
@@ -191,6 +207,7 @@ export default {
                     margin-right: 0.23rem;
                     padding-left: 0.22rem;
                 }
+
 
             }
         }

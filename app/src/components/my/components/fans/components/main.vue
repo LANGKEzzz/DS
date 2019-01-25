@@ -5,13 +5,13 @@
 		</div>
 		<div class="friends">
 			<ul>
-				<li v-for="(item,index) in arrAttention" v-bind:key="index">
+				<li v-for="(item,index) in arrAttention" v-bind:key="index" >
 				<router-link :to="{name:'chat'}">
 				   <img :src="item.picUrl">
 				</router-link>
 					<p>{{item.friendName}}</p>
-					<p>{{item.friendMain}}</p>	
-					<button>屏蔽</button>
+					<p>{{item.friendMain}}</p>
+					<button @click="handleJumpS(item)">屏蔽</button>
 				</li>
 		    </ul>
 		</div>
@@ -29,7 +29,12 @@ import  Vuex from "vuex";
 		  methods:{
           ...Vuex.mapActions({
               handleAttentionData:"My/handleAttentionData"
-          })
+          }),
+					handleJumpS(item){
+						var userID=item.id
+						localStorage.setItem("storeId",JSON.stringify(userID))
+						this.$router.push("/shieldS")
+					}
         },
 		computed:{
 				...Vuex.mapState({
@@ -38,7 +43,7 @@ import  Vuex from "vuex";
 			},
 		data(){
 			return{
-				
+
 			}
 		}
 	}
@@ -55,7 +60,7 @@ import  Vuex from "vuex";
 			background:#f4f4f4;
 			h4{
 			  font-size:0.35rem;
-			  margin-left:0.24rem;	
+			  margin-left:0.24rem;
 			}
 		}
 		.friends{
@@ -91,13 +96,13 @@ import  Vuex from "vuex";
 			p:nth-child(2){
 				margin-left:1.69rem;
 				margin-top:0.56rem;
-				
+
 			}
 			p:nth-child(3){
 				margin-left:1.69rem;
 				margin-top:0.16rem;
-				
-			}	
+
+			}
 		}
 	}
 </style>
