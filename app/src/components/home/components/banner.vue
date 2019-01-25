@@ -307,7 +307,7 @@ export default {
 .app {
   height: 12rem;
   width: 100%;
-  background: black;
+  background:#5e918c;
   position: relative;
   .user {
     width: 1.4rem;

@@ -75,7 +75,7 @@ import  Vuex from "vuex";
 					width:1.16rem;
 					height:0.48rem;
 					margin-left:6.1rem;
-					margin-top:-0.3rem;
+					margin-top:-0.36rem;
 					border:1px solid #717171;
 					text-align:center;
 					line-height:0.48rem;
