@@ -39,8 +39,7 @@
                             </div>
                         </div>
                         <p class="my_content"> 
-                            {{item.publish}}                      
-                            <!-- PingFang SC Medium,也叫苹方中等体,即苹方字体中的中等字重,是支持MAC osX系统的字体。 pingfang sc ... -->
+                            {{item.publish}}                                                
                         </p>
                     </div>
                 </div>
