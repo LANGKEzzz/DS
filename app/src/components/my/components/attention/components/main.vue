@@ -8,7 +8,7 @@
 				<img :src="item.picUrl" @click="handleImg($event)">
 				<p>{{item.friendName}}</p>
 				<p>{{item.friendMain}}</p>
-				<span>已关注</span>
+				<span>{{val}}</span>
 			</li>
 		</ul>
 	</div>
@@ -29,7 +29,11 @@
 					handleImg(e){
 						e.stopPropagation();
 						this.$router.push("chat")
-					}
+					},
+
+				
+
+
 
         },
 		computed:{
@@ -40,7 +44,7 @@
 
 		data(){
 			return{
-
+                val:"已关注"
 			}
 				console.log(this.state)
 		}
@@ -56,6 +60,7 @@
 			height:1.68rem;
 			/*background:yellow;*/
 			border:1px solid #f4f4f4;
+			position: relative;
 			img{
 				width:1.2rem;
 				height:1.2rem;
@@ -79,11 +84,18 @@
 				/*float:left;*/
 				width:1.16rem;
 				height:0.48rem;
-				margin-left:6.1rem;
-				margin-top:-0.3rem;
+				// margin-left:6.1rem;
+				// margin-bottom:3rem;
 				border:1px solid #717171;
 				text-align:center;
 				line-height:0.48rem;
+				background: #ffff;
+				position:absolute;
+				left:6.1rem;
+				bottom:0.2rem;
+				border-radius: 5%;
+
+				
 			}
 
 		}
