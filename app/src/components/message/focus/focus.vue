@@ -42,6 +42,7 @@ export default{
             // },
             click:true
         })
+       
     }
 }
 </script>
@@ -80,7 +81,9 @@ export default{
     .loading{
         width:.3rem;
         height:.3rem;
-        margin:.1rem auto 0;
+        position:fixed;
+        top:1.4rem;
+        left:50%;
         background:#f4f4f4;
     }
     .wrapper_focus{

@@ -2,11 +2,9 @@
     <div class="dialogbox">
         <h2>
             {{name}}
-            <router-link to="/message">
-                <div class="dialogbox_back">
-                    <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
-                </div>
-            </router-link>           
+            <div class="dialogbox_back" @click="handle_back()">
+                <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
+            </div>
         </h2>
         <div class="wraper">
             <div class="dialogbox_box" ref="message_box">
@@ -43,7 +41,7 @@
 </template>
 <script>
 import BScroll from 'better-scroll';
-
+import axios from "axios";
     export default{
         data(){
             return{
@@ -51,13 +49,16 @@ import BScroll from 'better-scroll';
                 value:'',
                 lists : [
                     {
-                        "he" : "hhhh"
+                        "he" : "你好"
                     }
                 ],
                 name:""
             }
         },
-        methods:{          
+        methods:{      
+            handle_back(){
+                this.$router.back("/message")
+            },    
             handleSendout(){
                 if(this.value!=""){
                     this.messageList.push(this.value);
@@ -144,9 +145,11 @@ import BScroll from 'better-scroll';
             position:absolute;
             left:.24rem;
             bottom:.23rem;
+            width:.24rem;
+            height:.42rem;
             img{
-                width:.24rem;
-                height:.42rem;
+                width:100%;
+                height:100%;
             }
         }
     }
