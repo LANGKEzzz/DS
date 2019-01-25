@@ -113,6 +113,9 @@ export default {
 <style lang="scss">
     .mint-msgbox{
         height:3rem;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-around;
     }
     .mint-msgbox{
         font-size:.3rem;        
