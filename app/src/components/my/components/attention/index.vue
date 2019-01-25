@@ -46,7 +46,7 @@ export default{
 	   .wrapper{
 		   height:12rem;
            .bq{
-			   padding-bottom:38rem;
+			   padding-bottom:0.95rem;
 		   }
 	   }
 	   

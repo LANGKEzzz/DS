@@ -2,11 +2,7 @@
     <div id="praise"> 
         <Header-com></Header-com>
         <div class="wrapper" ref="box">
-<<<<<<< HEAD
-           <div class="content">
-=======
            <div class="content bq">
->>>>>>> 716a0de049a9848d8cd78d9e02c43585fa045a97
                 <Main-com></Main-com>
                 <!-- <Main-com></Main-com>
                 <Main-com></Main-com>
@@ -46,14 +42,9 @@
          height:100%;
          .wrapper{
              height:12rem;
-<<<<<<< HEAD
-             .content{
-                 height: 1000rem;
-=======
-             .bq{
-                 padding-bottom: 136.8rem;
->>>>>>> 716a0de049a9848d8cd78d9e02c43585fa045a97
-             }
+            
+            
          }
      }
+     
 </style>

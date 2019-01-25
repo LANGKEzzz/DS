@@ -2,5 +2,6 @@ export default{
     id:"",
     imgurl:"",
     username:"",
-    content:[]
+    content:[],
+    flag:false
 }

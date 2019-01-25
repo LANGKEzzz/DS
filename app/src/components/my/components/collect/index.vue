@@ -40,9 +40,9 @@
          height:100%;
          .wrapper{
              height:12rem;
-            .bq{
-                padding-bottom: 136.8rem;
-            }
+            // .bq{
+            //     padding-bottom: 136.8rem;
+            // }
          }
      }
 </style>

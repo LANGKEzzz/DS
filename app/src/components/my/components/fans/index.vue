@@ -39,9 +39,7 @@
 		height:100%;
 		.wrapper{
 			height:12rem;
-			.bq{
-				 padding-bottom:39rem;
-			}
+			
 		}
 	}
 </style>

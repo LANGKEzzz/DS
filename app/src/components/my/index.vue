@@ -27,7 +27,7 @@ export default {
             scrollY:true,
             click:true
             })
-            console.log(this.scroll)
+            // console.log(this.scroll)
         })
         // console.log(this.scroll)
     }
@@ -39,9 +39,10 @@ export default {
        height:100%;
        font-family: PingFang-SC-Medium;
        .wrapper{
-           height:9.7rem;
-           .bq{
-               padding-bottom:1rem;
+           height:9.5rem;
+           .content{
+            
+               padding-bottom: 1rem;
            }
        }
    }

@@ -51,7 +51,7 @@ import  Vuex from "vuex";
 <style lang="scss" scoped>
 	#main{
 		width:100%;
-		height:12.06rem;
+		
 		font-family:PingFangSC-Regular;
 		.exa{
 			width:100%;
@@ -64,7 +64,7 @@ import  Vuex from "vuex";
 		}
 		.friends{
 			width:100%;
-			height:11.71rem;
+			// height:11.71rem;
 			li{
 				width:100%;
 				height:1.68rem;
