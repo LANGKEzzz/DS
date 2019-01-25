@@ -12,8 +12,10 @@
   "dependencies": {
     "array-includes": "^3.0.3",
     "babel-runtime": "^6.26.0",
+    "element-ui": "^2.4.11",
     "iview": "^3.2.1",
     "mint-ui": "^2.2.13",
+    "touchjs": "^0.2.14",
     "vue": "^2.5.2",
     "vue-amap": "^0.5.8",
     "vue-router": "^3.0.1"

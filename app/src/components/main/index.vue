@@ -34,7 +34,7 @@
     </div>
     <div class="attention">
       <div @click="handleAdd()">{{messageAdd}}</div>
-      <div class="sayhello">打招呼</div>
+      <div class="sayhello" @click="sayhello()">打招呼</div>
       <div class="add" v-show="flag">{{message}}</div>
     </div>
   </div>
@@ -80,6 +80,9 @@ export default {
     },
     handleBakc(){
       this.$router.back();
+    },
+    sayhello(){
+      this.$router.push("/message/dialogbox")
     }
   },
   mounted() {
