@@ -1,5 +1,7 @@
 <template>
-    <div id="concern">
+    <div id="concern" v-infinite-scroll="loadMore"
+                infinite-scroll-disabled="loading"
+                infinite-scroll-distance="10">
         <Main :data='nearby'></Main>
     </div>
 </template>
@@ -7,6 +9,11 @@
 import Main from './main.vue'
 import Vuex from 'vuex'
 export default {
+    data(){
+        return{
+            page:1
+        }
+    },
     components:{
         Main
     },
@@ -15,13 +22,19 @@ export default {
             nearby:state=>state.Dynamic.nearby
         })
     },
-    created() {
-        this.neaGetData();
-    },
+    
     methods: {
         ...Vuex.mapActions({
             neaGetData:"Dynamic/neaGetData"
-        })
+        }),
+        loadMore(){
+            if(this.nearby.length<50){
+                this.neaGetData(this.page++);
+            }else{
+                alert("没有更多")
+            }
+            
+        }
     },
 }
 </script>

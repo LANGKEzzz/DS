@@ -10,6 +10,7 @@
 <script>
 import Header from './header'
 import Nav from './nav'
+import { InfiniteScroll } from 'mint-ui';
 export default {
     data() {
         return {

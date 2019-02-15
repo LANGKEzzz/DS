@@ -1,11 +1,11 @@
 export default{
     conGetData(state,params){
-        state.concern = params
+        state.concern = state.concern.concat(params)
     },
     recGetData(state,params){
-        state.recommend = params
+        state.recommend = state.recommend.concat(params)
     },
     neaGetData(state,params){
-        state.nearby = params
+        state.nearby = state.nearby.concat(params)
     }
 }

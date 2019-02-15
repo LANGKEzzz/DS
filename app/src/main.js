@@ -23,6 +23,9 @@ import "./common/css/release/iconfont.css";
 // 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+
+//引入mock
+import "./mock"
 Vue.use(iView);
 
 Vue.use(ElementUI);
