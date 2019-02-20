@@ -20,7 +20,7 @@ import Vuex from "vuex";
 
 export default {
   created() {
-    axios({});
+    console.log(this.obj.length)
   },
   methods: {
     ...Vuex.mapActions({
