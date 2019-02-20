@@ -8,12 +8,13 @@
         </h2>
         <div class="wraper">
             <div class="dialogbox_box" ref="message_box">
-                <div class="dialogbox_he" v-for="(item,index) in lists">
+                <!-- <div class="dialogbox_he" v-for="(item,index) in lists"> -->
+								<div class="dialogbox_he">
                     <div>
                         <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
                     </div> 
                     <span>
-                        {{item.he}}
+                        {{he}}
                         <i class="triangle_border_left"></i>
                     </span>                     
                 </div>  
@@ -47,11 +48,12 @@ import axios from "axios";
             return{
                 messageList:[],
                 value:'',
-                lists : [
-                    {
-                        "he" : "你好"
-                    }
-                ],
+//                 lists : [
+//                     {
+//                         "he" : "你好"
+//                     }
+//                 ],
+								he:"",
                 name:""
             }
         },
@@ -99,7 +101,9 @@ import axios from "axios";
             },           
         } ,  
         created() {
-            this.name = this.$route.query.name;            
+            this.name = this.$route.query.name;  
+						this.he = this.$route.query.message;            
+
         },       
         mounted(){
             this.$nextTick(function(){
