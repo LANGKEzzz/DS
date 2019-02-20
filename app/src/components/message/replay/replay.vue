@@ -8,7 +8,7 @@
             <div @click="handleContent()">发送</div>        
         </div>
         <div class="import_">
-            <textarea  v-model="textContent" ref="contentBox"></textarea>
+            <textarea  v-model="textContent" ref="contentBox" @focus="handleFocus()"></textarea>
         </div>
     </div>
 </template>
@@ -25,6 +25,9 @@ export default {
             this.$router.go(-1);
             // console.log(this.name)
         },
+				handleFocus(){
+					this.textContent = ""
+				},
         handleContent(){           
            
             let content = {};
@@ -35,8 +38,12 @@ export default {
             content.message = this.textContent;
             content.time = d.getFullYear() + "/" +(d.getMonth()+1) + "/" + d.getDate()  + "/" 
                             + hour + ":" + minute;
-            content.name = this.$route.query.name;          
-            console.log(content)       
+            content.name = this.$route.query.name;  
+						
+						// 传给后端数据
+            console.log(content)     
+							
+							
              //弹出框
             MessageBox({
                 title: '提示',
@@ -44,6 +51,7 @@ export default {
                 className:"MessageBox"
 
             })
+						this.textContent = "";
         }
     }
    
@@ -97,7 +105,7 @@ export default {
         width:100%;
         margin-top:1.3rem;
         textarea{
-            color:#D6D6D6;
+            color:#000;
             border:none;
             width:100%;
             height:100%;
@@ -111,8 +119,12 @@ export default {
 }
 </style>
 <style lang="scss">
+
     .mint-msgbox{
         height:3rem;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-around;
     }
     .mint-msgbox{
         font-size:.3rem;        

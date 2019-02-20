@@ -32,8 +32,9 @@ export default{
         }),
         handleClick(e){
             let who = e.currentTarget.firstElementChild.nextElementSibling.firstElementChild.innerHTML;
-            // let message = e.currentTarget.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.innerHTML;
-            this.$router.push({path:"/message/dialogbox",query:{name:who}})      
+            let message = e.currentTarget.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.innerHTML;
+
+            this.$router.push({path:"/message/dialogbox",query:{name:who,message:message}})          
         }
     }
     
