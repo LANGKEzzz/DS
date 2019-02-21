@@ -71,7 +71,6 @@ export default{
 <style lang="scss" scoped>
     #main{
      	width:7.5rem;
-     	height:12.06rem;
      	font-family:PingFangSC-Regular;
      	.ex{
      		width:7.5rem;
@@ -79,7 +78,6 @@ export default{
      		background:#f4f4f4;
      	}.list{
      		width:7.5rem;
-     		height:11.87rem;
 			li{
 				border-bottom:0.2rem solid #f4f4f4;
 	        }

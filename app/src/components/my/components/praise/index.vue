@@ -47,4 +47,14 @@
             }
         }
     }
+     #praise{
+         width:100%;
+         height:100%;
+         .wrapper{
+             height:12rem;
+            
+            
+         }
+     }
+     
 </style>

@@ -137,9 +137,7 @@
 				//取消按钮
 				handleCancel(){
 					  this.popupVisibleArea = false
-					  this.myAddressProvince = ""
-					  this.myAddressCity = ""
-					  this.myAddresscounty = ""	  
+					 
 				},
 				//确定按钮
 				handleSure(){
@@ -343,7 +341,7 @@
 			left:0.88rem;
 			top:4.93rem;
 			border-radius:0.04rem;
-			.picker-item{
+			.picker-items{
 			 	font-size: 0.28rem;	
 			}
 			.btn{

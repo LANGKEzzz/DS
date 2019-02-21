@@ -51,7 +51,7 @@ export default{
 <style lang="scss" scoped>
     #main{
      	width:100%;
-     	height:12.06rem;
+     	// height:12.06rem;
      	font-family:PingFangSC-Regular;
      	.ex{
      		width:100%;
@@ -59,7 +59,7 @@ export default{
      		background:#f4f4f4;
      	}.list{
      		width:100%;
-     		height:11.87rem;
+     		// height:11.87rem;
 			li{
 				border-bottom:0.2rem solid #f4f4f4;
 	        }

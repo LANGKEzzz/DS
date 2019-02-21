@@ -10,11 +10,13 @@
     <div class="middle">
       <textarea class="middle-text" placeholder="记录这一刻，晒给懂你的人。" v-model="textarea1"></textarea>
       <el-upload
-        action="http://localhost:8080/"
+        ref = "upload"
+        action="/api/diandian/release"
         list-type="picture-card"
         :on-preview="handlePictureCardPreview"
         :on-remove="handleRemove"
-        v-show="reveal"
+        :limit = 6
+        :auto-upload = "false"
         class="el_up"
       >
         <i class="el-icon-plus"></i>
@@ -36,6 +38,10 @@
       @change="fileChange($event)"
       ref="upload_file"
     >
+    <div class="photograph frame" @click="filecl()">
+      <i class="iconfont">&#xe679;</i>
+      <p>相册</p>
+    </div>
     <div class="position frame" @click="jump()">
       <i class="iconfont">&#xe624;</i>
       <p>{{place}}</p>
@@ -51,6 +57,7 @@
 </template>
 <script>
 import Vuex from "vuex";
+import axios from "axios";
 export default {
   data() {
     return {
@@ -61,7 +68,7 @@ export default {
       url: "",
       dialogImageUrl: "",
       dialogVisible: false,
-      reveal: true,
+      reveal: false,
       dialogImageUrl: "",
       dialogVisible: false,
       draft: "放弃此次编辑？",
@@ -75,13 +82,11 @@ export default {
     ...Vuex.mapActions({
       handlea: "Release/handleadd"
     }),
-    //调用手机相机
-    fileClick() {
-      this.$refs.upload_file.click();
-    },
+    //上传图片删除的钩子函数
     handleRemove(file, fileList) {
       console.log(file, fileList);
     },
+    // 点击文件列表已上传文件的钩子函数
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
       this.dialogVisible = true;
@@ -130,6 +135,20 @@ export default {
       sessionStorage.setItem("location", str1);
       var f_url = sessionStorage.getItem("fromurl");
       this.$router.push(f_url);
+      this.$refs.upload.submit()
+      if(str != ""){
+        axios({
+          method:"post",
+          url:"/api/diandian/release1",
+          data:{
+            content:str
+          }
+        }).then(data=>{
+          console.log(data)
+        })
+      }
+      sessionStorage.removeItem("article");
+      sessionStorage.removeItem("location")
     },
     cancel() {
       if (this.type1) {
@@ -140,6 +159,9 @@ export default {
         var f_url = sessionStorage.getItem("fromurl");
         this.$router.push(f_url);
       }
+    },
+    filecl(){
+      this.reveal = true
     }
   },
   beforeRouteEnter(to, from, next) {

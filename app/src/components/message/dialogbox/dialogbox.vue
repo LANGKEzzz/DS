@@ -2,20 +2,19 @@
     <div class="dialogbox">
         <h2>
             {{name}}
-            <router-link to="/message">
-                <div class="dialogbox_back">
-                    <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
-                </div>
-            </router-link>           
+            <div class="dialogbox_back" @click="handle_back()">
+                <img src="../../../../static/message/icon_jiantou1@2x.png" alt="">
+            </div>
         </h2>
         <div class="wraper">
             <div class="dialogbox_box" ref="message_box">
-                <div class="dialogbox_he" v-for="(item,index) in lists">
+                <!-- <div class="dialogbox_he" v-for="(item,index) in lists"> -->
+								<div class="dialogbox_he">
                     <div>
                         <img src="../../../../static/message/xx_tx_06@2x.png" alt="">
                     </div> 
                     <span>
-                        {{item.he}}
+                        {{he}}
                         <i class="triangle_border_left"></i>
                     </span>                     
                 </div>  
@@ -43,21 +42,25 @@
 </template>
 <script>
 import BScroll from 'better-scroll';
-
+import axios from "axios";
     export default{
         data(){
             return{
                 messageList:[],
                 value:'',
-                lists : [
-                    {
-                        "he" : "hhhh"
-                    }
-                ],
+//                 lists : [
+//                     {
+//                         "he" : "你好"
+//                     }
+//                 ],
+								he:"",
                 name:""
             }
         },
-        methods:{          
+        methods:{      
+            handle_back(){
+                this.$router.back("/message")
+            },    
             handleSendout(){
                 if(this.value!=""){
                     this.messageList.push(this.value);
@@ -98,7 +101,9 @@ import BScroll from 'better-scroll';
             },           
         } ,  
         created() {
-            this.name = this.$route.query.name;            
+            this.name = this.$route.query.name;  
+						this.he = this.$route.query.message;            
+
         },       
         mounted(){
             this.$nextTick(function(){
@@ -144,9 +149,11 @@ import BScroll from 'better-scroll';
             position:absolute;
             left:.24rem;
             bottom:.23rem;
+            width:.24rem;
+            height:.42rem;
             img{
-                width:.24rem;
-                height:.42rem;
+                width:100%;
+                height:100%;
             }
         }
     }

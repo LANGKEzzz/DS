@@ -7,11 +7,13 @@ export default{
        
         state.arrCollect = params
         // console.log(state.arrCollect)
+ 
     },
     handleMyData(state,params){
         
         state.arrMy = params
         // console.log(state.arrMy)
     }
+
 
 }

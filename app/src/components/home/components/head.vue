@@ -1,16 +1,22 @@
 <template>
     <div class="app">
-        <div class="top">
-           <div class="shaixuan"><img :src="src"></div> 筛选
+        <div class="top" @click="screenShow()">
+           <div class="shaixuan"><img :src="src"></div>筛选
         </div>
     </div>
 </template>
 <script>
+import Vuex from "vuex"
 export default {
     data(){
         return{
             src:" ../../../static/icon/icon_sx@2x.png"          
         }
+    },
+    methods:{
+        ...Vuex.mapMutations({
+            screenShow:"Home/screenShow"
+        })
     }
 }
 </script>

@@ -1,30 +1,31 @@
 import axios from "../../lib"
 export default{
-    conGetData({commit}){
+    conGetData({commit},page){
+        
         axios({
             method:"get",
-            url:"/api/mock/5c346519fad511025643ee90/example/dynamic"
+            url:"/getShopPage?page="+page+"&limit=8"
         }).then((data)=>{
-            console.log(data.data.concern)
-            commit("conGetData",data.data.concern)
+            console.log(data.data,11)
+            commit("conGetData",data.data)
         })
     },
     recGetData({commit}){
         axios({
             method:"get",
-            url:"/api/mock/5c346519fad511025643ee90/example/dynamic"
+            url:"/getShopPage?page=1&limit=8"
         }).then((data)=>{
-            console.log(data.data.concern)
-            commit("recGetData",data.data.concern)
+            console.log(data.data,22)
+            commit("recGetData",data.data)
         })
     },
     neaGetData({commit}){
         axios({
             method:"get",
-            url:"/api/mock/5c346519fad511025643ee90/example/dynamic"
+            url:"/getShopPage?page=1&limit=8"
         }).then((data)=>{
-            console.log(data.data.concern)
-            commit("neaGetData",data.data.concern)
+            console.log(data.data,33)
+            commit("neaGetData",data.data)
         })
     }
 }

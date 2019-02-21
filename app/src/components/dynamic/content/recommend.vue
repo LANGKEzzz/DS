@@ -1,5 +1,7 @@
 <template>
-    <div id="concern">
+    <div id="concern" v-infinite-scroll="loadMore"
+                infinite-scroll-disabled="loading"
+                infinite-scroll-distance="10">
         <Main :data='recommend'></Main>
     </div>
 </template>
@@ -7,6 +9,11 @@
 import Main from './main.vue'
 import Vuex from 'vuex'
 export default {
+    data(){
+        return{
+            page:1
+        }
+    },
     components:{
         Main
     },
@@ -15,13 +22,19 @@ export default {
             recommend:state=>state.Dynamic.recommend
         })
     },
-    created() {
-        this.recGetData();
-    },
+    
     methods: {
         ...Vuex.mapActions({
             recGetData:"Dynamic/recGetData"
-        })
+        }),
+        loadMore(){
+            if(this.recommend.length<50){
+                this.recGetData(this.page++);
+            }else{
+                alert("没有更多")
+            }
+            
+        }
     },
 }
 </script>
