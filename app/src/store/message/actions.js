@@ -5,14 +5,15 @@ export default{
         axios({
             method:"post",
             //https://www.easy-mock.com/mock/5c3460cefad511025643ee25/example/message
-            url:'/api/mock/5c3460cefad511025643ee25/example/message',
+            // url:'/api/mock/5c3460cefad511025643ee25/example/message',
+			url:'/messageList',            
             data:{
 
             }          
         })
         .then( (data)=>{
             // console.log(data)
-            commit( "handleMessage",data.data)
+            commit( "handleMessage",data.messageList)
         } )
     },
     // 赞
@@ -20,7 +21,8 @@ export default{
         axios({
             method:"post",
             //https://www.easy-mock.com/mock/5c37f7b9bfca1e6e01d7e8ba/message/focus
-            url:"/api/mock/5c37f7b9bfca1e6e01d7e8ba/message/focus",
+            // url:"/api/mock/5c37f7b9bfca1e6e01d7e8ba/message/focus",
+			url:"/message",            
             data:{
 
             }
@@ -35,7 +37,8 @@ export default{
         axios({
             method:"post",
             // https://www.easy-mock.com/mock/5c37f7b9bfca1e6e01d7e8ba/message/comment
-            url:"/api/mock/5c37f7b9bfca1e6e01d7e8ba/message/comment",
+            // url:"/api/mock/5c37f7b9bfca1e6e01d7e8ba/message/comment",
+			url:"/message",                        
             data:{
 
             }
@@ -53,7 +56,8 @@ export default{
         axios({
             method:"post",
             //https://www.easy-mock.com/mock/5c37f7b9bfca1e6e01d7e8ba/message/remind
-            url:"/api/mock/5c37f7b9bfca1e6e01d7e8ba/message/remind",
+            // url:"/api/mock/5c37f7b9bfca1e6e01d7e8ba/message/remind",
+			url:"/message",                        
             data:{
                 
             }
