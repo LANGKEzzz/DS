@@ -10,11 +10,11 @@
     <div class="middle">
       <textarea class="middle-text" placeholder="记录这一刻，晒给懂你的人。" v-model="textarea1"></textarea>
       <el-upload
-        action="http://localhost:8080/"
+        action="/api/diandian/release"
         list-type="picture-card"
         :on-preview="handlePictureCardPreview"
         :on-remove="handleRemove"
-        v-show="reveal"
+        :auto-upload="false"
         class="el_up"
       >
         <i class="el-icon-plus"></i>
@@ -51,6 +51,7 @@
 </template>
 <script>
 import Vuex from "vuex";
+import axios from "axios";
 export default {
   data() {
     return {
@@ -130,6 +131,17 @@ export default {
       sessionStorage.setItem("location", str1);
       var f_url = sessionStorage.getItem("fromurl");
       this.$router.push(f_url);
+      axios({
+        method:"post",
+        url:"/api/diandian/release",
+        data:{
+          content:str
+        }
+      }).then((data)=>{
+        console.log(data)
+      })
+      sessionStorage.removeItem("article");
+      sessionStorage.removeItem("location");
     },
     cancel() {
       if (this.type1) {

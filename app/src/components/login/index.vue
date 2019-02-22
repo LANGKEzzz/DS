@@ -4,13 +4,13 @@
       <img :src="logourl">
     </div>
     <div class="dl_zh">
-      <input type="text" placeholder="账号/手机号" class="num">
+      <input type="text" placeholder="账号/手机号" class="num" v-model="uid">
     </div>
     <div class="dlpwd">
-      <input type="text" class="pwd" placeholder="密码">
+      <input type="text" class="pwd" placeholder="密码" v-model="upwd">
     </div>
     <div class="dl">
-        <button class="dlbtn">登录</button>
+        <button class="dlbtn" @click="handleLogin()">登录</button>
     </div>
     <router-link :to="{name:'findpwd'}">
       <p class="forget">忘记密码</p>
@@ -22,11 +22,29 @@
 </template>
 
 <script>
+import axios from "../../lib";
 export default {
   data() {
     return {
-      logourl: "../../../static/logo/logo@2x.png"
+      logourl: "../../../static/logo/logo@2x.png",
+      uid:"",
+      upwd:""
     };
+  },
+  methods:{
+    handleLogin(){
+     axios({
+            method:"post",
+            url:"/api/diandian/login",
+            data:{
+                phonenum:this.uid,
+                password:this.upwd
+            }
+        }).then((data)=>{
+            console.log(data)
+        //    commit("handleData",data.data)
+        })
+    }
   }
 };
 </script>

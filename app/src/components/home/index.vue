@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Head-com></Head-com>
-    <Banner-com></Banner-com>
+    <Banner-com :obj="obj"></Banner-com>
     <div class="screening" v-show="flag" @click="screenShow()"></div>
     <div class="sx_con" v-show="flag">
       <div class="screen">
@@ -62,15 +62,20 @@ import Head from "./components/head";
 import Banner from "./components/banner";
 import Vuex from "vuex";
 import Vue from "vue";
-
+import axios from "../../lib"
 import { Popup, Picker } from "mint-ui";
 import MintUI from "mint-ui";
 import myaddress from "../my/components/person/data.json";
 Vue.component(Popup.name, Popup);
 Vue.component(Picker.name, Picker);
 export default {
+  components: {
+    "Head-com": Head,
+    "Banner-com": Banner
+  },
   data() {
     return {
+      obj:"",
       activeIndex: 0,
       value9: [16, 50],
       minage: 16,
@@ -115,9 +120,10 @@ export default {
       myAddresscounty: "区/县"
     };
   },
-  components: {
-    "Head-com": Head,
-    "Banner-com": Banner
+  created(){
+     axios("/indexinfo").then((data)=>{
+      this.obj = data;
+    })
   },
   computed: {
     ...Vuex.mapState({

@@ -44,6 +44,7 @@
 <script>
 import Vuex from "vuex";
 import Bscroll from "better-scroll";
+import axios from "../../lib";
 export default {
   data() {
     return {
@@ -51,15 +52,20 @@ export default {
       flag: false,
       addFlag: false,
       messageAdd: "关注",
-      transparent:0.3
+      transparent:0.3,
+      id:"",
+      uname:"",
+      tx:"",
+      content:""
     };
   },
-  computed:{
-    ...Vuex.mapState({
-      id:state=>state.Home.id,
-      uname:state=>state.Home.username,
-      tx:state=>state.Home.imgurl,
-      content:state=>state.Home.content
+  created(){
+    axios("/userinfo").then((data)=>{
+      // console.log(data)
+      this.id = data.id;
+      this.uname = data.username;
+      this.tx = data.photo;
+      this.content = data.dynamic;
     })
   },
   methods: {
