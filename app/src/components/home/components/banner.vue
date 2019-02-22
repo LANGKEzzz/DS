@@ -1,11 +1,7 @@
 <template>
   <div class="box">
     <div class="app" ref="box">
-<<<<<<< HEAD
       <div class="user" v-for="(item,index) in obj">
-=======
-      <div class="user" v-for="(item,index) in obj" :key="index" @click="handleInfo()">
->>>>>>> zhang
         <router-link :to="{name:'main'}">
           <div class="photo">
             <img :src="item.imgsrc">
