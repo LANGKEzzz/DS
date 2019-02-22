@@ -8,7 +8,7 @@
         </div> 
         <div class="reg">
             <div class="phoneNum phone">
-                <input type="text" placeholder="手机号" class="num">
+                <input type="text" placeholder="手机号" class="num" v-model="uid">
             </div>
             <div class="phoneNum">
                 <div class="_yzm">   
@@ -17,10 +17,10 @@
                 </div>
             </div>
             <div class="phoneNum">
-                <input type="password" placeholder="密码" class="pwd">
+                <input type="password" placeholder="密码" class="pwd" v-model="upwd">
             </div>
             <div class="phoneNum">
-                <button class="btn">注册</button>
+                <button class="btn"  @click="handleRegister()">注册</button>
             </div>
             <router-link :to="{name:'login'}">
                 <p>已有账号？立即登录></p>
@@ -32,10 +32,28 @@
 </template>
 
 <script>
+import axios from "../../lib";
 export default {
     data(){
         return{
-            logourl:"../../../static/logo/logo@2x.png"
+            logourl:"../../../static/logo/logo@2x.png",
+            uid:"",
+            upwd:""
+        }
+    },
+    methods:{
+        handleRegister(){
+            axios({
+                method:"post",
+                url:"/api/diandian/register",
+                data:{
+                    phonenum:this.uid,
+                    password:this.upwd
+                }
+            }).then((data)=>{
+                console.log(data)
+            
+            })
         }
     }
 }

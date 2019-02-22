@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="app" ref="box">
-      <div class="user" v-for="(item,index) in obj" @click="handleInfo()">
+      <div class="user" v-for="(item,index) in obj">
         <router-link :to="{name:'main'}">
           <div class="photo">
             <img :src="item.imgsrc">
@@ -16,159 +16,20 @@
 
 <script>
 import "touchjs/dist/touch-0.2.14.min";
-import Vuex from "vuex";
-
+// import Vuex from "vuex";
+import axios from "../../../lib"
 export default {
-  created() {
-    console.log(this.obj.length)
+  props:{
+    obj:Array
   },
-  methods: {
-    ...Vuex.mapActions({
-      handleInfo: "Home/handleInfo"
-    })
+  created(){
+    console.log("11")
   },
-  data() {
-    return {
-      obj: [
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_17@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_18@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_16@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_20@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_10@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_11@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_12@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_13@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_17@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_18@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_16@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_20@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_10@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_10@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_11@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_12@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_13@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_17@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_18@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_16@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_20@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_18@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_16@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_20@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_17@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_18@2x.png"
-        },
-        {
-          id: 1,
-          username: "啦啦啦啦啦啦",
-          imgsrc: "../../../static/home/sy_tx_16@2x.png"
-        }
-      ]
-    };
+  beforeMount(){
+   
   },
-  mounted() {
+  updated() {
+   
     let tagEle = this.$refs.box.children;
     let paper = this.$refs.box;
     let RADIUS = 300,
@@ -305,6 +166,7 @@ export default {
         img {
           width: 0.5rem;
           height: 0.5rem;
+        border-radius: 50%;
         }
       }
       p {
