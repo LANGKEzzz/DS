@@ -3,7 +3,7 @@ export default{
     handleAttentionData({commit}){
         axios({
             method:"get",
-            url:"/api/mock/5c387d557198202bdf59ef4c/example/attention"
+            url:"/myattention"
         })
         .then( (data)=>{
             // console.log(data.cities.item);
@@ -13,20 +13,20 @@ export default{
     handleCollectData({commit}){
         axios({
             methods:"get",
-            url:" /api/mock/5c387d557198202bdf59ef4c/example/collect"
+            url:"/mycollection"
         })
         .then( (data)=>{
-            console.log(data.item);
+            console.log(data);
             commit("handleCollectData",data.item);
         })
     },
     handleMyData({commit}){
         axios({
             methods:"get",
-            url:" /api/mock/5c387d557198202bdf59ef4c/example/My"
+            url:"/mycollection"
         })
         .then( (data)=>{
-            console.log(data.item);
+            // console.log(data.item);
             commit("handleMyData",data.item);
         })
     }

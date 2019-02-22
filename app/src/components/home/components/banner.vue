@@ -1,7 +1,11 @@
 <template>
   <div class="box">
     <div class="app" ref="box">
+<<<<<<< HEAD
       <div class="user" v-for="(item,index) in obj">
+=======
+      <div class="user" v-for="(item,index) in obj" :key="index" @click="handleInfo()">
+>>>>>>> zhang
         <router-link :to="{name:'main'}">
           <div class="photo">
             <img :src="item.imgsrc">
@@ -134,8 +138,10 @@ export default {
         this.ele.style.opacity = alpha + 0.5;
         this.ele.style.filter = "alpha(opacity = " + (alpha + 0.5) * 100 + ")";
         this.ele.style.zIndex = parseInt(scale * 100);
-        this.ele.style.left = (this.x + CX - this.ele.offsetWidth / 2)/100 + "rem";
-        this.ele.style.top = (this.y + CY - this.ele.offsetHeight / 2)/100 + "rem";
+        this.ele.style.left =
+          (this.x + CX - this.ele.offsetWidth / 2) / 100 + "rem";
+        this.ele.style.top =
+          (this.y + CY - this.ele.offsetHeight / 2) / 100 + "rem";
       }
     };
     innit();
@@ -146,13 +152,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .box {
-  width:100%;
-  height:11.5rem;
-   background: black;
+  width: 100%;
+  height: 11.5rem;
+  background: black;
   .app {
     height: 9rem;
     width: 100%;
-   
     position: relative;
     .user {
       width: 1.4rem;
@@ -180,11 +185,12 @@ export default {
     }
   }
 }
+</style>
+
 // .slide-enter{
 //     transform: scale(0);
 // }
 // .slide-enter-active{
 //     transform: all .3s;
 // }
-</style>
 

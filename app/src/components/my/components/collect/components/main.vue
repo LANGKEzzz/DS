@@ -5,9 +5,9 @@
 	    	<ul>
 				<li class="list_one" v-for="(item,index) in arrCollect" v-bind:key="index">	
 					<img class="im" :src="item.userPhoto">
-					<h2><b>{{item.collectName}}</b></h2>
-					<p>{{item.collectTime}}</p>
-					<p>{{item.collectMain}}</p>
+					<h2><b>{{item.userName}}</b></h2>
+					<p>{{item.userTime}}</p>
+					<p>{{item.userMain}}</p>
 					<div class="pic">
 						<img :src="item.mainPhotoOne">
 						<img :src="item.mainPhotoTwo">
