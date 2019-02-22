@@ -3,32 +3,13 @@
    	    <div class="ex"></div>
 	    <div class="list">
 	    	<ul>
-	    		<!-- <li class="list_one">
-	    			<img class="im" src="../../../../../../static/tx_01@2x.png">
-	    			<h2><b>偶像观察员</b></h2>
-	    			<p>12-25&nbsp;&nbsp;18:20&nbsp;&nbsp;&nbsp;来自iphone客户端</p>
-		 			<p>所有的不愉快,过完年赶紧翻篇</p>
-			        <ul class="pic">
-			        	<li><img src="../../../../../../static/sc_tp_01@2x.png"></li>
-			        	<li><img src="../../../../../../static/sc_tp_02@2x.png"></li>
-			        	<li><img src="../../../../../../static/sc_tp_03@2x.png"></li>
-			        	<li><img src="../../../../../../static/sc_tp_04@2x.png"></li>
-			        	<li><img src="../../../../../../static/sc_tp_05@2x.png"></li>
-			        	<li><img src="../../../../../../static/sc_tp_06@2x.png"></li>
-			        </ul>
-			        <div class="fx">
-			        	<div><img src="../../../../../../static/icon/icon_zf@2x.png"><span>100</span></div>
-			            <div><img src="../../../../../../static/icon/icon_pl@2x.png"><span>200</span></div>
-			            <div><img src="../../../../../../static/icon/icon_dz@2x.png"><span>300</span></div>
-			        </div>
-	    		</li> -->
 
 
 				<li class="list_one" v-for="(item,index) in arrCollect" v-bind:key="index">	
 					<img class="im" :src="item.userPhoto">
-					<h2><b>{{item.collectName}}</b></h2>
-					<p>{{item.collectTime}}</p>
-					<p>{{item.collectMain}}</p>
+					<h2><b>{{item.userName}}</b></h2>
+					<p>{{item.userTime}}</p>
+					<p>{{item.userMain}}</p>
 					<div class="pic">
 						<img :src="item.mainPhotoOne">
 						<img :src="item.mainPhotoTwo">

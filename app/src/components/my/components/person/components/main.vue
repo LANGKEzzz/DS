@@ -368,8 +368,6 @@
 						margin-top:0.5rem;
 						color:skyblue;
 						font-size: 0.3rem;
-						
-						
 			    }
 			}	
 		}
